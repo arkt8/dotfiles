@@ -1,0 +1,44 @@
+.moz-reader-content * {
+	font-family: "Terminus (TTF)"!important;
+}
+.moz-reader-content {
+	color: var(--color7)!important;
+	background-color: var(--color0)!important;
+}
+
+body.dark .domain,
+.moz-reader-content a:link,
+.moz-reader-content a:link:hover,
+.moz-reader-content a:link:active {
+	color: var(--color2)!important;
+}
+
+toolbar#nav-bar {
+	background-color:var(--color0)!important;
+	opacity:0.8!important;
+	color: var(--color6)!important;
+}
+toolbaritem#urlbar-background {
+	background:#000000;
+}
+
+vbox#titlebar,
+toolbar#menu-toolbar,
+hbox#toolbar-items,
+tabs#tabbrowser-tabs {
+	background:var(--color0)!important;
+	color:var(--color15);
+}
+
+hbox#tab-content {
+	background-color:var(--color0)!important;
+	color:var(--color8)!important;
+}
+}
+hbox#tab-content[selected=true] {
+	background-color:rgba(255,255,255,0.10)!important;
+}
+hbox#tab-content[selected=true],
+hbox#tab-content[selected=true] * {
+	color:var(--color15)!important;
+}
