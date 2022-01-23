@@ -66,10 +66,10 @@ PROMPT_git () {
 	local mod="$(git status --porcelain)"
 	local stash="$(git rev-parse --quiet --verify refs/stash 2>/dev/null)"
 	local st="" color=$color_fg_ok
-	[[ ${#mod} -gt 0 ]] && st=" * " color=$color_fg_err
-	[[ ${#up} -gt 0 ]] && st=" ↑ " color=$color_fg_warn
-	[[ ${#down} -gt 0 ]] && st=" ↓ " color=$color_fg_warn
-	[[ ${#stash} -gt 0 ]] && st=" ! " color=$color_fg_warn
+	[[ ${#mod} -gt 0 ]] && st=" * "   color='#aa0044'
+	[[ ${#up} -gt 0 ]] && st=" ↑ "    color='#aa0044'
+	[[ ${#down} -gt 0 ]] && st=" ↓ "  color='#aa4400'
+	[[ ${#stash} -gt 0 ]] && st=" ! " color='#aa8800'
 	echo -n "%f%k %K{${color}}%F{#000000}%B ${ref} %b%f%k%K{0}%F{$color}${st}%f%k"
 }
 PROMPT_jobs() {
