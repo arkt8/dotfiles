@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Backgrounds/kxmn-forest.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#010505",
+        "foreground": "#9ca4a4",
+        "cursor": "#9ca4a4"
+    },
+    "colors": {
+        "color0": "#010505",
+        "color1": "#154342",
+        "color2": "#195256",
+        "color3": "#216667",
+        "color4": "#308284",
+        "color5": "#4c8376",
+        "color6": "#4a8c7c",
+        "color7": "#9ca4a4",
+        "color8": "#394949",
+        "color9": "#154342",
+        "color10": "#195256",
+        "color11": "#216667",
+        "color12": "#308284",
+        "color13": "#4c8376",
+        "color14": "#4a8c7c",
+        "color15": "#9ca4a4"
+    }
+}

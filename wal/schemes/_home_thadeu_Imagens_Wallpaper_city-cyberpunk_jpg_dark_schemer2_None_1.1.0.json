@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/city-cyberpunk.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1d1617",
+        "foreground": "#c6c4c5",
+        "cursor": "#c6c4c5"
+    },
+    "colors": {
+        "color0": "#1d1617",
+        "color1": "#c76c51",
+        "color2": "#d47073",
+        "color3": "#e77944",
+        "color4": "#bf8583",
+        "color5": "#d1af95",
+        "color6": "#e0b6b2",
+        "color7": "#c6c4c5",
+        "color8": "#555051",
+        "color9": "#c76c51",
+        "color10": "#d47073",
+        "color11": "#e77944",
+        "color12": "#bf8583",
+        "color13": "#d1af95",
+        "color14": "#e0b6b2",
+        "color15": "#c6c4c5"
+    }
+}

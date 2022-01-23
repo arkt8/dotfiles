@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Backgrounds/brown_leaves.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a1817",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#1a1817",
+        "color1": "#584233",
+        "color2": "#6d523f",
+        "color3": "#7c6758",
+        "color4": "#9e6c43",
+        "color5": "#a7866c",
+        "color6": "#ba9b84",
+        "color7": "#c5c5c5",
+        "color8": "#535151",
+        "color9": "#584233",
+        "color10": "#6d523f",
+        "color11": "#7c6758",
+        "color12": "#9e6c43",
+        "color13": "#a7866c",
+        "color14": "#ba9b84",
+        "color15": "#c5c5c5"
+    }
+}

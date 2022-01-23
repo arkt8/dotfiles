@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/eclipse.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#060408",
+        "foreground": "#a6a2a9",
+        "cursor": "#a6a2a9"
+    },
+    "colors": {
+        "color0": "#060408",
+        "color1": "#242c5c",
+        "color2": "#79323d",
+        "color3": "#594547",
+        "color4": "#3454ac",
+        "color5": "#b54646",
+        "color6": "#7c6c3c",
+        "color7": "#a6a2a9",
+        "color8": "#4e4653",
+        "color9": "#242c5c",
+        "color10": "#79323d",
+        "color11": "#594547",
+        "color12": "#3454ac",
+        "color13": "#b54646",
+        "color14": "#7c6c3c",
+        "color15": "#a6a2a9"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/fractal2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#10100e",
+        "foreground": "#b6cbd8",
+        "cursor": "#b6cbd8"
+    },
+    "colors": {
+        "color0": "#10100e",
+        "color1": "#3E5361",
+        "color2": "#505E63",
+        "color3": "#9A642E",
+        "color4": "#B3965F",
+        "color5": "#5E7789",
+        "color6": "#718D9F",
+        "color7": "#b6cbd8",
+        "color8": "#7f8e97",
+        "color9": "#3E5361",
+        "color10": "#505E63",
+        "color11": "#9A642E",
+        "color12": "#B3965F",
+        "color13": "#5E7789",
+        "color14": "#718D9F",
+        "color15": "#b6cbd8"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/paint.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0e080b",
+        "foreground": "#b6abaf",
+        "cursor": "#b6abaf"
+    },
+    "colors": {
+        "color0": "#0e080b",
+        "color1": "#4f6777",
+        "color2": "#925746",
+        "color3": "#938669",
+        "color4": "#64b49c",
+        "color5": "#c48f5f",
+        "color6": "#8aa0a8",
+        "color7": "#b6abaf",
+        "color8": "#6d5760",
+        "color9": "#4f6777",
+        "color10": "#925746",
+        "color11": "#938669",
+        "color12": "#64b49c",
+        "color13": "#c48f5f",
+        "color14": "#8aa0a8",
+        "color15": "#b6abaf"
+    }
+}

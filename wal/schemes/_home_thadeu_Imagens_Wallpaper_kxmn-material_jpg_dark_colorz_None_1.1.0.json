@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/kxmn-material.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#07211a",
+        "foreground": "#c1c7c5",
+        "cursor": "#c1c7c5"
+    },
+    "colors": {
+        "color0": "#07211a",
+        "color1": "#25aa85",
+        "color2": "#2eaa91",
+        "color3": "#37a99e",
+        "color4": "#40a4a9",
+        "color5": "#5096aa",
+        "color6": "#6482aa",
+        "color7": "#c1c7c5",
+        "color8": "#455853",
+        "color9": "#25aa85",
+        "color10": "#2eaa91",
+        "color11": "#37a99e",
+        "color12": "#40a4a9",
+        "color13": "#5096aa",
+        "color14": "#6482aa",
+        "color15": "#c1c7c5"
+    }
+}

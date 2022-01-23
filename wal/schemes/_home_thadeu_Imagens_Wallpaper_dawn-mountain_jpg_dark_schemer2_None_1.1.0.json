@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/dawn-mountain.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1d0f17",
+        "foreground": "#c6c3c5",
+        "cursor": "#c6c3c5"
+    },
+    "colors": {
+        "color0": "#1d0f17",
+        "color1": "#74617c",
+        "color2": "#a6575a",
+        "color3": "#896861",
+        "color4": "#ca5440",
+        "color5": "#c06f54",
+        "color6": "#a9738a",
+        "color7": "#c6c3c5",
+        "color8": "#554b51",
+        "color9": "#74617c",
+        "color10": "#a6575a",
+        "color11": "#896861",
+        "color12": "#ca5440",
+        "color13": "#c06f54",
+        "color14": "#a9738a",
+        "color15": "#c6c3c5"
+    }
+}

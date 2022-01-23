@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/abstract-aurora.png",
+    "alpha": "100",
+    "special": {
+        "background": "#030308",
+        "foreground": "#a5d7c5",
+        "cursor": "#a5d7c5"
+    },
+    "colors": {
+        "color0": "#030308",
+        "color1": "#595E5B",
+        "color2": "#9C4E3A",
+        "color3": "#4B8D75",
+        "color4": "#B29862",
+        "color5": "#607884",
+        "color6": "#5DA590",
+        "color7": "#a5d7c5",
+        "color8": "#739689",
+        "color9": "#595E5B",
+        "color10": "#9C4E3A",
+        "color11": "#4B8D75",
+        "color12": "#B29862",
+        "color13": "#607884",
+        "color14": "#5DA590",
+        "color15": "#a5d7c5"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/city-paris.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#2a1400",
+        "foreground": "#c9c4bf",
+        "cursor": "#c9c4bf"
+    },
+    "colors": {
+        "color0": "#2a1400",
+        "color1": "#d87f1b",
+        "color2": "#93909b",
+        "color3": "#c88d55",
+        "color4": "#b2a5a7",
+        "color5": "#dabc64",
+        "color6": "#e1c38f",
+        "color7": "#c9c4bf",
+        "color8": "#5f4e3f",
+        "color9": "#d87f1b",
+        "color10": "#93909b",
+        "color11": "#c88d55",
+        "color12": "#b2a5a7",
+        "color13": "#dabc64",
+        "color14": "#e1c38f",
+        "color15": "#c9c4bf"
+    }
+}

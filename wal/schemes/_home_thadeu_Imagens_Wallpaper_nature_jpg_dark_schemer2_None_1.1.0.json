@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/nature.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#181818",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#181818",
+        "color1": "#8f7e48",
+        "color2": "#ba7b58",
+        "color3": "#9f8667",
+        "color4": "#8c949f",
+        "color5": "#b79c8b",
+        "color6": "#bfa366",
+        "color7": "#c5c5c5",
+        "color8": "#515151",
+        "color9": "#8f7e48",
+        "color10": "#ba7b58",
+        "color11": "#9f8667",
+        "color12": "#8c949f",
+        "color13": "#b79c8b",
+        "color14": "#bfa366",
+        "color15": "#c5c5c5"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Backgrounds/night-lights-road-y4.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B2A32",
+        "foreground": "#7fe9f2",
+        "cursor": "#7fe9f2"
+    },
+    "colors": {
+        "color0": "#0B2A32",
+        "color1": "#02568B",
+        "color2": "#056DA4",
+        "color3": "#596F93",
+        "color4": "#CA649B",
+        "color5": "#09A1D4",
+        "color6": "#3DB3CF",
+        "color7": "#7fe9f2",
+        "color8": "#58a3a9",
+        "color9": "#02568B",
+        "color10": "#056DA4",
+        "color11": "#596F93",
+        "color12": "#CA649B",
+        "color13": "#09A1D4",
+        "color14": "#3DB3CF",
+        "color15": "#7fe9f2"
+    }
+}

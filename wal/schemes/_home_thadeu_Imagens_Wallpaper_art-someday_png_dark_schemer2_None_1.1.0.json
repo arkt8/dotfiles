@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/art-someday.png",
+    "alpha": "100",
+    "special": {
+        "background": "#1a1820",
+        "foreground": "#c5c5c7",
+        "cursor": "#c5c5c7"
+    },
+    "colors": {
+        "color0": "#1a1820",
+        "color1": "#e55f76",
+        "color2": "#a28394",
+        "color3": "#c87791",
+        "color4": "#a091b6",
+        "color5": "#cd8eb0",
+        "color6": "#f181a2",
+        "color7": "#c5c5c7",
+        "color8": "#535157",
+        "color9": "#e55f76",
+        "color10": "#a28394",
+        "color11": "#c87791",
+        "color12": "#a091b6",
+        "color13": "#cd8eb0",
+        "color14": "#f181a2",
+        "color15": "#c5c5c7"
+    }
+}

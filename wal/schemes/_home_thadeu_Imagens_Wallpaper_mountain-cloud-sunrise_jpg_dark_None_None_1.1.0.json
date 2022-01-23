@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/mountain-cloud-sunrise.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0B0F15",
+        "foreground": "#c7b4b9",
+        "cursor": "#c7b4b9"
+    },
+    "colors": {
+        "color0": "#0B0F15",
+        "color1": "#9B594C",
+        "color2": "#B05347",
+        "color3": "#CD604A",
+        "color4": "#D26E51",
+        "color5": "#E0955E",
+        "color6": "#ECAE4F",
+        "color7": "#c7b4b9",
+        "color8": "#8b7d81",
+        "color9": "#9B594C",
+        "color10": "#B05347",
+        "color11": "#CD604A",
+        "color12": "#D26E51",
+        "color13": "#E0955E",
+        "color14": "#ECAE4F",
+        "color15": "#c7b4b9"
+    }
+}

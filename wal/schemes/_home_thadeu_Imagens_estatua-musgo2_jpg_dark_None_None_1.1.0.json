@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/estatua-musgo2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f100c",
+        "foreground": "#a5be88",
+        "cursor": "#a5be88"
+    },
+    "colors": {
+        "color0": "#0f100c",
+        "color1": "#28601C",
+        "color2": "#2C4B31",
+        "color3": "#4E582C",
+        "color4": "#35554C",
+        "color5": "#5B6459",
+        "color6": "#887870",
+        "color7": "#a5be88",
+        "color8": "#73855f",
+        "color9": "#28601C",
+        "color10": "#2C4B31",
+        "color11": "#4E582C",
+        "color12": "#35554C",
+        "color13": "#5B6459",
+        "color14": "#887870",
+        "color15": "#a5be88"
+    }
+}

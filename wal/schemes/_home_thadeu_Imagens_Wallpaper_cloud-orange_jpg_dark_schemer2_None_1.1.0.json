@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/cloud-orange.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#241311",
+        "foreground": "#c8c4c3",
+        "cursor": "#c8c4c3"
+    },
+    "colors": {
+        "color0": "#241311",
+        "color1": "#ec5b02",
+        "color2": "#bd7970",
+        "color3": "#f56c1e",
+        "color4": "#e56f3f",
+        "color5": "#fd7c00",
+        "color6": "#ff7f35",
+        "color7": "#c8c4c3",
+        "color8": "#5a4e4c",
+        "color9": "#ec5b02",
+        "color10": "#bd7970",
+        "color11": "#f56c1e",
+        "color12": "#e56f3f",
+        "color13": "#fd7c00",
+        "color14": "#ff7f35",
+        "color15": "#c8c4c3"
+    }
+}

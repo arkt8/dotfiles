@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/forest-fog.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1d1d23",
+        "foreground": "#d7d6c1",
+        "cursor": "#d7d6c1"
+    },
+    "colors": {
+        "color0": "#1d1d23",
+        "color1": "#a89b38",
+        "color2": "#95ab38",
+        "color3": "#bcb03e",
+        "color4": "#c1b244",
+        "color5": "#c8bc5a",
+        "color6": "#d0c771",
+        "color7": "#d7d6c1",
+        "color8": "#969587",
+        "color9": "#a89b38",
+        "color10": "#95ab38",
+        "color11": "#bcb03e",
+        "color12": "#c1b244",
+        "color13": "#c8bc5a",
+        "color14": "#d0c771",
+        "color15": "#d7d6c1"
+    }
+}

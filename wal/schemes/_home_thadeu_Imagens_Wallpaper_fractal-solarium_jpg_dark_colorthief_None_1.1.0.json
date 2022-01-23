@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/fractal-solarium.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#090906",
+        "foreground": "#adaba6",
+        "cursor": "#adaba6"
+    },
+    "colors": {
+        "color0": "#090906",
+        "color1": "#5d492c",
+        "color2": "#4a625c",
+        "color3": "#5b7c71",
+        "color4": "#866e47",
+        "color5": "#769b94",
+        "color6": "#8bbdad",
+        "color7": "#adaba6",
+        "color8": "#5b584d",
+        "color9": "#5d492c",
+        "color10": "#4a625c",
+        "color11": "#5b7c71",
+        "color12": "#866e47",
+        "color13": "#769b94",
+        "color14": "#8bbdad",
+        "color15": "#adaba6"
+    }
+}

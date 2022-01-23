@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/zen-water.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#092121",
+        "foreground": "#c1c7c7",
+        "cursor": "#c1c7c7"
+    },
+    "colors": {
+        "color0": "#092121",
+        "color1": "#6f94a6",
+        "color2": "#4bb5b3",
+        "color3": "#22d1a6",
+        "color4": "#8ea6aa",
+        "color5": "#47dbcb",
+        "color6": "#8dc9cc",
+        "color7": "#c1c7c7",
+        "color8": "#465858",
+        "color9": "#6f94a6",
+        "color10": "#4bb5b3",
+        "color11": "#22d1a6",
+        "color12": "#8ea6aa",
+        "color13": "#47dbcb",
+        "color14": "#8dc9cc",
+        "color15": "#c1c7c7"
+    }
+}

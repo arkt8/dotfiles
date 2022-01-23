@@ -1,0 +1,13 @@
+! Debian não reconhece URxvt por alguma razão
+! a menos que em minúsculas.
+#urxvt*font: xft:TerminessTTF Nerd Font:pixelsize=20:hinting=none:antialias=false
+urxvt*font: xft:Terminus (TTF):pixelsize=16:hinting=none:antialias=false
+urxvt*italicFont: xft:TerminessTTF Nerd Font Mono:pixelsize=19.5:hinting=none:antialias=false:style=italic
+urxvt*boldItalicFont: xft:TerminessTTF Nerd Font Mono:pixelsize=19.5:hinting=none:antialias=false:style=bold,italic
+urxvt*letterSpace: 0.5
+urxvt*transparent: true
+!urxvt*blurRadius: 20
+urxvt*tintColor: #000000
+urxvt*color17: #ff0000
+!urxvt*thickness: 10
+! vim: ft=xdefaults

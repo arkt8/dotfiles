@@ -1,0 +1,12 @@
+{ "GNU":
+	{ "GNU BC" : "https://www.gnu.org/software/bc/manual/html_node/bc_toc.html"
+	}
+, "Haskell":
+	{ "UFABC" : "https://haskell.pesquisa.ufabc.edu.br"
+	, "School of Haskell" : "https://schoolofhaskell.com"
+	, "TypeClasses Blog" : "https://typeclasses.com"
+	, "Haskell Wiki 88 Exercises": "https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems"
+	, "Haskell Exercism" : "https://exercism.org/tracks/haskell/exercises"
+	, "Haskell Types": "https://wiki.haskell.org/Type"
+	}
+}

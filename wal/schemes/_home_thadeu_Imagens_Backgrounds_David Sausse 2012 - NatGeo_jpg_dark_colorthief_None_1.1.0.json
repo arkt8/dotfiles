@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Backgrounds/David Sausse 2012 - NatGeo.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0702",
+        "foreground": "#ada79e",
+        "cursor": "#ada79e"
+    },
+    "colors": {
+        "color0": "#0a0702",
+        "color1": "#4f3818",
+        "color2": "#644e27",
+        "color3": "#8d641d",
+        "color4": "#ac8758",
+        "color5": "#e4b273",
+        "color6": "#fac87d",
+        "color7": "#ada79e",
+        "color8": "#5b4f3e",
+        "color9": "#4f3818",
+        "color10": "#644e27",
+        "color11": "#8d641d",
+        "color12": "#ac8758",
+        "color13": "#e4b273",
+        "color14": "#fac87d",
+        "color15": "#ada79e"
+    }
+}

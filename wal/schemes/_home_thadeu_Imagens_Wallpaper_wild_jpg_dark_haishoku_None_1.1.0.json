@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/wild.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#181819",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#181819",
+        "color1": "#602f23",
+        "color2": "#47495d",
+        "color3": "#4f5b64",
+        "color4": "#727f85",
+        "color5": "#9aa5ad",
+        "color6": "#a2afb5",
+        "color7": "#c5c5c5",
+        "color8": "#515152",
+        "color9": "#602f23",
+        "color10": "#47495d",
+        "color11": "#4f5b64",
+        "color12": "#727f85",
+        "color13": "#9aa5ad",
+        "color14": "#a2afb5",
+        "color15": "#c5c5c5"
+    }
+}

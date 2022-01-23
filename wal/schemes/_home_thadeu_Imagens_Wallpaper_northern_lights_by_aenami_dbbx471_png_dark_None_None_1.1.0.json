@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/northern_lights_by_aenami_dbbx471.png",
+    "alpha": "100",
+    "special": {
+        "background": "#081315",
+        "foreground": "#9ed8be",
+        "cursor": "#9ed8be"
+    },
+    "colors": {
+        "color0": "#081315",
+        "color1": "#624C28",
+        "color2": "#095C44",
+        "color3": "#05704B",
+        "color4": "#038C55",
+        "color5": "#23AD55",
+        "color6": "#10A269",
+        "color7": "#9ed8be",
+        "color8": "#6e9785",
+        "color9": "#624C28",
+        "color10": "#095C44",
+        "color11": "#05704B",
+        "color12": "#038C55",
+        "color13": "#23AD55",
+        "color14": "#10A269",
+        "color15": "#9ed8be"
+    }
+}

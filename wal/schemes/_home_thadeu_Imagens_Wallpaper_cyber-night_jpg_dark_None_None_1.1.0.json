@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/cyber-night.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#030D14",
+        "foreground": "#d5859b",
+        "cursor": "#d5859b"
+    },
+    "colors": {
+        "color0": "#030D14",
+        "color1": "#033C64",
+        "color2": "#363867",
+        "color3": "#552651",
+        "color4": "#16415E",
+        "color5": "#094A6F",
+        "color6": "#2E4670",
+        "color7": "#d5859b",
+        "color8": "#955d6c",
+        "color9": "#033C64",
+        "color10": "#363867",
+        "color11": "#552651",
+        "color12": "#16415E",
+        "color13": "#094A6F",
+        "color14": "#2E4670",
+        "color15": "#d5859b"
+    }
+}

@@ -1,0 +1,23 @@
+" Special
+let wallpaper  = "/home/thadeu/.config/wpg/wallpapers/gotham-rain.jpg"
+let background = "#000000"
+let foreground = "#ffdcb5"
+let cursor     = "#ffdcb5"
+
+" Colors
+let color0  = "#202020"
+let color1  = "#df1902"
+let color2  = "#3a7475"
+let color3  = "#df6601"
+let color4  = "#1c575b"
+let color5  = "#b4060a"
+let color6  = "#253749"
+let color7  = "#cab399"
+let color8  = "#4e4e4e"
+let color9  = "#ff3902"
+let color10 = "#40a1a3"
+let color11 = "#ff8601"
+let color12 = "#1d8188"
+let color13 = "#e20106"
+let color14 = "#2d4b5f"
+let color15 = "#ffdcb5"

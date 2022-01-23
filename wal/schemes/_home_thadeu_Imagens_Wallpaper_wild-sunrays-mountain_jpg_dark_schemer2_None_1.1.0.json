@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/wild-sunrays-mountain.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#131819",
+        "foreground": "#c4c5c5",
+        "cursor": "#c4c5c5"
+    },
+    "colors": {
+        "color0": "#131819",
+        "color1": "#827d68",
+        "color2": "#7e9084",
+        "color3": "#a18e54",
+        "color4": "#a89c74",
+        "color5": "#d0b16d",
+        "color6": "#ccbc93",
+        "color7": "#c4c5c5",
+        "color8": "#4e5152",
+        "color9": "#827d68",
+        "color10": "#7e9084",
+        "color11": "#a18e54",
+        "color12": "#a89c74",
+        "color13": "#d0b16d",
+        "color14": "#ccbc93",
+        "color15": "#c4c5c5"
+    }
+}

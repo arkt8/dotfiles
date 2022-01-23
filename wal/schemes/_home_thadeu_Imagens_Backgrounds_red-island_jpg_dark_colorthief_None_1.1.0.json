@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Backgrounds/red-island.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#060609",
+        "foreground": "#a5a7ac",
+        "cursor": "#a5a7ac"
+    },
+    "colors": {
+        "color0": "#060609",
+        "color1": "#792e36",
+        "color2": "#43545b",
+        "color3": "#495e6b",
+        "color4": "#c93a3b",
+        "color5": "#587a8c",
+        "color6": "#6b8c9c",
+        "color7": "#a5a7ac",
+        "color8": "#4b4f59",
+        "color9": "#792e36",
+        "color10": "#43545b",
+        "color11": "#495e6b",
+        "color12": "#c93a3b",
+        "color13": "#587a8c",
+        "color14": "#6b8c9c",
+        "color15": "#a5a7ac"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/fantastic-flower.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0D0A11",
+        "foreground": "#e0caa0",
+        "cursor": "#e0caa0"
+    },
+    "colors": {
+        "color0": "#0D0A11",
+        "color1": "#6E4B26",
+        "color2": "#232B53",
+        "color3": "#5D3449",
+        "color4": "#404C5E",
+        "color5": "#956330",
+        "color6": "#99624E",
+        "color7": "#e0caa0",
+        "color8": "#9c8d70",
+        "color9": "#6E4B26",
+        "color10": "#232B53",
+        "color11": "#5D3449",
+        "color12": "#404C5E",
+        "color13": "#956330",
+        "color14": "#99624E",
+        "color15": "#e0caa0"
+    }
+}

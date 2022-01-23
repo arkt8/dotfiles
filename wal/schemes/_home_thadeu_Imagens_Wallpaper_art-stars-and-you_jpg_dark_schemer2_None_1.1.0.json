@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/art-stars-and-you.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0d1a19",
+        "foreground": "#c2c5c5",
+        "cursor": "#c2c5c5"
+    },
+    "colors": {
+        "color0": "#0d1a19",
+        "color1": "#a55d61",
+        "color2": "#8a6c6c",
+        "color3": "#779188",
+        "color4": "#e6625f",
+        "color5": "#62a9a1",
+        "color6": "#fe6e6f",
+        "color7": "#c2c5c5",
+        "color8": "#495352",
+        "color9": "#a55d61",
+        "color10": "#8a6c6c",
+        "color11": "#779188",
+        "color12": "#e6625f",
+        "color13": "#62a9a1",
+        "color14": "#fe6e6f",
+        "color15": "#c2c5c5"
+    }
+}
