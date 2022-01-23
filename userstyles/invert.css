@@ -1,0 +1,77 @@
+
+@-moz-document regexp("^(view-source):.*") {
+* {background:#000000!important;color:#cccccc!important;font-size:16px}
+*:before {background:#333!important;color:#fff!important}
+pre {white-space:pre-wrap!important;line-height:1.5rem;max-width:90vw}
+}
+
+@-moz-document domain("discord.com"), domain("zulipchat.com") {
+	html * {
+		text-shadow:0 0 1px #000!important;
+		color: #fff!important;
+	}
+	html, body {
+		background-color:#000!important;
+		color:#ccc!important;
+		background-image:none!important
+	}
+	body > *, header, footer, aside {
+		background-color:#eee!important;
+		color:#111!important;
+	}
+	body > * a, header a, footer a, aside a {
+		color:inherit!important
+	}
+	body > * {
+		-webkit-filter:none!important;
+		-moz-filter:   none!important;
+		filter:        none!important;
+	}
+	body > * img {
+		-webkit-filter:none!important;
+		-moz-filter:   none!important;
+		filter:        none!important;
+	}
+}
+
+@-moz-document regexp("^(https?|file|luakit):.*") {
+	html, body {
+		font-size: 18px!important;
+		font-family:"Terminus (TTF)"!important;
+		text-align: justify;
+	}
+	html * {
+		-webkit-font-smoothing: none!important;
+		-moz-font-smoothing: none!important;
+		-font-smoothing: never!important;
+	}
+	li, p, td, th, tr, dd, dl,div {
+		font-family:"Terminus (TTF)"!important;
+	}
+	input, code, pre, kbd {
+		font-family:"Terminus (TTF)"!important;
+	}
+	html, body {background-color:#000!important; color:#ccc!important;background-image:none!important}
+	body > *, header, footer, aside {
+		background-color:#eee!important;
+		color:#111!important;
+	}
+	body > * a, header a, footer a, aside a {
+		color:inherit!important
+	}
+	body > * {
+		-webkit-filter:invert(100%) hue-rotate(180deg);
+		-moz-filter:invert(100%) hue-rotate(180deg);
+		filter:invert(100%) hue-rotate(180deg);
+	}
+	body > * img {
+		-webkit-filter:invert(100%) hue-rotate(180deg);
+		-moz-filter:invert(100%) hue-rotate(180deg);
+		filter:invert(100%) hue-rotate(180deg);
+	}
+	h1,h2,h3,h4,h5,h6 {
+		font-family: DejaVu Sans!important;
+		font-weight: bold!important;
+	}
+}
+

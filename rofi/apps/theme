@@ -1,0 +1,22 @@
+#!/bin/sh
+### Created by ilsenatorov
+THEME_DIR=$HOME/.config/wal/themes
+cd $THEME_DIR
+
+list_themes() {
+	ls
+	echo current;
+	wal --theme | grep '^ - '| cut -d' ' -f3
+}
+if [ -z "$@" ]; then
+	list_themes
+else
+    THEME=$@
+    if [ x"current" = x"${THEME}" ]; then exit 0
+    elif [ -n "${THEME}" ]; then
+        wal --theme ${THEME} > /dev/null
+        $HOME/.config/desktop/scripts/theme.sh > /dev/null
+    fi
+	list_themes
+fi
+cd - > /dev/null

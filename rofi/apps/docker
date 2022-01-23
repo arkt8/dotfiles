@@ -1,0 +1,26 @@
+#!/bin/bash
+docker='sudo docker'
+selected=$( \
+	$docker ps -a --format="{{.Names}}|{{.Image}}|{{.Status}}" \
+	| awk  'BEGIN {FS="|"} {print $1 " <small>" $2 " <bold>" $5 "</bold></small>"}' \
+	| rofi -dmenu -markup-rows -p  'container' \
+)
+
+selected=$(echo $selected | awk '{print $1;}')
+
+action=$(echo -e "stop\nrestart\nlogs\nbash" | dmenu -l 10 )
+
+case "$action" in
+    "stop")
+        $docker stop $selected
+        ;;
+    "restart")
+        $docker restart $selected
+        ;;
+    "logs")
+        urxvt -e sh -c "$docker logs -f -t $selected"
+        ;;
+    "bash")
+        urxvt -e sh -c "$docker exec -ti $selected bash"
+        ;;
+esac

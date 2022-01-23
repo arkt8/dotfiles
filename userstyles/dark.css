@@ -1,0 +1,228 @@
+
+@-moz-document regexp(".*") {
+	:root {
+	--background: #000000;
+	--foreground: #ffdcb5;
+    --color0:  #202020;
+    --color1:  #df1902;
+    --color2:  #3a7475;
+    --color3:  #df6601;
+    --color4:  #1c575b;
+    --color5:  #b4060a;
+    --color6:  #253749;
+    --color7:  #cab399;
+    --color8:  #4e4e4e;
+    --color9:  #ff3902;
+    --color10: #40a1a3;
+    --color11: #ff8601;
+    --color12: #1d8188;
+    --color13: #e20106;
+    --color14: #2d4b5f;
+    --color15: #ffdcb5;
+		/* Copy 0~15 from ~/.cache/wal/colors.css */
+		/* --my_bg: var(--color0); */
+		--my_bg: #000000;
+		--my_fg: #ffdcb5;
+		--my_tone1: var(--color5);
+		--my_tone2: var(--color2);
+		--my_tone3: var(--color3);
+		--my_detail: var(--color1);
+		--my_link:   var(--color4);
+		--my_edit_bg: #202020;
+		--my_pre_fg: var(--color2);
+		--my_pre_bg: #202020;
+		--font-sans:"Terminus (TTF)";
+		--font-serif: "Terminus (TTF)";
+		--font-mono:  "Terminus (TTF)";
+		/*--font-sans:  "Victor Mono Light";
+		--font-serif: "Victor Mono Light";
+		--font-mono:  "Victor Mono Light";*/
+		--my_button_fg: var(--color0);
+		--my_button_bg: var(--color6);
+		--my_fontsize: 20px;
+	}
+}
+
+@-moz-document regexp("^(view-source):.*") {
+* {background:#000000!important;color:#ffdcb5!important;font-size:16px}
+*:before {background:#4e4e4e!important;color:#ffdcb5!important}
+pre {white-space:pre-wrap!important;line-height:1.5rem;max-width:90vw}
+}
+@-moz-document regexp("^(https?|file|luakit):.*") {
+	/** Possibly causes problem... added date comment **/
+	iframe { display:none!important } /* 2021-08-13 */
+
+	* {
+		text-shadow: none!important;
+		box-shadow: none!important;
+		font-smooth: never!important;
+		-webkit-font-smoothing: subpixel!important;
+		padding-top:0!important;
+		margin-top:0!important;
+		background-image:unset!important;
+		background-image:none!important;
+		-o-transition-property: none !important; -moz-transition-property: none !important; -ms-transition-property: none !important; -webkit-transition-property: none !important; transition-property: none !important;
+		-o-transform: none !important; -moz-transform: none !important; -ms-transform: none !important; -webkit-transform: none !important; transform: none !important;
+		-webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important;		-ms-animation: none !important; animation: none !important;
+		outline-color: #3a7475!important;
+		border-color: #3a7475!important;
+		border-top: #3a7475!important;
+		border-left:#3a7475!important;
+		border-right:#3a7475!important;
+		border-bottom:#3a7475!important;
+		transition:none!important;
+	}
+	div,ul,ol,nav,header,footer,aside,section,article,picture,img,image,video,button {
+/*		position:static!important;
+		height:auto!important;*/
+	}
+	b,em,strong,dt,th,.searchmatch {
+		color:var(--my_tone3)!important;
+		font-weight:bold!important;
+	}
+	h1,h2,h3,h4,h5,h6,blockquote {
+		background-color:transparent!important;
+		color:var(--my_fg)!important;
+	}
+	h1,h2,h3,h4,h5,h6 {
+		font-family: DejaVu Sans!important;
+		font-weight: Bold
+	}
+	blockquote { border-color: var(--my_detail)!important}
+	*:after, *:before {
+		background-color:transparent!important;
+	}
+	img {
+		filter:invert(100%) hue-rotate(180deg);
+	}
+	hr {
+		border-color:var(--my_fg)!important;
+		border-width:1px!important;
+		border-bottom-width:0!important;
+		border-left-width:0!important;
+		border-left-width:0!important;
+		border-style:dashed!important;
+		height:0!important;
+		background-color:transparent!important;
+	}
+
+	body {
+		width:100%!important;
+		margin:0!important;
+		padding:3em 0 0 0!important;
+	}
+	html, body, p {
+		font-size:var(--my_fontsize)!important;
+	}
+
+	body, div, p,li,ol,ul,header,footer,article,nav {
+		font-family: var(--font-sans)!important;
+	}
+	html, body {
+		background-color: var(--my_bg)!important;
+		color: #aaaaaa;
+	}
+	div,p,span,b,i,em,ol,ul,dl,li,dd,td,th,header,footer,article,nav,main {
+		background-color: transparent!important;
+		color: var(--my_fg)!important;
+		border:none!important;
+		border-color:transparent!important;
+		box-shadow:none!important;
+		text-shadow:none!important;
+	}
+	table,thead,tfoot,tbody {
+		background-color: var(--my_bg)!important;
+		color: var(--my_fg)!important;
+		border-color:rgba(255,255,255,0.1)!important;
+	}
+	tr, td, th {
+		background-color:transparent!important;
+		background-image: none!important;
+	}
+	tr:nth-child(even) {
+		background-color:rgba(255,255,255,0.05)!important;
+	}
+
+	input[type="text"], input[type="text"]:focus,
+	input[type="number"], input[type="number"]:focus,
+	input[type="search"], input[type="search"]:focus,
+	* input[type="text"],   * input[type="text"]:focus,
+	* input[type="number"], * input[type="number"]:focus,
+	* input[type="search"], * input[type="search"]:focus,
+	textarea, textarea:focus {
+		border-color: var(--my_tone1)!important;
+		border-style: dashed!important;
+		border-width: 1px!important;
+		background-color: var(--my_edit_bg)!important;
+		background-image: none!important;
+		color:var(--my_fg)!important;
+		border-radius: 0.4rem!important;
+		-webkit-appearance: textfield!important;
+	}
+
+	select {
+		outline:none!important;
+		appearance:none!important;
+		-webkit-appearance:none!important;
+		padding:0.5rem!important;
+		background-color:var(--my_tone2)!important;
+		background-image: none!important;
+		color:var(--my_bg)!important;
+		font-weight:bold!important;
+		border-width:0!important;
+	}
+	
+	html,body {font-size: 16px!important}
+	code, kbd, tt { padding:0 0.5em!important; }
+	pre { padding: 1em!important;}
+	code, code *, kbd, tt {
+		background-image: none!important;
+		border:none!important;
+		border-color:none!important;
+		color: var(--my_pre_fg)!important;
+		font-family: var(--font-mono)!important;
+		font-size: 18px;
+		background-color: var(--my_pre_bg)!important;
+	}
+	pre {
+		background-color: var(--my_pre_bg)!important;
+		background-image: none!important;
+		border:none!important;
+		border-color:none!important;
+		box-shadow:none!important;
+		color: var(--my_pre_fg)!important;
+		font-family: var(--font-mono)!important;
+		font-size: 18px;
+	}
+
+	
+	pre * {background-color:transparent!important;}
+	a, a:visited, a * {
+		color:var(--my_link)!important;
+		background-color:rgba(0,0,0,0)!important;
+		background-image: none!important;
+		border-color:var(--my_link)!important;
+		border-width:1px!important;
+		box-shadow:none!important;
+		text-shadow:none!important;
+	}
+	button, input[type="button"],input[type="submit"] {
+		color:var(--my_bg)!important;
+		background-color:var(--my_link)!important;
+		background-image: none!important;
+		border:none!important;
+		border-color:none!important;
+		border-radius:0.4rem!important;
+		text-shadow:none!important;
+	}
+	form {
+		background:none!important;
+		background-color!important;
+		border:none!important;
+		border-color:none!important;
+	}
+	span.mwe-math-element img {
+		filter:invert(100%);
+	}
+}
+

@@ -1,0 +1,249 @@
+/**
+ * User: qball
+ * Copyright: Dave Davenport
+ */
+* {
+	/* Defs */
+    background-color:@themeColor;
+	border-color:   @themeColor;
+	border:         1px solid;
+    text-color:     @fg;
+    highlight:      bold #f9f5d7; /* bold, Italic, underline */
+	font:           "VictorMono 12";
+
+	
+
+    root:         #394d6099;
+	bg:           #070b0e;
+	fg:           @lightwhite;
+    red:          #c22750;
+    green:        #6c9b7499;
+    yellow:       #aa812e;
+    blue:         #16728f;
+    magenta:      #5761a6;
+    cyan:         #267f8a;
+    white:        #778fa6;
+    lightblack:   #394d60;
+    lightred:     #c77288;
+    lightgreen:   #82bf9b;
+    lightyellow:  #c8a868;
+    lightblue:    #61a3b8;
+    lightmagenta: #888ca6;
+    lightcyan:    #99d1ce99;
+    lightwhite:   #c6f8e9;
+	orange:       #fe8019;
+	bgalpha:      #28282888;
+	alpha:        #00000000;
+
+	/* Vars */
+    themeColor:       @root;
+	themeColorAlt:    @bgalpha;
+	themeColorAltS:   @green;
+	active:           @cyan;
+	activefg:         @bg;
+	accentColor:      @green;
+	accentColorFg:    @bg;
+	secondColor:      @orange;
+	secondColorFg:    @bg;
+    // Bold, Italic, Underline
+}
+
+#window {
+	border-radius: 6px;
+	background-color: @root;
+    text-color: @themeColorFg;
+	padding:20px;
+	border-width: 10px;
+	border-color: #00000000;
+	opacity: 50%;
+}
+#element {
+	padding:0.3em 0.3em;
+	border-radius:5px;
+	background-color:@alpha;
+}
+
+#mode-switcher {
+    border: 2px 0px 0px 0px;
+    background-color: @themeColor;
+    padding: 4px;
+}
+#button selected {
+/*    border-color: @lightgreen;
+    text-color: @green; */
+}
+#prompt {
+	background-color: @alpha;
+	padding:0 10px 0 5px;
+	str: " > ";
+}
+
+#inputbar {
+    text-color: @themeColorFg;
+    margin: 10px;
+	padding:0;
+    border: 0px;
+	background-color: @alpha; border-color: @alpha;
+}
+	#prompt  { margin: 0 10px 0 0; background-color: @alpha; border-color: @alpha; }
+	#entry   { margin: 0 0    0 0; background-color: @alpha; border-color: @alpha; }
+	#case-indicator   { margin: 0 0 10px 0; background-color: @alpha; border-color: @alpha; }
+
+#message {
+	margin:0;
+	padding:10px;
+	background-color:@bg;
+	border-color:@alpha;
+	border-radius:10px;
+}
+#textbox {
+	border-color:@alpha;
+	background-color:@alpha;
+	margin:0;
+	padding:0;
+	font-weight:bold;
+}
+
+#mainbox {
+    expand: true;
+    // spacing: 0.4em;
+	border-radius:6.66px;
+	padding:0;
+	background-color:@alpha;
+	border-color:@alpha;
+}
+#listview {
+    padding: 10px;
+
+    dynamic: true;
+	background-color: @bg;
+	border-color: @alpha;
+	border-radius: 10px;
+
+    /* lines: 0; */
+}
+#element { border-color: @alpha; }
+
+#element.selected.normal {
+    background-color: @accentColor;
+	text-color:@accentColorFg;
+	font-weight: bold;
+}
+#element.normal.active {
+    text-color: @accentColorFg;
+	font-weight: bold;
+}
+#element.normal.urgent {}
+#element.alternate.urgent{
+	text-color: @red;
+}
+#element.alternate.normal{
+}
+#element.alternate.active{
+}
+#element.selected.active{
+    background-color: @accentColor;
+    text-color: @accentColorFg;
+	font-weight: bold;
+}
+#element.selected.urgent{
+    background-color: @red;
+    text-color: @fg;
+}
+
+/*
+|---------------------------------------------------------|
+| window {BOX:vertical}                                   |
+| |----------------------------------------------------|  |
+| | mainbox  {BOX:vertical}                            |  |
+| | |------------------------------------------------| |  |
+| | | inputbar {BOX:horizontal}                      | |  |
+| | | |---------| |--------------------------| |---| | |  |
+| | | | prompt  | | entry                    | |ci | | |  |
+| | | |---------| |--------------------------| |---| | |  |
+| | |------------------------------------------------| |  |
+| |                                                    |  |
+| | /------------------------------------------------\ |  |
+| | | message                                        | |  |
+| | | |--------------------------------------------| | |  |
+| | | | textbox                                    | | |  |
+| | | |--------------------------------------------| | |  |
+| | \------------------------------------------------/ |  |
+| |                                                    |  |
+| | |--------------------------------------------------|  |
+| | | listview                                         |  |
+| | |--------------------------------------------------|  |
+| |                                                    |  |
+| | |------------------------------------------------| |  |
+| | |  mode-switcher {BOX:horizontal}                | |  |                                      | |  |
+| | | |--------|   |--------|  |--------| |--------| | |  |
+| | | | Button |   | Button |  | Button | | Button | | |  |
+| | | |--------|   |--------|  |--------| |--------| | |  |
+| | |------------------------------------------------| |  |
+| |----------------------------------------------------|  |
+|---------------------------------------------------------|
+The root tag of a marked-up document is <markup>, but the pango.parse_markup()
+function allows you to omit this tag, so you will most likely never need to use
+it. The most general markup tag is <span>. The <span> tag has the following
+attributes:
+
+font_desc
+
+A font description string, such as "Sans Italic 12"; note that any other span
+attributes will override this description. So if you have "Sans Italic" and
+also a style="normal" attribute, you will get Sans normal, not italic.
+font_family
+
+A font family name such as "normal", "sans", "serif" or "monospace".  face
+
+A synonym for font_family size
+
+The font size in thousandths of a point, or one of the absolute sizes
+'xx-small', 'x-small', 'small', 'medium', 'large', 'x-large', 'xx-large', or
+one of the relative sizes 'smaller' or 'larger'.  style
+
+The slant style - one of 'normal', 'oblique', or 'italic' weight
+
+The font weight - one of 'ultralight', 'light', 'normal', 'bold', 'ultrabold',
+'heavy', or a numeric weight.  variant
+
+The font variant - either 'normal' or 'smallcaps'.  stretch
+
+The font width - one of 'ultracondensed', 'extracondensed', 'condensed',
+'semicondensed', 'normal', 'semiexpanded', 'expanded', 'extraexpanded',
+'ultraexpanded'.  foreground
+
+An RGB color specification such as '#00FF00' or a color name such as 'red'.
+background
+
+An RGB color specification such as '#00FF00' or a color name such as 'red'.
+underline
+
+The underline style - one of 'single', 'double', 'low', or 'none'.  rise
+
+The vertical displacement from the baseline, in ten thousandths of an em. Can
+be negative for subscript, positive for superscript.  strikethrough
+
+'true' or 'false' whether to strike through the text.  fallback
+
+If True enable fallback to other fonts of characters are missing from the
+current font. If disabled, then characters will only be used from the closest
+matching font on the system. No fallback will be done to other fonts on the
+system that might contain the characters in the text. Fallback is enabled by
+default. Most applications should not disable fallback.  lang
+
+A language code, indicating the text language.  There are a number of
+convenience tags that encapsulate specific span options:
+
+b
+
+Make the text bold.  big
+Makes font relatively larger, equivalent to <span size="larger">.  i
+Make the text italic.  s
+Strikethrough the text.  sub
+Subscript the text.  sup
+Superscript the text.  small
+Makes font relatively smaller, equivalent to <span size="smaller">.
+tt Use a monospace font.
+u underline the text.
+*/

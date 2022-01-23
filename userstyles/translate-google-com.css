@@ -1,0 +1,7 @@
+@-moz-document domain("translate.google.com") {
+	c-wiz { background-color:var(--my_bg)!important; }
+	button[data-disable-idom], button[data-disable-idom] * {
+		background-color:var(--my_button_bg)!important;
+		color:var(--my_button_fg)!important;
+	}
+}
