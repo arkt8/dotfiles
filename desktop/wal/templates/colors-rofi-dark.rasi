@@ -1,0 +1,186 @@
+configuration {{
+	sidebar-mode: true;
+	font: "Terminus(TTF) 12";
+	hide-scrollbar: true;
+	window-format: "{{w:2}} {{c:10}} {{t}}";
+}}
+
+* {{
+	bg: {background};
+	fg: {foreground};
+	accent: {color5};
+	urgent: #ff8800aa;
+	alt:{color1};
+	selected: {color2};
+	active: {color5};
+	color0: {color0};
+	color1: {color1};
+	color2: {color2};
+	color3: {color3};
+	color4: {color4};
+	color5: {color5};
+	color6: {color6};
+	color7: {color7};
+	color8: {color8};
+	color9: {color9};
+	color10: {color10};
+	color11: {color11};
+	color12: {color12};
+	color13: {color13};
+	color14: {color14};
+	color15: {color15};
+}}
+
+#window {{
+    background-color: transparent;
+	border-radius:2ch;
+}}
+
+#mainbox {{
+    border: 2ch;
+	border-color: @color0;
+    padding: 0;
+	height: 10px;
+	children: [ mode-switcher, content ];
+	orientation:vertical;
+	background-color: @bg;
+}}
+content {{
+	children: [ listview, inputbar] ;
+	children: [ message, inputbar, listview];
+	padding:2ch;
+	border-radius: 2ch 0 2ch 2ch;
+	background-color: @bg;
+}}
+mode-switcher {{
+    border: 0;
+	padding: 0;
+	spacing: 0;
+	anchor: north;
+	orientation: horizontal;
+	background-color: @color0;
+}}
+
+#button {{
+    text-color: @fg;
+	background-color: @color0;
+	expand: false;
+	padding:10px;
+	border-radius: 1ch 1ch 0 0;
+}}
+
+#button.selected {{
+    /* background-color: @accent; */
+	background-color:@bg;
+    text-color: @fg;
+}}
+
+#message {{
+    border: 2px 0px 0px;
+    border-color: @alt;
+    padding: 1px;
+}}
+
+#textbox {{
+    text-color: @fg;
+}}
+
+
+#textbox-prompt-colon {{
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @fg;
+}}
+
+#listview {{
+    fixed-height: 0;
+    border: 0;
+    border-color: @alt;
+    spacing: 2px;
+    scrollbar: false;
+    padding: 1ch 0px 0px;
+	background-color: transparent;
+}}
+
+#element {{
+    border: 0;
+    padding: 0.5ch;
+	background-color:transparent;
+	text-color: @fg;
+	border-radius:1ch;
+}}
+
+#element.urgent {{
+    background-color: transparent;
+    text-color: @urgent;
+}}
+
+#element.active {{
+    background-color: transparent;
+    text-color: @active;
+}}
+
+#element.selected {{
+    background-color: @selected;
+    text-color: @bg;
+	text-style: bold;
+}}
+
+#element.selected.urgent {{
+    background-color: @selected;
+    text-color: @urgent;
+	text-style: italic;
+}}
+
+#element.selected.active {{
+    background-color: @selected;
+    text-color: @active;
+}}
+
+//#element.alternate.normal {{
+//    background-color: @alternate-normal-background;
+//    text-color: @alternate-normal-foreground;
+//}}
+//
+//#element.alternate.urgent {{
+//    background-color: @alternate-urgent-background;
+//    text-color: @alternate-urgent-foreground;
+//}}
+//
+//#element.alternate.active {{
+//    background-color: @alternate-active-background;
+//    text-color: @alternate-active-foreground;
+//}}
+
+#scrollbar {{
+    width: 2px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+	border-radius:2px;
+	background-color:transparent;
+}}
+
+
+#inputbar {{
+    spacing: 0;
+    text-color: @bg;
+    padding: 1px;
+	background-color:transparent;
+	border: 0;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}}
+	message, textbox, textbox-prompt-colon, case-indicator, entry, prompt {{
+		background-color:transparent;
+		border:0;
+		text-color: @fg;
+	}}
+	inputbar {{
+		padding: 1ch 0;
+		border-color: @fg;
+		border: 0 dash 0 dash 1px 0 dash;
+	}}
+/*
+ * vim: ft=css :
+ */

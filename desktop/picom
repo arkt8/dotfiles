@@ -1,0 +1,7 @@
+blur:
+   {
+	 method = "kernel";
+	 kern = "9x9box";
+	 size = 1;
+	 deviation = 5.0;
+   };

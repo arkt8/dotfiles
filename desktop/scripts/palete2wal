@@ -1,0 +1,35 @@
+#!/bin/bash
+targetDir=/tmp/colors
+mkdir -p $targetDir
+for i in $HOME/.paleta/palettes/*; do
+	t=/tmp/colors/$(basename $i).json
+	c=($(cat $i))
+cat << EOF > $t
+{
+	"special": {
+		"background": "#${c[1]}",
+		"foreground": "#${c[0]}",
+		"cursor": "#${c[2]}"
+	},
+	"colors": {
+		"color0": "#${c[3]}",
+		"color1": "#${c[4]}",
+		"color2": "#${c[5]}",
+		"color3": "#${c[6]}",
+		"color4": "#${c[7]}",
+		"color5": "#${c[8]}",
+		"color6": "#${c[9]}",
+		"color7": "#${c[10]}",
+		"color8": "#${c[11]}",
+		"color9": "#${c[12]}",
+		"color10": "#${c[13]}",
+		"color11": "#${c[14]}",
+		"color12": "#${c[15]}",
+		"color13": "#${c[16]}",
+		"color14": "#${c[17]}",
+		"color15": "#${c[18]}"
+	}
+}
+EOF
+echo created on $t
+done

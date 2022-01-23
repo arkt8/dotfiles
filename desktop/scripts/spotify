@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#export logfile="/tmp/${USER}-spt.log"
+#
+#export now=$(date +%s)
+#
+#if [[ -f "$logfile" ]]; then
+#  export expire=$(cut -d' ' -f1 "$logfile")
+#  export lastinfo=$(cut -d' ' -f2- "$logfile")
+#else
+#  export expire=0
+#  export lastinfo=""
+#fi
+#
+#if [[ $now -ge $expire ]] ; then
+#  #info="$( spt playback --format "%t %a (%d)")"
+#  info="$( spt playback --format "%t (%a)")"
+#  if [[ "$info" == "$lastinfo" ]]; then
+#    expire=$(( now + 30 ))
+#  else
+#    expire=$(( now + 180 ))
+#  fi
+#  echo "$expire $info" > "$logfile"
+#  echo $info 
+#else
+#  echo ${lastinfo:0:50}
+#fi
+#

@@ -1,0 +1,26 @@
+Xft.dpi: 96
+Xft.autohint: 1
+Xft.antialias: 1
+Xft.hinting: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter:lcdlight
+Xft.rgba: rgb
+
+rofi.font: Victor Mono 18
+
+*renderFont: false
+*.renderFont: false
+*locale: false
+*letterSpace: 0
+*.letterSpace: 0
+
+XTerm*renderFont: true
+!XTerm*faceName: spleen32x64:pixelsize=18:antialias=false
+xterm*faceName: spleen:pixelsize=16:antialias=false
+yeahconsole*term: xterm
+yeahconsole*toggleKey: Super_L+period
+yeahconsole*keyFull:   Super_L+comma
+yeahconsole*restart: 1
+yeahconsole*consoleHeight:25
+yeahconsole*xOffset: 1366
+yeahconsole*screenWidth: 1080
