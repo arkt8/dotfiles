@@ -1,0 +1,36 @@
+#!/bin/bash
+
+WTTR="$(curl -s 'https://wttr.in/Santos?format=%t/%f:%C:%h:%M&lang=pt')"
+TMP="$(echo "$WTTR" | cut -d: -f1 | sed 's/°C//g')"
+COND="$(echo "$WTTR" | cut -d: -f2)"
+HUMI="$(echo "$WTTR" | cut -d: -f3)"
+MOON="$(echo "$WTTR" | cut -d: -f4)"
+if   [[ ${MOON} -lt 6  ]] ; then
+	PHASE="Nova"
+elif [[ ${MOON} -lt 13 ]] ; then
+	PHASE="Crescente"
+elif [[ ${MOON} -lt 20 ]] ; then
+	PHASE="Cheia"
+elif [[ ${MOON} -lt 30 ]] ; then
+	PHASE="Minguante"
+else PHASE=""
+fi
+if [[ "$1" == "--oneline" ]]; then
+	echo "(${TMP})°C ${HUMI}   ${COND}   Lua ${PHASE}"
+	exit
+fi
+
+
+export cmd1="$(cat<<EOF
+	curl 'https://wttr.in/Santos?lang=pt';
+	sleep 300;
+EOF
+)"
+export cmd2="$(cat<<EOF
+	curl 'https://v2d.wttr.in/Santos?lang=pt';
+	sleep 300;
+EOF
+)"
+
+xterm -fa 'xft:Iosevka Nerd Font Mono:pixelsize=16' -e bash -c "$cmd1" &
+xterm -fa 'xft:Iosevka Nerd Font Mono:pixelsize=20' -e bash -c "$cmd2" &

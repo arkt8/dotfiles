@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while [ -f "$1" ] ; do
+	inputFile="$1";
+	convert -format "jpg" -resize x1600 -gravity center -crop 900x1600+0+0 "$inputFile" "${inputFile}.stories.jpg";
+	shift;
+done

@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+
+import jmespath, os, sys, json
+if len(sys.argv) >= 2 :
+    with open(sys.argv[1],'r') as jsondata:
+        print(json.dumps(jmespath.search(sys.argv[2],json.load(jsondata)), indent=4))
+else:
+    print('Usage: '+os.path.basename(sys.argv[0])+' FILENAME EXPRESSION')
+

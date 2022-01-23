@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd $HOME/.paleta/palettes
+
+if [[ -z "$1" ]]; then
+	ls
+else
+	cp "$1" "$HOME/.paleta/default"
+	paleta < "$HOME/.paleta/default"
+fi

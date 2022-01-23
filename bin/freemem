@@ -1,0 +1,12 @@
+#!/bin/bash
+if [[ "$1" == "swap" ]]; then
+	sudo swapoff /dev/sda1
+	sudo swapon /dev/sda1
+fi
+
+if [[ "$1" == "who" ]]; then
+	ps axuw | awk '{print $4,"("$2,$1")",$11$12$13$14$15}'| sort -nr | head -n10
+	exit
+fi
+
+sudo free && sudo sync && sudo bash -c "echo 3 > /proc/sys/vm/drop_caches" && sudo free

@@ -1,0 +1,103 @@
+#!/bin/bash
+# set -x
+
+declare -A R;
+R['RadiozoraTrance']=http://trance.out.airtime.pro:8000/trance_a
+R['RadiozoraChill']=http://chill.out.airtime.pro:8000/chill_a
+R['Anima_Amoris']=http://93.100.63.226:8000/listen.pls
+R['DI_TranceGlobal']=http://5.39.71.159:8704/listen.pls
+R['DI_AhmedRomel']=http://5.39.71.159:8699/listen.pls
+R['Horyzont']=http://176.31.125.205:9622/
+R['ChilloutTreePines']=http://109.169.26.216:8020/
+R['StarDust']=http://cast.stardustradio.space:8000/autodj
+R['DImpulse_Liftburg_Trance']=http://orion.shoutca.st:8635/stream
+R['Soma_The_Trip']=http://somafm.com/thetrip64.pls
+R['Soma_Beat_Blender']=http://somafm.com/beatblender64.pls
+R['Soma_Secret_Agent']=http://somafm.com/secretagent.pls
+R['Soma_SXFM']=http://somafm.com/sxfm.pls
+R['Soma_Indie_Pop']=http://somafm.com/indiepop.pls
+R['Soma_Groove_Salad']=http://somafm.com/groovesalad.pls
+R['Soma_Drone_Zone']=http://somafm.com/dronezone.pls
+R['Soma_Digitalis']=http://somafm.com/digitalis.pls
+R['Soma_Pop_Tron']=http://somafm.com/poptron.pls
+R['Soma_Lush']=http://somafm.com/lush.pls
+R['DM_Pulse']=http://14123.live.streamtheworld.com:80/SAM01AAC23_SC
+R['TranceAnthems']=http://149.202.208.214:2199/tunein/tranceathens.pls
+R['Cafe_Del_Mar']=http://37.59.222.41:9988/listen.pls
+R['PureSound']=http://puresound.fm/listen_aacplus.pls
+R['Discover']=http://london02.discovertrance.com/listen.pls
+R['1fm_5060']=http://www.1.fm/mobile/60s64k.pls
+R['DJOne']=http://yp.shoutcast.com/sbin/tunein-station.pls
+R['Echoes']=http://85.17.75.143:80/
+R['Paris1_Trance']=http://www.paris-one.com/pls/radio.pls
+R['Guld_Kanalen']=http://guldkanalen.se/static/streamGK60/96AAC.pls
+R['Lebanese']=http://www.primcast.com/asx/listen265605.pls
+R['90SFM']=http://s6.streammonster.com/tunein.php/yushamdy/playlist.pls
+R['NovaBrasil']=https://www.radios.com.br/players/listen-radio.pls?radio=14120
+
+R['OriUplift']=http://5.39.71.159:8223/listen.pls
+R['90SFM']=http://s6.streammonster.com/tunein.php/yushamdy/playlist.pls
+
+list=$(echo ${!R[@]}| tr " " "\n" | sort)
+
+_radioPlayer() {
+	local cur
+	cur=${COMP_WORDS[COMP_CWORD]}
+	COMPREPLY=( $(compgen -W $list -- $cur) );
+	return 0
+}
+
+complete -F _radioPlayer -o default $0
+if [ "$1" == "" ] || [ "${R[$1]}" == "" ]; then
+	for i in $list; do
+		printf '%-30s%s\n' "$i" "${R[$i]}";
+	done
+	exit
+fi
+# Mata todos exceto atual (claro!)
+/bin/kill -9 $(/bin/ps axuw | grep "Radio/player" | sed '1,$s/ \+/ /g' | cut -d' ' -f2 | grep -v $$ );
+if [ "$1" == "stop" ]; then exit; fi
+
+/usr/bin/pkill -9 mpv;
+#PROXY=http_proxy://127.0.0.1:9151/
+export SELECTED_RADIO=$1
+if [[ "$(echo ${R[$1]} | sed '1,$s/.*\.\([a-z0-9]\+\)$/\1/g')" == 'pls' ]]; then
+	url=$(curl ${R[$1]} | grep http | sort -R | sed '1,$s/.*\(http.*\)/\1/g' )
+else
+	url=${R[$1]}
+fi
+out=$(mktemp /tmp/scrobbler.XXXXXXXXXX)
+# clear
+#mpv \
+#-nocache \
+#-nolirc -nojoystick \
+#-novideo -quiet -ao alsa \
+#$PROXY$url > $out &
+
+mpv \
+-quiet -ao pulse \
+-cache 1024 \
+$PROXY$url > $out &
+
+echo 'COMEÇANDO '$out
+old=''
+new=''
+# clear;
+while [ : ]; do
+	new=$(grep ICY $out | tail -n 1 | sed "/^ICY.*/!d; s/^[^=]\+='//g; s/';StreamUrl=.*//g;"'1,$s/\(.*\) - \(.*\)/artist: "\1"|||title: "\2"/g');
+	#new=$(grep icy-title $out | tail -n 1 | cut -d: -f2 | sed '1,$s/\(.*\) - \(.*\)/artist: "\1"|||title: "\2"/g');
+	if [ "$new" != "$old" ] ; then
+		old=$new;
+		artist=$(echo $new|sed '1,$s/artist: \(.*\)|||.*/\1/g'|sed '1,$s/"//g');
+		title=$(echo $new|sed '1,$s/.*|||title: \(.*\)/\1/g'|sed '1,$s/"//g'| sed '1,$s'"/';"'$//g');
+		echo -n '['`date +%H:%M:%S`']' $SELECTED_RADIO: $artist - $title;
+		echo $artist | grep 'Na Balada' &> /dev/null
+		if [ "$?" == "1" ]; then
+			/usr/lib/lastfmsubmitd/lastfmsubmit --artist "$artist" --length 180 --title "$title" && echo -e "\t(scrobled)" || echo -e "";
+		fi
+		sleep 50;
+	fi
+	sleep 2
+#	if [[ "$old" == "" ]]; then clear; fi
+done;
+

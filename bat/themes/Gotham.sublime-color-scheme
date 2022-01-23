@@ -1,0 +1,83 @@
+{
+	"name": "Gotham",
+	"variables": {
+		"base0": "#0c1014",
+		"base1": "#11151c",
+		"base2": "#091f2e",
+		"base3": "#0a3749",
+		"base4": "#1e6479",
+		"base5": "#599cab",
+		"base6": "#99d1ce",
+		"base7": "#d3ebe9",
+		"red"    :"#c23127",
+		"orange" :"#d26937",
+		"yellow" :"#edb443",
+		"magenta":"#888ca6",
+		"violet" :"#4e5166",
+		"blue"   :"#195466",
+		"cyan"   :"#33859E",
+		"green"  :"#2aa889",
+	},	
+	"globals": {
+		"background": "var(base0)",
+		"foreground": "var(base5)",
+	},
+	"rules": [
+		{
+			"name": "Comment",
+			"scope": "comment",
+			"foreground": "var(blue)"
+		},
+		{
+			"name": "String",
+			"scope": "string",
+			"foreground": "var(green)"
+		},
+		{
+			"name": "Constant",
+			"scope": "constant",
+			"foreground": "var(orange)",
+			"font_style": "italic"
+		},
+		{
+			"name": "Variable",
+			"scope": "variable",
+			"foreground": "var(magenta)",
+			"font_style": "italic"
+		},
+		{
+			"name": "Invalid",
+			"scope": "invalid",
+			"foreground": "var(red)",
+			"font_style": "italic"
+		},
+		{
+			"name":  "Entity",
+			"scope": "entity",
+			"foreground": "var(yellow)",
+			"font_style": "italic"
+		},
+		{
+			"name":  "Markup",
+			"scope": "markup",
+			"foreground": "var(green)",
+			"font_style": "bold"
+		},
+		{
+			"name":  "Meta",
+			"scope": "meta",
+			"foreground": "var(cyan)",
+			"font_style": "italic"
+		},
+		{
+			"name":  "Source",
+			"scope": "source",
+			"foreground": "var(violet)",
+		},
+		{
+			"name":  "Keyword",
+			"scope": "keyword",
+			"foreground": "var(orange)",
+		},
+	]
+}

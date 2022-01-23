@@ -1,0 +1,11 @@
+#!/bin/bash
+FILE=~/.todo.md
+
+
+if [[ "$@" == "" ]] ; then
+	bat -f --paging always --theme ansi-dark -p $FILE
+elif [[ "$1" == "-e" ]]; then
+	vim $FILE
+else
+	echo '* ' "$@" >> $FILE
+fi

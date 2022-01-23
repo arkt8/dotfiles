@@ -1,0 +1,7 @@
+#!/bin/bash
+if [[ "$1" == 'enc' ]]; then 
+	openssl aes-256-cbc -in $2 -out $2.enc
+fi
+if [[ "$1" == 'dec' ]]; then 
+	openssl aes-256-cbc -d -in $2 -out $2.dec
+fi

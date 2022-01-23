@@ -1,0 +1,31 @@
+#!/bin/bash
+
+BUCKET=kxmn-$1
+ROOT_FOLDER=$HOME/s3
+LOCAL_FOLDER=$ROOT_FOLDER/$BUCKET/local
+CACHE_FOLDER=$ROOT_FOLDER/$BUCKET/cache
+REMOTE_FOLDER=$ROOT_FOLDER/$BUCKET/remote
+
+
+case $2 in
+	"umount")
+		fusermount -u $REMOTE_FOLDER;
+		;;
+	"mount")
+		fusermount -u $REMOTE_FOLDER;
+		mkdir -p $LOCAL_FOLDER $CACHE_FOLDER $REMOTE_FOLDER
+		s3fs $BUCKET -o use_cache=$CACHE_FOLDER -o umask=0022 -o multireq_max=5 -o multipart_size=20 -o ensure_diskfree=10000 $REMOTE_FOLDER;
+		;;
+	"get")
+		mount | grep $ROOT_FOLDER/$BUCKET &> /dev/null;
+		if [[ "$?" -eq 0 ]]; then
+			cp -r $REMOTE_FOLDER/conf $LOCAL_FOLDER
+		fi
+		;;
+	"set")
+		mount | grep $ROOT_FOLDER/$BUCKET &> /dev/null;
+		if [[ "$?" -eq 0 ]]; then
+			cp -r $LOCAL_FOLDER/* $REMOTE_FOLDER
+		fi
+		;;
+esac

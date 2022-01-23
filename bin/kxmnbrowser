@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# vivaldi \
+# 	--proxy-server=socks://localhost:12000 \
+# 	--allow-insecure-content \
+# 	--user-data-dir=/home/thadeu/.config/vivaldi-$1
+vivaldi \
+	--allow-insecure-content \
+	--user-data-dir=/home/thadeu/.config/vivaldi-$1

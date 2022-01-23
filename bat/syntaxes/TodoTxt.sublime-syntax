@@ -1,0 +1,69 @@
+%YAML 1.2
+---
+# http://www.sublimetext.com/docs/3/syntax.html
+name: Todo.txt
+file_extensions:
+  - todo.txt
+  - done.txt
+  - .done
+  - .todo
+scope: text.todotxt
+variables:
+  date: ([1-2]\d{3}[-/\\.](0?[1-9]|1[012])[-/\\.](0[1-9]|[12]\d|3[01]))
+  bug: (@[bB][uU][gG]\b)
+  test: (@[tT][eE][sS][tT]\b)
+  feat: (@[fF][eE][aA][tT]\b)
+  think: (@[tT][hH][iI][nN][kK]\b)
+contexts:
+  main:
+    - match: '^\([A]\)'
+      scope: meta.priority.urgent
+
+    - match: '^\([B-C]\)'
+      scope: meta.priority.high
+
+    - match: '^\([D-E]\)'
+      scope: meta.priority.normal
+
+    - match: '^\([F-Z]\)'
+      scope: meta.priority.low
+
+    - match: '(^{{bug}})|(\s{{bug}})'
+      scope: meta.type.bug
+
+    - match: '(^{{test}})|(\s{{test}})'
+      scope: meta.type.test
+
+    - match: '(^{{feat}})|(\s{{feat}})'
+      scope: meta.type.feat
+
+    - match: '(^{{think}})|(\s{{think}})'
+      scope: meta.type.think
+
+    - match: (^\@\S+)|(\s\@\S+)
+      scope: meta.context
+
+
+    - match: (^\+\S+)|(\s\+\S+)
+      scope: meta.project
+
+    - match: ^\s*x\s.*$
+      comment: Done Todo item
+      scope: comment
+
+    - match: '{{date}}'
+      comment: Todo item done or creation date
+      scope: meta.date
+
+    - match: '\b(?i:WAIT)\b'
+      comment: Todo WAIT command
+      scope: meta.wait
+
+    - match: '(\s[^\s:]+:[^\s:]+)*$'
+      comment: Custom attributes
+      scope: meta.custom
+
+    - match: '(?:[^x])((?!\s([@\+])|(due:)|(wait)|({{date}})).)+'
+      comment: Todo item text
+      scope: meta.text
+

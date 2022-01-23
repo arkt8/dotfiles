@@ -1,0 +1,6 @@
+#!/bin/bash
+cd $(git worktree list  --porcelain | grep '^worktree'| cut -d' ' -f2-)
+for i in $(git diff $@| grep '^+++ b/' | sed  's,\+\+\+ b/,,') ; do
+	git difftool HEAD $i;
+done
+cd -

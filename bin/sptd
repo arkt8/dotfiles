@@ -1,0 +1,9 @@
+#!/bin/bash
+sudo pkill -9 sptd
+sudo pkill -9 spotifyd
+while : ; do
+	spotifyd \
+	--autoplay --no-daemon \
+	--config-path=/home/thadeu/.config/spotifyd/config \
+	--cache-path=.cache/spotifyd/ > /dev/null 2>/log/"$USER-spotifyd.log"
+done

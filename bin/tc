@@ -1,0 +1,11 @@
+#!/bin/bash
+set -x
+colors=(
+    "xtermset -bg '#000000' -fg '#338899'"
+    "xtermset -bg '#00060c' -fg '#338899'"
+    "xtermset -bg '#000a05' -fg '#228877'"
+    "xtermset -bg '#0a0005' -fg '#886677'"
+    "xtermset -bg '#180000' -fg '#884444'"
+);
+
+eval ${colors[$1]};

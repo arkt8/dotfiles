@@ -1,0 +1,6 @@
+#!/bin/bash
+FILE=~/.spmark
+echo '================================' >> $FILE
+date +%Y%m%d_%H:%M:%S >> $FILE
+sp current | tee -a $FILE | rofi -i -dmenu -sidebar-mode -l 4 -p 'Spotify'
+

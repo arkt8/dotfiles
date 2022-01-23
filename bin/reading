@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#
+# The list file should have one pdf per line followed by the page
+# where start reading
+#
+if [[ "$1" == "edit" ]] ; then
+	xterm -e vim "$HOME/reading.txt"
+	exit;
+elif  [[ "$1" == "" ]] ; then
+	listfile="$HOME/reading.txt";
+else
+	listfile="$1";
+fi
+dirfiles=$(dirname "$listfile")
+
+tint=FFDDAA
+#tint=CCAABB
+tint=CCAA88
+#tint=CCAABB
+while IFS= read -r line; do
+	if [[ "${line:0:1}" != "#" ]] ; then
+		line="$(sed 's/^\s*//g' <<< $line)"
+		[[ "${line}" != "" ]] && mupdf -C "$tint" -I $line &
+	fi
+done <<< $(cat $listfile| envsubst)

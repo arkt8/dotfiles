@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Clona um único branch
+
+if [[ "$2" == "" ]]; then
+	echo "Clone a single branch..."
+	echo "Usage: git clonebranch branch targetdir"
+	echo "The clone will create a directory with the name of branch"
+	exit
+fi
+
+
+branch="$1"
+shift 1
+git clone -b "$branch" --single-branch "$@" $branch

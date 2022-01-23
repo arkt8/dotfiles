@@ -1,0 +1,109 @@
+#!/usr/bin/env node
+
+const conf = {
+	maxResults:50,
+	user:'tech@kaxamana.com.br',
+	pass:'NulJyA5ybPE5RZz8L2sW206E',
+}
+
+/* * * * * * CODE * * * * * */
+
+
+process.on('uncaughtException', function(err) { console.log(err); } );
+let args = process.argv;
+const INTERPRETER = args.shift();
+const SCRIPT = args.shift()
+const CMD = args.shift() || 'sprint'
+const https = require('https');
+const print = _ => process.stdout.write( _+"\n" );
+
+/*
+ * No Zshell print -rP %F{#ffffff} para fore ou %K para back
+ * para ver a sequência de escape, use print -rP %F{...} | sed -n l
+ */
+let colors = {
+	epic:    "\033[38;2;102;51;255m",
+	bug:     "\033[38;2;238;68;68m",
+	story:   "\033[38;2;34;170;102m",
+	task:    "\033[38;2;51;170;204m",
+	subtask: "\033[38;2;153;136;136m",
+	reset:   "\033[39m",
+	done:    "\033[38;2;68;68;68m",
+}
+
+let command = {
+	sprint : function() {
+		jira.search( 'sprint in openSprints() order by Rank' ).then( _ => fmt.list( _ ) );
+	}
+}
+
+var jira = {
+	search : cond => new Promise( (resolve, reject) => {
+		var req = https.request( {
+			hostname:`kxmndev.atlassian.net`,
+			path:`/rest/api/2/search?jql=${encodeURIComponent(`assignee=currentUser() AND ${cond}`)}&maxResults=${conf.maxResults}&startAt=0`,
+			method: 'GET',
+			headers:{ "Authorization": `Basic ${ Buffer.from( conf.user+':'+conf.pass ).toString("base64") }` }
+		},res => {
+			let data = [];
+			res.on('data', d => {
+				data.push( d.toString() );
+			});
+			res.on('end', d => {
+				data = JSON.parse( data.join(''));
+				resolve(data)
+			});
+		});
+		req.on('error', error => console.error(error) );
+		req.end();
+	} ),
+}
+var fmt = {
+	list: _ => {
+		let width = fmt.line ([
+			'T',
+			'Priority',
+			'Summary',
+			'To',
+			'Reporter',
+			'Project',
+			'Status'
+		]);
+		print( ''.padEnd(width,''));
+		// issueList.forEach( _ => console.log(_.fields) ) // Debug
+		_.issues.forEach( _ => {
+			fmt.line( [
+				colors[_.fields.issuetype.name.toLowerCase()]+(_.fields.status.statusCategory.key == 'done' ? colors.done :''),
+				_.key+' '+_.fields.summary,
+				_.fields.assignee.displayName.substr(0,10).toLowerCase(),
+				_.fields.reporter.displayName.substr(0,10).toLowerCase(),
+				_.fields.project.name,
+				_.fields.status.name,
+			] )
+			if ( _.fields.subtasks.length ) _.fields.subtasks.forEach( _ => {
+				fmt.line( [ ' ', colors.subtask+(_.fields.status.statusCategory.key == 'done' ? colors.done :'')+'   '+_.key+' '+_.fields.summary, ' ', ' ', ' ', ' ' ] )
+			});
+		});
+		print( `\n ${colors.reset} ----- total: ${_.total}` );
+	},
+
+	line: col => {
+		var res = ' '+[
+			col[0],
+			col[1].padEnd( 60 ).substr(0,60),
+			col[2].padEnd( 10 ),
+			col[3].padEnd( 10 ),
+			col[4].padEnd( 15 ),
+			col[5].padEnd( 10 ),
+		].join('   ')+' ';
+		print( res );
+		return res.length;
+	}
+}
+
+
+if ( command[ CMD ] ) {
+	return command[ CMD ](args)
+} else {
+	return Object.keys(command).forEach( _ => print(_) );
+}

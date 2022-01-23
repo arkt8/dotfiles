@@ -1,0 +1,6 @@
+#!/bin/bash
+if [[ "$1" != "" ]];then
+	cp "$1" ~/.config/wallpaper.jpg
+fi
+feh --no-fehbg --bg-fill ~/.config/wallpaper.jpg
+	

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+for i in $(git difflist); do
+	type=$(echo $i | grep -o '\.[^.]\+$')
+
+	case "$type" in
+		'.php')
+			php -l $i;
+			[ $? -gt 0 ] && exit 1;
+		;;
+	esac
+done

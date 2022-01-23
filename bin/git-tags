@@ -1,0 +1,2 @@
+#!/bin/bash
+git tag --format='%(refname:strip=2) %(*subject)'

@@ -1,0 +1,18 @@
+#!/bin/bash
+# pode ser usado como extensão do spacefm
+export DATE=$(date +%Y%m%d)
+export BACKUPDIR=/srv/Kaxamana/Backup/$DATE
+export DRIVEDIR=$(dirname $1)/Drive;
+mkdir -p $DRIVEDIR $BACKUPDIR
+
+for i in "$@"; do 
+
+	export BASENAME=$(basename $i)
+	export BACKUPFILE=$BACKUPDIR/${DATE}_${BASENAME}
+
+	cp $i $BACKUPFILE
+	jpegoptim --strip-all --all-progressive -f $BACKUPFILE
+
+	convert -format "jpg" -density 72x72 -quality 50 -resize 1080x $i $DRIVEDIR/$BASENAME
+	jpegoptim --strip-all --all-progressive -f $DRIVEDIR/$BASENAME
+done

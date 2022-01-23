@@ -1,0 +1,9 @@
+#!/bin/bash
+set -x
+# Copy file creating target path if needed
+dest="${@: -1}"
+
+mkdir -p $(dirname $dest)
+cp $@
+
+

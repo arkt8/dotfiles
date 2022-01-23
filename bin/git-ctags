@@ -1,0 +1,40 @@
+#!/bin/bash
+set -x
+cd $GIT_PROJECT_DIR
+
+function gen_ctags() {
+    mkdir -p $1
+
+    ctags \
+        --languages=javascript \
+        --tag-relative=no \
+        --verbose=no \
+        --exclude=*.min.js \
+        --exclude=*.css \
+        --exclude=*.php \
+        --exclude=*.html \
+        --exclude=*wp-admin* \
+        -f $1/javascript.tags -R .
+
+    ctags \
+        --languages=lua -R \
+        --tag-relative=no \
+        --verbose=no \
+        -f $1/lua.tags -R .
+
+    ctags \
+        --languages=php \
+        --tag-relative=no \
+        --verbose=no \
+        -f $1/php.tags -R .
+
+    ctags \
+        --languages=python \
+        --tag-relative=no \
+        --verbose=no \
+        -f $1/python.tags -R .
+
+}
+
+gen_ctags $GIT_PROJECT_DIR/.git/project/tags
+cd -

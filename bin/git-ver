@@ -1,0 +1,54 @@
+#!/bin/bash
+
+cmd=$1
+shift
+realm='_gitver_cmd_'
+
+
+_gitver_cmd_mk() {
+	tag=$( echo $1 | sed 's/^[^0-9]*/v/g' )
+	shift
+	git fetch origin &&\
+	if [[ "$1" == '--' ]]; then
+		git tag $tag
+	else
+		git tag -a $tag $@
+	fi && \
+	git push origin $tag $@
+}
+
+_gitver_cmd_rm() {
+	git tag -d $@ && git push origin :${@/ v/ :v/}
+}
+
+_gitver_cmd_ls() {
+	git tag | sort -V | tail -n1;
+}
+
+_gitver_cmd_help() {
+	_listcmd
+}
+
+_default() {
+	_gitver_cmd_ls
+}
+
+# Common part for scripts
+_listcmd() {
+	for i in "$(declare -F |grep "declare -f $realm")" ; do
+		echo "${i//declare -f $realm/}";
+	done
+}
+
+_hascmd() {
+	count=$(declare -F | grep "declare -f $realm$1" -c)
+	[[ $count -ne 1 ]] && return 1
+	return 0
+}
+
+
+if [[ "$cmd" != "" ]] && _hascmd $cmd ; then
+	"${realm}${cmd}" $@
+else
+	_default
+fi

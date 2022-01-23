@@ -1,0 +1,71 @@
+#!/bin/bash
+export DBFILE
+DBFILE=$(dirname $0)'/.'$(basename $0)'.db';
+
+function Q {
+	query=''; while (( "$#" )); do query="$query\n$1"; shift; done;
+	echo -e $query | sqlite3 $DBFILE
+} 
+function Conf {
+	q='CREATE TABLE IF NOT EXISTS timetrack (date integer,ts integer, type text);';
+	Q "$q";
+}
+
+function Add {
+	if [[ "$1" != "in" && "$1" != "out" ]]; then echo "Err"; exit 1; fi
+	if [[ -z "$3" ]]; then
+		day=$(date +%Y-%m-%d);
+		time=$(date +%H:%M):00;
+	else
+		day=$2;
+		time=$3:00 ;
+	fi
+	Q "INSERT INTO timetrack (date,ts,type) VALUES (
+		'"$(date +%Y-%m-%d --date="$day $time")"',
+		'"$(date +%s --date="$day $time")"',
+		'"$1"'
+	);";
+}
+function List {
+	clear;
+	Q ".separator '......'\n
+	   SELECT date as 'data',
+	   GROUP_CONCAT(type||':'||time(ts,'unixepoch','localtime'),' .. ') as x
+	   FROM timetrack GROUP BY date;"
+	echo '-------------------------------';
+	Q "CREATE TEMPORARY TABLE dailysum (date integer, tssum integer, type text);\n
+	   CREATE TEMPORARY TABLE totalsum (date integer, tssum integer);\n
+	   INSERT INTO dailysum (date,tssum,type) SELECT date, sum(ts),type FROM timetrack GROUP BY date,type;\n
+       INSERT INTO totalsum (date,tssum) SELECT date, tsminutes FROM
+	   (SELECT sumin.date, (sumout.tssum - sumin.tssum)  as tsminutes FROM
+		(SELECT date,tssum FROM dailysum WHERE type='in') as sumin,
+		(SELECT date,tssum FROM dailysum WHERE type='out') as sumout
+		WHERE sumin.date = sumout.date GROUP BY sumin.date
+	   ) as tscalc;\n
+	   SELECT date, strftime('%Hh %Mm',tssum,'unixepoch') FROM totalsum ORDER BY DATE;\n
+	   CREATE TEMPORARY TABLE extratime (time float);\n
+	   INSERT INTO extratime (time) SELECT cast((sum(tssum)-(8*3600*sum(1))) as float)/3600 FROM totalsum;\n
+	   SELECT 'Horas extras', cast(time as integer) || ':' || cast((time-cast(time as integer))*60 as integer),'('||time||')' FROM extratime;\n"
+
+}
+
+function Clear {
+	if [[ -z "$1" ]] ; then
+		Q "DELETE FROM timetrack;";
+	else
+		Q "DELETE FROM timetrack WHERE date='"$1"';";
+	fi;
+}
+
+# Retorna formato YYYY-MM-DD HH:MM:SS
+# SELECT datetime(strftime('%s'),'unixepoch','localtime');
+
+Conf;
+case "$1" in
+	"in"|"out") Add $1 $2 $3;;
+	"clear") Clear;;
+	*) List;;
+	
+esac
+
+# vim: set foldmethod=marker foldenable foldmarker={,}

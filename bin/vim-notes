@@ -1,0 +1,7 @@
+#!/bin/bash
+pkill -9 yeahconsole
+color="hybrid_material"
+path="$HOME/Notes"
+cd $path
+yeahconsole -e 'vim -c "colorscheme '$color' | hi Folded guibg=NONE" -c "set laststatus=0 colorcolumn=80" -- ./todo.txt' &
+

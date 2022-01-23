@@ -1,0 +1,42 @@
+#!/bin/bash
+export cheatDir=$HOME/.dotfiles/cheatsheet/
+
+sel() {
+	res=$(ls $cheatDir | rofi -i -dmenu -p "cheat > ")
+	if [[ "$res" == "edit" ]]; then edit; exit; fi
+	if [[ "$res" == "q" ]] ; then exit; fi
+	if [[ "$res" == "" ]] ; then exit; fi
+#	show "$res"
+	
+}
+
+# -i = case insensitive fuzzy search
+show() {
+	res=$(cat $cheatDir$@ |\
+		sed '
+			/^\s*$/d;
+			s|\t\+|¬¬<small>|;
+			s|\s\+:\([a-zA-Z0-9_~-]\+\):\s*$| <sup>\1</sup>|;
+			s|$|</small>|;
+		' |\
+		column -t -s'¬¬' |\
+		rofi -dmenu -i -p "$@ > " -markup-rows \
+	)
+
+	if [[ "$res" == "edit" ]]; then edit "$@"; exit; fi
+	if [[ "$res" == "q" ]] ; then exit; fi
+	if [[ "$res" == "" ]] ; then exit; fi
+	sel
+
+}
+
+edit() {
+	local f="$cheatDir$@"
+	if [[ -t 0 ]] ; then
+		editor "$f" ;
+	else
+		x-terminal-emulator -e nvim "$f" ;
+	fi
+}
+
+if [[ "$1" == '-e' ]] ; then edit; else sel ; fi

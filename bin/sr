@@ -1,0 +1,28 @@
+#!/bin/bash
+declare -A CMDS;
+
+if [[ "$1" == "mem" ]]; then
+	shift;
+	smem -tk -c pss -P '^[^ ]+'$@ | tail -n1
+	exit;
+fi;
+
+CMDS['obsidian']="-p MemoryHigh=400M -p MemoryMax=500M /usr/local/bin/obsidian"
+CMDS['telegram']="-p MemoryHigh=400M -p MemoryMax=500M /home/thadeu/.local/bin/Telegram/Telegram"
+CMDS['firefox']="-p MemoryHigh=400M -p MemoryMax=600M /usr/local/bin/firefox"
+CMDS['vivaldi']="-p MemoryHigh=1000M -p MemoryMax=1200M vivaldi"
+CMDS['vivaldi']="-p MemoryHigh=1000M -p MemoryMax=1200M vivaldi"
+CMDS['startx']="-p MemoryHigh=500M -p MemoryMax=600M /usr/bin/startx"
+
+if [[ "${CMDS[$1]}" != "" ]]; then
+	systemd-run --user --no-block ${CMDS[$1]} $@ > /dev/null 2>/dev/null
+fi
+
+
+# Ajuda:
+# parâmtros: -p / --property
+# os valores possíveis estão documentados em `man 5 systemd.resource-control`
+#
+# Alguns deles:
+# MemoryHigh=1000M (limita suavemente)
+# MemoryMax=1200M  (limite máximo absoluto)
