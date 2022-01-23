@@ -55,6 +55,8 @@ color_medium="7"
 color_dark="8"
 color_darker="8"
 color_black="0"
+color_fg_ok="#00cc33"
+color_fg_err="#ff3300"
 
 
 PROMPT_git () {
@@ -80,7 +82,7 @@ PROMPT_jobs() {
 PROMPT::setup () {
 	if [[ "$TERM" != "dumb" ]]; then
 			PS1="%F{${color_darker}} %D{%T  %Y.%m.%d  %A}
-%(?.%F{$color_fg_ok}%B OK%b «.%F{$color_fg_err}%? ×) %f%B%n%b%F{${color_medium}} @ %f%B%m%b %F{$color_medium}%~%f %B
+%(?.%F{$color_fg_ok}%B OK%b «.%F{$color_fg_err}%B%? ×%B) %f%B%n%b%F{${color_medium}} @ %f%B%m%b %F{$color_medium}%~%f %B
 >%b "
 			RPS1='$(PROMPT_git 2> /dev/null)$(PROMPT_jobs)%f%k'
 	else
