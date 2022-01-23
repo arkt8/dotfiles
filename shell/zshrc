@@ -1,0 +1,95 @@
+. $HOME/.profile
+
+# Set up the prompt
+
+setopt histignorealldups
+setopt GLOB_STAR_SHORT
+
+# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.zsh_history
+
+for d in ~/.dotfiles/shell/{sh,zsh}; do
+	[[ -d "$d" ]] && for f in "${d}"/*.sh; do source "$f" ; done
+done
+
+# Use modern completion system
+autoload -Uz compinit
+compinit
+
+zstyle ':completion:*' auto-description 'specify: %d'
+zstyle ':completion:*' completer _expand _complete _correct _approximate
+zstyle ':completion:*' format 'Completing %d'
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' menu select=2
+#eval "$(dircolors -b)"
+#zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
+#zstyle ':completion:*' list-colors ''
+zstyle ':completion:*' list-colors
+zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
+zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
+zstyle ':completion:*' menu select=long
+zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
+zstyle ':completion:*' use-compctl false
+zstyle ':completion:*' verbose true
+
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
+zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
+
+## Key Bindings
+bindkey -v
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd v edit-command-line
+bindkey  history-incremental-pattern-search-backward
+bindkey "^[[1;5C" vi-forward-word
+bindkey "^[[1;5D" vi-backward-word
+
+## PROMPT
+
+color_white="7"
+color_light="15"
+color_medium="7"
+color_dark="8"
+color_darker="8"
+color_black="0"
+
+
+PROMPT_git () {
+	local ref="$(git rev-parse --abbrev-ref HEAD)"
+	if [[ ! -n "$ref" ]] ; then exit; fi
+
+	local up="$(git log --right-only @{upstream}...HEAD 2>/dev/null)"
+	local down="$(git log --left-only @{upstream}...HEAD 2>/dev/null)"
+	local mod="$(git status --porcelain)"
+	local stash="$(git rev-parse --quiet --verify refs/stash 2>/dev/null)"
+	local st="" color=$color_fg_ok
+	[[ ${#mod} -gt 0 ]] && st=" * " color=$color_fg_err
+	[[ ${#up} -gt 0 ]] && st=" ↑ " color=$color_fg_warn
+	[[ ${#down} -gt 0 ]] && st=" ↓ " color=$color_fg_warn
+	[[ ${#stash} -gt 0 ]] && st=" ! " color=$color_fg_warn
+	echo -n "%f%k %K{${color}}%F{#000000}%B ${ref} %b%f%k%K{0}%F{$color}${st}%f%k"
+}
+PROMPT_jobs() {
+	jobs=(${(f)"$(jobs)"})
+	echo -n '%k %F{'$color_fg_warn'}'${#jobs}' '
+}
+
+PROMPT::setup () {
+	if [[ "$TERM" != "dumb" ]]; then
+			PS1="%F{${color_darker}} %D{%T  %Y.%m.%d  %A}
+%(?.%F{$color_fg_ok}%B OK%b «.%F{$color_fg_err}%? ×) %f%B%n%b%F{${color_medium}} @ %f%B%m%b %F{$color_medium}%~%f %B
+>%b "
+			RPS1='$(PROMPT_git 2> /dev/null)$(PROMPT_jobs)%f%k'
+	else
+			PS1="%(?..[%?] )%n@%m:%~> " 
+	fi
+}
+setopt prompt_subst transientrprompt
+prompt_opts=(cr percent subst)
+PROMPT::setup "$@"
+plugins=(git sshagent)
+
+alias luamake=/home/thadeu/git/lua-language-server/3rd/luamake/luamake

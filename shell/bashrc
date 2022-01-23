@@ -1,0 +1,93 @@
+. $HOME/.profile
+
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+set -o vi
+
+# If not running interactively, don't do anything
+case $- in
+    *i*) ;;
+      *) return;;
+esac
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+HISTSIZE=1000
+HISTFILESIZE=2000
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+#shopt -s checkwinsize
+export LINES=
+
+# If set, the pattern "**" used in a pathname expansion context will
+# match all files and zero or more directories and subdirectories.
+shopt -s globstar
+
+# make less more friendly for non-text input files, see lesspipe(1)
+#[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+function _PROMPT_return() {
+	[ $1 -ne 0 ] && echo -e "\\e[31;1m${1}\\e[31m⏎ " || echo -en "\\e[32;1mOK\\e[32m ⏎ "
+	[ "$USER" == "root"  ] && echo -en "\\e[33;1m" || echo -en "\\e[0;1m"
+}
+export PS1="\`_PROMPT_return \$?\` \u\e[0;2m @ \e[0;1m\h\[\e[0;2m \w\e[0m \n > "
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+fi
+
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
+if [ -f ~/.dotfiles/shell/aliases ]; then
+    . ~/.dotfiles/shell/aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if ! shopt -oq posix; then
+  if [ -f /usr/share/bash-completion/bash_completion ]; then
+    . /usr/share/bash-completion/bash_completion
+  elif [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+  fi
+fi
+complete -C aws_completer  aws
+for d in ~/.dotfiles/shell/{sh,bash}; do
+	[[ -d "$d" ]] && for f in "${d}"/*.sh; do source "$f" ; done
+done
+# complete -W "$(md -help)" md
+
+export _pmpt_err="\\e[38;5;197"
+export _pmpt_ok="\\e[38;5;36"
+export _pmpt_fg="\\e[38;2;197;172;152"
+export _pmpt_="\\e[48;2;0;38;51m${_pmpt_fg}"
+function _PROMPT_return() {
+	echo
+  [ $1 -ne 0 ] \
+	&& echo -en "${_pmpt_err};1m${1}${_pmpt_err};1m⤶ "\
+	|| echo -en "${_pmpt_ok};1mOK${_pmpt_ok};1m ⤶ "
+}
+export PS1="\`_PROMPT_return \$?\`${_pmpt_};1m \u\e[0m${_pmpt_};2m @ \e[0m${_pmpt_};1m\h \e[0m${_pmpt_fg};2m \w\e[0m \n > "

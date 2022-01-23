@@ -1,0 +1,22 @@
+#!/bin/sh
+
+cd "$HOME/haskell/exercises/FromFirstPrinciples"
+SESSION=$(basename $0)
+
+# W1
+tmux new-session -d -s $SESSION -n Dev
+tmux select-pane -T ""
+tmux set pane-border-status off  # no pane title here
+
+# W2
+tmux new-window -n Tool "stack ghci"
+tmux select-pane -T GHCI
+tmux split-window -v
+tmux select-pane -T Build
+
+# W3
+tmux new-window -n Doc "hdc"
+tmux select-window -t 1
+tmux attach -t $SESSION
+
+# vim: filetype=tmux
