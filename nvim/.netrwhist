@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =2
+let g:netrw_dirhist_2='/kxmn/loja/fs/srv/bin'
+let g:netrw_dirhist_1='/home/thadeu/.dotfiles/nvim'
+let g:netrw_dirhist_0='/kxmn/loja/fs/srv/lib/wp/css'
+let g:netrw_dirhist_9='/kxmn/loja/fs/srv/lib/lua/kxmn'
+let g:netrw_dirhist_8='/kxmn/loja/fs/srv/lib/lua/kxmn/ws'
+let g:netrw_dirhist_7='/kxmn/loja/fs/srv/lib/lua/kxmn'
+let g:netrw_dirhist_6='/kxmn/loja/fs/srv/lib/lua/kxmn/ws'
+let g:netrw_dirhist_5='/kxmn/loja/fs/srv/lib/lua/kxmn'
+let g:netrw_dirhist_4='/kxmn/loja/fs/srv/lib/lua/kxmn/ws'
+let g:netrw_dirhist_3='/kxmn/loja/fs/srv/lib/lua/kxmn'

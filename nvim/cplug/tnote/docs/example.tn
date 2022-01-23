@@ -1,0 +1,29 @@
+# This is a title
+
+This is a regular text and #this is a tag
+And `a piece of code` for simple examples...
+
+Both #tag and < some relation > indicates that this
+content has <reference> to some other part.
+
+## Accepted formatting
+
+*bold*
+_italic_
+~strike~
+:: this is a coment
+and after all you can need a :: comment too
+<related> Indicates this data is linked to some other thing
+#tag serves to indicate either an ID or single word reference
+
+* lists serve
+	* to nest
+		* Ideas
+
+blocks indicating verbatim, code or preformated:
+
+	 This is an entire coding (after a tab or more plus one space)
+
+But be careful, aware of folding by ident
+
+
