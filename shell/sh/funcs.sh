@@ -32,15 +32,6 @@ termux() {
 	fi
 }
 
-# Finds tmux scripts
-tm () {
-	tmfiles=$HOME/.dotfiles/shell/tmux
-	if [[ "$1" == '' ]]; then
-		ls $tmfiles
-	else
-		tmux attach -t "$@" || "$tmfiles/$@"
-	fi
-}
 
 backlight() {
 	if [[ $1 -gt 30 ]]; then

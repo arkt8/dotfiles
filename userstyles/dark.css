@@ -19,28 +19,31 @@
     --color13: #e20106;
     --color14: #2d4b5f;
     --color15: #ffdcb5;
-		/* Copy 0~15 from ~/.cache/wal/colors.css */
-		/* --my_bg: var(--color0); */
-		--my_bg: #000000;
-		--my_fg: #ffdcb5;
-		--my_tone1: var(--color5);
-		--my_tone2: var(--color2);
-		--my_tone3: var(--color3);
-		--my_detail: var(--color1);
-		--my_link:   var(--color4);
-		--my_edit_bg: #202020;
-		--my_pre_fg: var(--color2);
-		--my_pre_bg: #202020;
-		--font-sans:"Terminus (TTF)";
-		--font-serif: "Terminus (TTF)";
-		--font-mono:  "Terminus (TTF)";
-		/*--font-sans:  "Victor Mono Light";
-		--font-serif: "Victor Mono Light";
-		--font-mono:  "Victor Mono Light";*/
-		--my_button_fg: var(--color0);
-		--my_button_bg: var(--color6);
-		--my_fontsize: 20px;
+	/* Copy 0~15 from ~/.cache/wal/colors.css */
+	/* --my_bg: var(--color0); */
+	--my_bg: #000000;
+	--my_fg: #ffdcb5;
+	--my_tone1: var(--color5);
+	--my_tone2: var(--color2);
+	--my_tone3: var(--color3);
+	--my_detail: var(--color1);
+	--my_link:   var(--color4);
+	--my_edit_bg: #202020;
+	--my_pre_fg: var(--color2);
+	--my_pre_bg: #202020;
+	--font-sans:"Terminus (TTF)";
+	--font-serif: "Terminus (TTF)";
+	--font-mono:  "Terminus (TTF)";
+	/*--font-sans:  "Victor Mono Light";
+	--font-serif: "Victor Mono Light";
+	--font-mono:  "Victor Mono Light";*/
+	--my_button_fg: var(--color0);
+	--my_button_bg: var(--color6);
+	--my_fontsize: 20px;
 	}
+}
+@-moz-document regexp("^https://github.com/.*") {
+.color-bg-default { background-color: var(--my_bg)!important; }
 }
 
 @-moz-document regexp("^(view-source):.*") {
@@ -48,6 +51,8 @@
 *:before {background:#4e4e4e!important;color:#ffdcb5!important}
 pre {white-space:pre-wrap!important;line-height:1.5rem;max-width:90vw}
 }
+
+
 @-moz-document regexp("^(https?|file|luakit):.*") {
 	/** Possibly causes problem... added date comment **/
 	iframe { display:none!important } /* 2021-08-13 */

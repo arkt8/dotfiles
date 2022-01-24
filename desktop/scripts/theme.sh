@@ -34,7 +34,7 @@ xthemes() {
 	$(cat ~/.cache/wal/colors.sh | grep = | grep 'fore\|back\|color' | sed "s/^/export /g;s/['\"]//g")
 	echo $background
 	cat $WAL/colors.Xresources $tpl | envsubst >$file
-	cat $DESK/templates/dark.css | envsubst > $HOME/.dotfiles/userstyles/dark.css
+	cat $DESK/templates/dark.css | envsubst > $HOME/.config/dotfiles/userstyles/dark.css
 	cat $DESK/templates/luakit-theme.lua |envsubst > $HOME/.config/luakit/theme.lua
 	cat $DESK/xresources/* > $HOME/.Xdefaults
 }

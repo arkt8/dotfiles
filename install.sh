@@ -6,7 +6,9 @@ $lnd $CWD/shell/profile        $HOME/.profile
 $lnd $CWD/shell/bashrc         $HOME/.bashrc
 $lnd $CWD/shell/zshrc          $HOME/.zshrc
 $lnd $CWD/shell/source/aliases $HOME/.bash_aliases
-$lnd $CWD/tmux.conf            $HOME/.tmux.conf
+
+$lnd $CWD/tmux/tmux.conf       $HOME/.tmux.conf
+$lnd $CWD/tmux                 $HOME/.config/tmux
 
 # Desktop
 $lnd $CWD/X/screenlayout $HOME/.screenlayout
