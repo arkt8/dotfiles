@@ -1,6 +1,6 @@
 #!/bin/sh
 
-cd "$HOME/haskell/exercises/FromFirstPrinciples"
+cd "$HOME/haskell/haskell-exercises/books/hpffp"
 SESSION=$(basename $0)
 
 # W1

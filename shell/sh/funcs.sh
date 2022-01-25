@@ -18,7 +18,7 @@ kxmn_dev() { termux kxmn-dev "$@"; }
 
 termux() {
 	host="$1"
-	key=~/.ssh/kxmn-termux-key
+	key=~/.ssh/keys/kxmn-termux-key
 	shift 1
 	if [[ "$1" == 'push' ]] ; then
 		shift 1

@@ -1,0 +1,10 @@
+. $HOME/.dotfiles/sh/src.d/*
+
+_psok(){
+	if [[ "$?" == "0" ]];
+	then echo -e '\e[1;32m$> \e[0m'
+	else echo -e '\e[1;31m$> \e[0m'
+	fi
+}
+
+PS1='\[\e[0;37m\]Trmx \[\e[0m\]`_psok`'

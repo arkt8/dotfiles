@@ -1,4 +1,4 @@
-#!/bin/bash
+	#!/bin/bash
 CWD=$(realpath $(dirname $0))
 export lnd='ln -nsfv'
 # Shell

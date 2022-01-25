@@ -10,7 +10,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-for d in ~/.dotfiles/shell/{sh,zsh}; do
+for d in ~/.config/dotfiles/shell/{sh,zsh}; do
 	[[ -d "$d" ]] && for f in "${d}"/*.sh; do source "$f" ; done
 done
 
