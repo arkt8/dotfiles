@@ -12,9 +12,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.zsh_history
 
-for d in ~/.config/dotfiles/shell/{sh,zsh}; do
-	[[ -d "$d" ]] && for f in "${d}"/*.sh; do source "$f" ; done
-done
 
 # Use modern completion system
 autoload -Uz compinit
@@ -96,4 +93,5 @@ prompt_opts=(cr percent subst)
 PROMPT::setup "$@"
 plugins=(git sshagent)
 
-alias luamake=/home/thadeu/git/lua-language-server/3rd/luamake/luamake
+for f (~/.config/dotfiles/shell/sh/**) . $f
+for f (~/.config/dotfiles/shell/zsh/**) . $f

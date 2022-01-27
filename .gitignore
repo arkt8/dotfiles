@@ -1,2 +1,3 @@
 rofi/cache/**
-wal/colors.*
+wal/**
+!wal/colors/**

@@ -289,7 +289,6 @@ find -L "$loc" -mindepth 1 -type d -a \( -name ".*" -prune -o -printf '%P\n' \)
     fi
 }
 
-
 # Huffman (remove this paragraph, or just alias "a" yourself)
 if ! apx_silent command -v a; then
     alias a='apparish'

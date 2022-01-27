@@ -1,36 +1,36 @@
 
 @-moz-document regexp(".*") {
 	:root {
-	--background: #000000;
-	--foreground: #ffdcb5;
-    --color0:  #202020;
-    --color1:  #df1902;
-    --color2:  #3a7475;
-    --color3:  #df6601;
-    --color4:  #1c575b;
-    --color5:  #b4060a;
-    --color6:  #253749;
-    --color7:  #cab399;
-    --color8:  #4e4e4e;
-    --color9:  #ff3902;
-    --color10: #40a1a3;
-    --color11: #ff8601;
-    --color12: #1d8188;
-    --color13: #e20106;
-    --color14: #2d4b5f;
-    --color15: #ffdcb5;
+	--background: #171717;
+	--foreground: #dedacf;
+    --color0:  #000000;
+    --color1:  #ff615a;
+    --color2:  #b1e969;
+    --color3:  #ebd99c;
+    --color4:  #5da9f6;
+    --color5:  #e86aff;
+    --color6:  #82fff7;
+    --color7:  #dedacf;
+    --color8:  #313131;
+    --color9:  #f58c80;
+    --color10: #ddf88f;
+    --color11: #eee5b2;
+    --color12: #a5c7ff;
+    --color13: #ddaaff;
+    --color14: #b7fff9;
+    --color15: #ffffff;
 	/* Copy 0~15 from ~/.cache/wal/colors.css */
 	/* --my_bg: var(--color0); */
-	--my_bg: #000000;
-	--my_fg: #ffdcb5;
+	--my_bg: #171717;
+	--my_fg: #dedacf;
 	--my_tone1: var(--color5);
 	--my_tone2: var(--color2);
 	--my_tone3: var(--color3);
 	--my_detail: var(--color1);
 	--my_link:   var(--color4);
-	--my_edit_bg: #202020;
+	--my_edit_bg: #000000;
 	--my_pre_fg: var(--color2);
-	--my_pre_bg: #202020;
+	--my_pre_bg: #000000;
 	--font-sans:"Terminus (TTF)";
 	--font-serif: "Terminus (TTF)";
 	--font-mono:  "Terminus (TTF)";
@@ -47,8 +47,8 @@
 }
 
 @-moz-document regexp("^(view-source):.*") {
-* {background:#000000!important;color:#ffdcb5!important;font-size:16px}
-*:before {background:#4e4e4e!important;color:#ffdcb5!important}
+* {background:#171717!important;color:#dedacf!important;font-size:16px}
+*:before {background:#313131!important;color:#dedacf!important}
 pre {white-space:pre-wrap!important;line-height:1.5rem;max-width:90vw}
 }
 
@@ -69,12 +69,12 @@ pre {white-space:pre-wrap!important;line-height:1.5rem;max-width:90vw}
 		-o-transition-property: none !important; -moz-transition-property: none !important; -ms-transition-property: none !important; -webkit-transition-property: none !important; transition-property: none !important;
 		-o-transform: none !important; -moz-transform: none !important; -ms-transform: none !important; -webkit-transform: none !important; transform: none !important;
 		-webkit-animation: none !important; -moz-animation: none !important; -o-animation: none !important;		-ms-animation: none !important; animation: none !important;
-		outline-color: #3a7475!important;
-		border-color: #3a7475!important;
-		border-top: #3a7475!important;
-		border-left:#3a7475!important;
-		border-right:#3a7475!important;
-		border-bottom:#3a7475!important;
+		outline-color: #b1e969!important;
+		border-color: #b1e969!important;
+		border-top: #b1e969!important;
+		border-left:#b1e969!important;
+		border-right:#b1e969!important;
+		border-bottom:#b1e969!important;
 		transition:none!important;
 	}
 	div,ul,ol,nav,header,footer,aside,section,article,picture,img,image,video,button {

@@ -6,29 +6,29 @@ configuration {
 }
 
 * {
-	bg: #000000;
-	fg: #ffdcb5;
-	accent: #b4060a;
+	bg: #171717;
+	fg: #dedacf;
+	accent: #e86aff;
 	urgent: #ff8800aa;
-	alt:#df1902;
-	selected: #3a7475;
-	active: #b4060a;
-	color0: #202020;
-	color1: #df1902;
-	color2: #3a7475;
-	color3: #df6601;
-	color4: #1c575b;
-	color5: #b4060a;
-	color6: #253749;
-	color7: #cab399;
-	color8: #4e4e4e;
-	color9: #ff3902;
-	color10: #40a1a3;
-	color11: #ff8601;
-	color12: #1d8188;
-	color13: #e20106;
-	color14: #2d4b5f;
-	color15: #ffdcb5;
+	alt:#ff615a;
+	selected: #b1e969;
+	active: #e86aff;
+	color0: #000000;
+	color1: #ff615a;
+	color2: #b1e969;
+	color3: #ebd99c;
+	color4: #5da9f6;
+	color5: #e86aff;
+	color6: #82fff7;
+	color7: #dedacf;
+	color8: #313131;
+	color9: #f58c80;
+	color10: #ddf88f;
+	color11: #eee5b2;
+	color12: #a5c7ff;
+	color13: #ddaaff;
+	color14: #b7fff9;
+	color15: #ffffff;
 }
 
 #window {
