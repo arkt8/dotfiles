@@ -1,10 +1,17 @@
 #!/bin/bash
 CWD=$(realpath $(dirname $0))
 BIN=$PREFIX/bin
+TERMUXDIR=$HOME/.termux
 
-export lnd='ln -nsfv' 
+mkdir -p $BIN $TERMUXDIR
 
-$lnd $CWD/sh/bashrc $HOME/.bashrc
-$lnd $CWD/colors $HOME/.termux/colors
-$lnd $CWD/termux.properties $HOME/.termux/termux.properties
+inst() {
+	rm -rf $2
+	mkdir -p "$(dirname "$2")"
+	ln -nsfv "$1" "$2"
+}
+
+inst $CWD/sh/bashrc $HOME/.bashrc
+inst $CWD/colors $TERMUXDIR/colors
+inst $CWD/termux.properties $TERMUXDIR/termux.properties
 

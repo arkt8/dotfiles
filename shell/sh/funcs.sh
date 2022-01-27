@@ -28,7 +28,7 @@ termux() {
 		shift 1
 		scp -P 8022 -i $key "$x$host:$1" "$2"
 	else
-		TERM=xterm-256color ssh -p 8022 -i ${key} x@$host
+		TERM=xterm-256color ssh -X -p 8022 -i ${key} x@$host
 	fi
 }
 
@@ -40,4 +40,7 @@ backlight() {
 		cat /sys/class/backlight/intel_backlight/max_brightness
 	fi
 }
+
+
+rgl() { rg -p "$@" | less -r; }
 

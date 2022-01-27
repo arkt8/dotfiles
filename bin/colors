@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in {0..255};
+	do echo -en "$(tput setaf $i)####$i\t"
+	[[ $(($i % 6)) == 0 ]] && echo ""
+done
+

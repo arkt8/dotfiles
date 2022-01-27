@@ -1,5 +1,7 @@
 . $HOME/.profile
 
+bindkey '\t' menu-complete
+
 # Set up the prompt
 
 setopt histignorealldups
@@ -55,8 +57,8 @@ color_medium="7"
 color_dark="8"
 color_darker="8"
 color_black="0"
-color_fg_ok="#00cc33"
-color_fg_err="#ff3300"
+color_fg_ok="42"
+color_fg_err="197"
 
 
 PROMPT_git () {
@@ -67,21 +69,21 @@ PROMPT_git () {
 	local down="$(git log --left-only @{upstream}...HEAD 2>/dev/null)"
 	local mod="$(git status --porcelain)"
 	local stash="$(git rev-parse --quiet --verify refs/stash 2>/dev/null)"
-	local st="" color=$color_fg_ok
-	[[ ${#mod} -gt 0 ]] && st=" * "   color='#aa0044'
-	[[ ${#up} -gt 0 ]] && st=" ↑ "    color='#aa0044'
-	[[ ${#down} -gt 0 ]] && st=" ↓ "  color='#aa4400'
-	[[ ${#stash} -gt 0 ]] && st=" ! " color='#aa8800'
-	echo -n "%f%k %K{${color}}%F{#000000}%B ${ref} %b%f%k%K{0}%F{$color}${st}%f%k"
+	local st="" color=$color_fg_ok bcolor=235
+	[[ ${#mod} -gt 0 ]] && st=" * "   color='197' bcolor=217
+	[[ ${#up} -gt 0 ]] && st=" ↑ "    color='208' bcolor=228
+	[[ ${#down} -gt 0 ]] && st=" ↓ "  color='220' bcolor=231
+	[[ ${#stash} -gt 0 ]] && st=" ! " color='38'  bcolor=123
+	echo -n "%f%k %K{${color}}%F{233}%B ${ref} %b%f%k%K{234}%F{$bcolor}${st}%f%k"
 }
 PROMPT_jobs() {
 	jobs=(${(f)"$(jobs)"})
-	echo -n '%k %F{'$color_fg_warn'}'${#jobs}' '
+	echo -n '%K{236} %F{'$color_white'}'${#jobs}' %k'
 }
 
 PROMPT::setup () {
 	if [[ "$TERM" != "dumb" ]]; then
-			PS1="%F{${color_darker}} %D{%T  %Y.%m.%d  %A}
+			PS1="%F{${color_darker}}%B %D{%T  %Y.%m.%d  %A}
 %(?.%F{$color_fg_ok}%B OK%b «.%F{$color_fg_err}%B%? ×%B) %f%B%n%b%F{${color_medium}} @ %f%B%m%b %F{$color_medium}%~%f %B
 >%b "
 			RPS1='$(PROMPT_git 2> /dev/null)$(PROMPT_jobs)%f%k'
