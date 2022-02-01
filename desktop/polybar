@@ -167,7 +167,7 @@ click-left = /home/thadeu/.config/rofi/apps/docker
 [module/weather]
 type = custom/script
 exec = /home/thadeu/.bin/weather --oneline
-interval = 1800
+interval = 1200
 label = "%output%"
 label-foreground = ${theme.color-primary}
 click-left = /home/thadeu/.bin/weather
