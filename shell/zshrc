@@ -71,7 +71,7 @@ PROMPT_git () {
 	[[ ${#up} -gt 0 ]] && st=" ↑ "    color='208' bcolor=228
 	[[ ${#down} -gt 0 ]] && st=" ↓ "  color='220' bcolor=231
 	[[ ${#stash} -gt 0 ]] && st=" ! " color='38'  bcolor=123
-	echo -n "%f%k %K{${color}}%F{233}%B ${ref} %b%f%k%K{234}%F{$bcolor}${st}%f%k"
+	echo -n "%f%k %K{${color}}%F{233} ${ref} %b%f%k%K{234}%F{$bcolor}${st}%f%k"
 }
 PROMPT_jobs() {
 	jobs=(${(f)"$(jobs)"})

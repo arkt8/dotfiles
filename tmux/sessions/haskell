@@ -1,6 +1,5 @@
 #!/bin/sh
 
-cd "$HOME/haskell/haskell-exercises/books/hpffp"
 SESSION=$(basename $0)
 
 # W1
@@ -10,13 +9,14 @@ tmux set pane-border-status off  # no pane title here
 
 # W2
 tmux new-window -n Tool "stack ghci"
-tmux select-pane -T GHCI
+tmux select-pane -T "GHCI"
 tmux split-window -v
-tmux select-pane -T Build
+tmux select-pane -T "Build"
 
 # W3
 tmux new-window -n Doc "hdc"
-tmux select-window -t 1
+tmux select-pane -T "HDC - Haskell Doc Cli"
+tmux select-window -t^
 tmux attach -t $SESSION
 
 # vim: filetype=tmux
