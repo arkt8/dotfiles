@@ -1,36 +1,16 @@
 #!/bin/bash
+RAW_FILE=$HOME/.local/tmp/weather~raw.json
+DATA_FILE=$HOME/.local/tmp/weather.txt
+curl "https://api.openweathermap.org/data/2.5/onecall?units=metric&lang=pt&lat=-23.960833&lon=-46.333889&appid=01a378b7ce2b7525acc30ccc47e3e96c" > $RAW_FILE 2>/dev/null
+(head -n 30 && tail -n 10) <<< \
+$(cat $RAW_FILE \
+| sed 's/\([[:digit:]"]\),/\1\n/g;s/\],/]\n/g') > $DATA_FILE
 
-WTTR="$(curl -s 'https://wttr.in/Santos?format=%t/%f:%C:%h:%M&lang=pt')"
-TMP="$(echo "$WTTR" | cut -d: -f1 | sed 's/°C//g')"
-COND="$(echo "$WTTR" | cut -d: -f2)"
-HUMI="$(echo "$WTTR" | cut -d: -f3)"
-MOON="$(echo "$WTTR" | cut -d: -f4)"
-if   [[ ${MOON} -lt 6  ]] ; then
-	PHASE="Nova"
-elif [[ ${MOON} -lt 13 ]] ; then
-	PHASE="Crescente"
-elif [[ ${MOON} -lt 20 ]] ; then
-	PHASE="Cheia"
-elif [[ ${MOON} -lt 30 ]] ; then
-	PHASE="Minguante"
-else PHASE=""
-fi
-if [[ "$1" == "--oneline" ]]; then
-	echo "(${TMP})°C ${HUMI}   ${COND}   Lua ${PHASE}"
-	exit
-fi
+getdata() {
+	echo "$(grep -m 1 "$1" $DATA_FILE | cut -d: -f2 | cut -d. -f1 | tr -d '"')"
+}
 
-
-export cmd1="$(cat<<EOF
-	curl 'https://wttr.in/Santos?lang=pt';
-	sleep 300;
-EOF
-)"
-export cmd2="$(cat<<EOF
-	curl 'https://v2d.wttr.in/Santos?lang=pt';
-	sleep 300;
-EOF
-)"
-
-xterm -fa 'xft:Iosevka Nerd Font Mono:pixelsize=16' -e bash -c "$cmd1" &
-xterm -fa 'xft:Iosevka Nerd Font Mono:pixelsize=20' -e bash -c "$cmd2" &
+TMP="$(getdata temp)°C/$(getdata feels_like)°C"
+COND="$(getdata description)"
+HUMI="$(getdata humidity)%"
+echo "${TMP}   ${HUMI}   ${COND}"
