@@ -2,10 +2,10 @@ rofi/cache/**
 wal/**
 
 # These are updated automatically when changing theme with Wal
-X/Xdefaults
-X/Xresources
-firefox/chrome/userContent.css
-kitty/kitty.conf
-luakit/theme.lua
-userstyles/dark.css
+/X/Xdefaults
+/X/Xresources
+/firefox/chrome/userContent.css
+/kitty/kitty.conf
+/luakit/theme.lua
+/userstyles/dark.css
 
