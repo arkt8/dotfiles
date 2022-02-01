@@ -59,7 +59,6 @@ autocmd FocusLost * silent! wa " Automatically save file
 set backupskip+=*.asc
 set clipboard+=unnamedplus
 
-"" VIMDIFF
 if &diff
 	set noreadonly
 

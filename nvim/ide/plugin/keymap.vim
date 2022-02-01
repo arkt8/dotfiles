@@ -1,9 +1,5 @@
 fu! ResetKeymap()
 
-	" Symbols (insert mode)
-	inoremap  <C-a>\|   ⎟
-	inoremap  <C-a>-    
-
 	" Togglers :<
 	noremap ,l :call ToggleShowLineNumber()<cr>
 	noremap ,q :cn<cr>
@@ -40,9 +36,6 @@ fu! ResetKeymap()
 	cmap <S-Insert> <C-r><C-o>z
 	imap <S-Insert> <C-r><C-o>z
 	vmap <S-Insert> "zp`]
-	"copy register
-	autocmd FocusGained * let @z=@+
-
 
 " Quickfix
 	nmap <silent> <Leader>qq :cw<cr>
@@ -68,12 +61,11 @@ fu! ResetKeymap()
 	noremap  <silent> <M-.>  :bnext
 	inoremap <silent> <M-.>  :w!:bnexti
 
-	" Abas
-	map <silent> <M-[> :tabprev
-	map <silent> <M-]> :tabnext
-	map <silent> <M-Tab> :tabnext
-	map <silent> <M-n> :tabnew %
-	map <silent> <M-c> :tabclose
+	" Manage tabs
+	map <silent> tn :tabnew<Enter>
+	map <silent> tq :tabclose<Enter>
+	map <silent> t, :tabprev<Enter>
+	map <silent> t. :tabnext<Enter>
 
 	"" Splits
 	map <silent> <M-Up>    <C-w><Up>
@@ -88,9 +80,10 @@ fu! ResetKeymap()
 	tnoremap <silent> <C-w><C-w> <C-\><C-n><C-w><C-w>
 
 	" Open new splits easily
-	map vv <C-W>v
-	map ss <C-W>s
-	map Q  <C-W>q
+	map <silent> sv <C-W>v
+	map <silent> sh <C-W>s
+	map <silent> sq <C-W>q
+	
 
 
 " Cursor Navigation	

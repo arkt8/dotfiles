@@ -154,7 +154,7 @@ call s:X("MatchParen",   "bg", "03", "bold,italic" )
 call s:X("TabLineSel",  "02", "00", "None" )
 call s:X("TabLine",     "bg", "07", "None" )
 call s:X("TabLineFill", "bg", "07", "None" )
-call s:X("Title",       "bg", "12", "None" )
+call s:X("Title",       "bg", "12", "bold" )
 call s:X("Todo",  "bg", "15", "bold" )
 call s:X("WildMenu",    "bg", "07", "None" )
 "
