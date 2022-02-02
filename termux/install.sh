@@ -1,5 +1,6 @@
 #!/bin/bash
-CWD=$(realpath $(dirname $0))
+
+FROM=$(realpath $(dirname $0))
 BIN=$PREFIX/bin
 TERMUXDIR=$HOME/.termux
 
@@ -11,7 +12,8 @@ inst() {
 	ln -nsfv "$1" "$2"
 }
 
-inst $CWD/sh/bashrc $HOME/.bashrc
-inst $CWD/colors $TERMUXDIR/colors
-inst $CWD/termux.properties $TERMUXDIR/termux.properties
+inst $FROM/sh/bashrc         $HOME/.bashrc
+inst $FROM/tmux.conf         $HOME/.tmux.conf
 
+inst $FROM/colors            $TERMUXDIR/colors
+inst $FROM/termux.properties $TERMUXDIR/termux.properties

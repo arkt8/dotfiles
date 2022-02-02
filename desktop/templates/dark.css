@@ -77,9 +77,9 @@ pre {white-space:pre-wrap!important;line-height:1.5rem;max-width:90vw}
 		border-bottom:$color2!important;
 		transition:none!important;
 	}
-	div,ul,ol,nav,header,footer,aside,section,article,picture,img,image,video,button {
-/*		position:static!important;
-		height:auto!important;*/
+	header, footer, section, article, nav, aside {
+		background-color:${color0}44!important;
+		background-image:none;
 	}
 	b,em,strong,dt,th,.searchmatch {
 		color:var(--my_tone3)!important;
