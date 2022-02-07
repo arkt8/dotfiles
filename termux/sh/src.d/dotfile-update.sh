@@ -2,7 +2,7 @@ dotfile-update() {
     if [[ -z "$DOTHOST" ]] ; then
         echo "you need configure source host to continue:"
         echo "export DOTHOST=username@host"
-        exit return 1
+        return 1
     fi
     echo -e "\n## Getting termux dotfiles from $DOTHOST ##\n"
     rm -rf $HOME/.dotfiles.bkp
