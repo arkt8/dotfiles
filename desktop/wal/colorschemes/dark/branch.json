@@ -5,7 +5,7 @@
 		"cursor": "#cfc1a9"
 	},
 	"colors": {
-		"color0": "#35241c",
+		"color0": "#45342c",
 		"color1": "#c2562d",
 		"color2": "#96a65e",
 		"color3": "#d29b5a",
@@ -13,13 +13,13 @@
 		"color5": "#c47e5b",
 		"color6": "#639a90",
 		"color7": "#cfc1a9",
-		"color8": "#564a45",
-		"color9": "#c2562d",
-		"color10": "#96a65e",
-		"color11": "#d29b5a",
-		"color12": "#3b8e8c",
-		"color13": "#c47e5b",
-		"color14": "#639a90",
-		"color15": "#cfc1a9"
+		"color8": "#766a65",
+		"color9": "#e2764d",
+		"color10": "#b6c67e",
+		"color11": "#f2bb7a",
+		"color12": "#5baeac",
+		"color13": "#e49e7b",
+		"color14": "#83bab0",
+		"color15": "#efe1c9"
 	}
 }
