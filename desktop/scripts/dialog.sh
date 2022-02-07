@@ -13,6 +13,7 @@ rofi_desktop() {
 	theme=theme:$HOME/.config/rofi/apps/theme
 	rofi -sidebar-mode true \
 		-show theme \
+		-matching regex \
 		-modi window,$wallpaper,$theme
 }
 rofi_todo() {
