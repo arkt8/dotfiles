@@ -19,5 +19,5 @@ const xhttp = new XMLHttpRequest();
 xhttp.onload = function() {
   inject( JSON.parse( this.responseText ) )
 }
-xhttp.open("GET", "file:///home/thadeu/.dotfiles/bookmarks.json");
+xhttp.open("GET", "bookmarks.json");
 xhttp.send();

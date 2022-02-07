@@ -2,11 +2,23 @@
 -- luakit configuration file, more information at https://luakit.github.io/ --
 ------------------------------------------------------------------------------
 
+-- basic environment...
+homedir=os.getenv("HOME")
+
+--  These paths are useful for use with make DEVELOPMENT_PATH=1
+package.path =
+    homedir ..'/.local/lib/luakit/lib/?.lua;' ..
+    homedir ..'/.local/lib/luakit/lib/?/init.lua;' ..
+    package.path
+package.cpath =
+    homedir ..'/.local/lib/luakit/?.so;'..package.cpath
+
+
 require "lfs"
 
 -- Check for lua configuration files that will never be loaded because they are
 -- shadowed by builtin modules.
-package.path = package.path .. ';/home/thadeu/.dotfiles/luakit/?.lua;'
+package.path = package.path .. ';'..homedir..'/.config/dotfiles/luakit/?.lua;'
 table.insert(package.loaders, 2, function (modname)
     if not package.searchpath then return end
     local f = package.searchpath(modname, package.path)
@@ -35,16 +47,17 @@ soup.cookies_storage = luakit.data_dir .. "/cookies.db"
 local lousy = require "lousy"
 
 -- Load users theme
--- ("$XDG_CONFIG_HOME/luakit/theme.lua" or "/etc/xdg/luakit/theme.lua")
-lousy.theme.init(lousy.util.find_config("theme.lua"))
+-- ("$XDG_CONFIG_homedir/luakit/theme.lua" or "/etc/xdg/luakit/theme.lua")
+-- lousy.theme.init(lousy.util.find_config("theme.lua"))
+lousy.theme.init(homedir.."/.config/dotfiles/luakit/theme.lua")
 assert(lousy.theme.get(), "failed to load theme")
 
 -- Load users window class
--- ("$XDG_CONFIG_HOME/luakit/window.lua" or "/etc/xdg/luakit/window.lua")
+-- ("$XDG_CONFIG_homedir/luakit/window.lua" or "/etc/xdg/luakit/window.lua")
 local window = require "window"
 
 -- Load users webview class
--- ("$XDG_CONFIG_HOME/luakit/webview.lua" or "/etc/xdg/luakit/webview.lua")
+-- ("$XDG_CONFIG_homedir/luakit/webview.lua" or "/etc/xdg/luakit/webview.lua")
 local webview = require "webview"
 
 -- Add luakit;//log/ chrome page
@@ -213,8 +226,8 @@ require "adblock_chrome"
 
 -- Restore last saved session
 local w = (not luakit.nounique) and (session and session.restore())
-window.home_page = "file:///home/thadeu/.dotfiles/bookmarks.html"
-window.new_tab_page = "file:///home/thadeu/.dotfiles/bookmarks.html"
+window.home_page = "file://"..homedir.."/.config/dotfiles/bookmarks.html"
+window.new_tab_page = "file://"..homedir.."/.config/dotfiles/bookmarks.html"
 if w then
     for i, uri in ipairs(uris) do
         w:new_tab(uri, { switch = i == 1 })

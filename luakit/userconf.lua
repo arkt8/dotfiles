@@ -1,4 +1,5 @@
 local sets = require "settings"
+local homedir = os.getenv("HOME")
 
 sets.window.search_engines = {
 	ddg = "https://duckduckgo.com/?q=%s",
@@ -10,5 +11,5 @@ sets.window.search_engines = {
 
 sets.window.search_engines.default = sets.window.search_engines.ddg
 sets.window.default_search_engine = "ddg"
-sets.window.home_page = "file:///home/thadeu/.dotfiles/bookmarks.html"
-sets.window.new_tab_page = "file:///home/thadeu/.dotfiles/bookmarks.html"
+sets.window.home_page    = "file://"..homedir.."/.config/dotfiles/bookmarks.html"
+sets.window.new_tab_page = "file://"..homedir.."/.config/dotfiles/bookmarks.html"

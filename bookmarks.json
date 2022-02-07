@@ -9,4 +9,7 @@
 	, "Haskell Exercism" : "https://exercism.org/tracks/haskell/exercises"
 	, "Haskell Types": "https://wiki.haskell.org/Type"
 	}
+, "NeoVim":
+	{ "COC Config Schema": "https://github.com/neoclide/coc.nvim/blob/master/data/schema.json"
+	}
 }
