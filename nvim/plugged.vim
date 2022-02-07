@@ -28,7 +28,7 @@ call plug#begin('~/.config/nvim-plugged/')
 "	Plug 'ctrlpvim/ctrlp.vim'             " Fuzzy file, buffer, mru, tag, ... finder
 "
 "	Plug 'chr4/nginx.vim'                , { 'as': 'lang-nginxconf',  'for': 'nginx' } " Nginx + Lua blocks
-	Plug 'dense-analysis/ale'             , { 'as': 'lang-ale'}
+"	Plug 'dense-analysis/ale'             , { 'as': 'lang-ale'}
 "	Plug 'andrejlevkovitch/vim-lua-format', { 'as': 'lang-luaformat' }
 	Plug 'mrk21/yaml-vim'                 , { 'as': 'lang-yaml' }
 	Plug 'neovimhaskell/haskell-vim'      , { 'as': 'lang-haskell' }

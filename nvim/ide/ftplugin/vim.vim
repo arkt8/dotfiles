@@ -1,1 +1,1 @@
-setlocal ts=10 sts=10 sw=10 noet
+setlocal ts=2 sts=2 sw=2 et

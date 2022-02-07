@@ -194,7 +194,7 @@ call s:X("PreProc",     "bg", "05", "None" )
 "
 call s:X("Type",        "bg", "11", "None" )
 call s:X("StorageClass","bg", "11", "None" )
-call s:X("Structure",   "bg", "11", "None" )
+call s:X("Structure",   "bg", "10", "None" )
 call s:X("Typedef",     "bg", "11", "None" )
 "
 call s:X("Special",     "bg", "10", "None" )
@@ -202,7 +202,7 @@ call s:X("Special",     "bg", "10", "None" )
 "    -- Tag", "bg", "07", "" )
 call s:X("Delimiter",   "bg", "10", "None" )
 "    -- SpecialComment", "bg", "07", "" )
-"    -- Debug", "bg", "07", "" )
+call s:X("Debug", "bg", "03", "italic" )
 "
 "    -- Underlined", "bg", "07", "" )
 "    -- Bold", "bg", "07", "" )
@@ -301,6 +301,7 @@ hi! CocWarningSign    guibg=#221100 guifg=#cc8800 gui=None
 "CocWarningLine
 
 hi! CocFadeOut        guifg=None    guibg=None    gui=italic
+hi! link CocCodeLens Comment
 hi! link ALEWarning CocHintSign
 
 " CocSelectedLine

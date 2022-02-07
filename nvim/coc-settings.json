@@ -1,5 +1,8 @@
 {
     "codeLens.enable": true,
+	"codeLens.position":"eol",
+	"codeLens.subseparator":"·",
+	"codeLens.separator":"·>",
 	"hover.target":"preview",
     "git.addedSign.text": "+",
     "git.removedSign.text": "-",
@@ -11,12 +14,13 @@
     "diagnostic.infoSign": "○",
     "diagnostic.hintSign": "·",
     "diagnostic.virtualText":true,
-	"diagnostic.virtualTextCurrentLineOnly":true,
-	"diagnostic.virtualTextPrefix":" ←( ",
-	"diagnostic.virtualTextLines": 1,
-	"diagnostic.autoRefresh":true,
-	"diagnostic.enableMessage": "always",
-	"diagnostic.vortualTextAlignRight":true,
+    "diagnostic.virtualTextCurrentLineOnly":true,
+    "diagnostic.virtualTextPrefix":"←",
+    "diagnostic.virtualTextLines": 3,
+    "diagnostic.virtualTextAlignRight":false,
+    "diagnostic.autoRefresh":true,
+    "// diagnostic.enableMessage": "always, jump, never",
+    "diagnostic.enableMessage": "always",
     "git.addGBlameToBufferVar": true,
     "javascript.suggest.names": false,
     "javascript.suggestionActions.enabled" : false,
@@ -127,15 +131,15 @@
 	"signature.hideOnTextChange":true,
     "languageserver": {
         "haskell": {
-            "//command" : "haskell-language-server-wrapper",
-            "command" : "/home/thadeu/.ghcup/bin/haskell-language-server-8.10.7",
+            "command" : "haskell-language-server-wrapper",
+            "//command" : "/home/thadeu/.ghcup/bin/haskell-language-server-9.0.1",
             "args": [ "--lsp" ],
             "rootPatterns": [
                 "*.cabal",
                 "stack.yaml",
                 "cabal.project",
                 "package.yaml",
-                "hie.yaml"],
+                "hie.yaml"
             ],
             "filetypes":[
                 "lhaskell",
