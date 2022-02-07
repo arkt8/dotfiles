@@ -1,0 +1,7 @@
+#!/bin/bash
+# exec urxvtc -fn "xft:Monaco:pixelsize=17:antialias=false" -fb "xft:MonacoB2"
+exec urxvtc \
+	-fn "xft:JetBrains Mono ExtraLight:pixelsize=18:antialias=false" \
+	-fb "xft:JetBrains Mono ExtraBold:pixelsize=17" \
+	-fi "xft:JetBrains Mono ExtraLight:pixelsize=17:italic:antialias=false:autohint=true" \
+	-fbi "xft:JetBrains Mono ExtraLight:pixelsize=17:bold:italic:antialias=false:autohint=true" \

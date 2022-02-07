@@ -1,0 +1,41 @@
+#!/bin/bash
+
+if [[ -n "$1" ]];
+then file=$1
+else file=$HOME/.cache/wal/colors.json
+fi
+c=($(echo -e '1\n2\n3\n4\n5\n6' | sort -R));
+c[8]=$((${c[0]} + 8))
+c[9]=$((${c[1]} + 8))
+c[10]=$((${c[2]} + 8))
+c[11]=$((${c[3]} + 8))
+c[12]=$((${c[4]} + 8))
+c[13]=$((${c[5]} + 8))
+jq '
+{
+  "special": {
+    "background":.special.background,
+    "foreground":.special.foreground,
+    "cursor":    .special.cursor
+  },
+  "colors": {
+    "color0":    .colors.color0,
+    "color7":    .colors.color7,
+    "color8":    .colors.color8,
+    "color15":   .colors.color15,
+    "color1":   .colors.color'${c[0]}',
+    "color2":   .colors.color'${c[1]}',
+    "color3":   .colors.color'${c[2]}',
+    "color4":   .colors.color'${c[3]}',
+    "color5":   .colors.color'${c[4]}',
+    "color6":   .colors.color'${c[5]}',
+    "color9":   .colors.color'${c[8]}',
+    "color10":  .colors.color'${c[9]}',
+    "color11":  .colors.color'${c[10]}',
+    "color12":  .colors.color'${c[11]}',
+    "color13":  .colors.color'${c[12]}',
+    "color14":  .colors.color'${c[13]}'
+  }
+}' $file > /tmp/x
+wal --theme /tmp/x
+
