@@ -65,8 +65,8 @@ fu! ResetKeymap()
   map <silent> td :tabnew %<Enter>
   map <silent> tn :tabnew<Enter>
   map <silent> tq :tabclose<Enter>
-  map <silent> t, :tabprev<Enter>
-  map <silent> t. :tabnext<Enter>
+  map <silent> t<Left> :tabprev<Enter>
+  map <silent> t<Right> :tabnext<Enter>
 
   "" Splits
   map <silent> <M-Up>    <C-w><Up>
