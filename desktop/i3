@@ -11,7 +11,7 @@
 
 #exec feh --no-startup-id --bg-fill ~/.config/wallpaper.jpg
 exec ~/.config/desktop/load.sh
-
+set $rofi rofi -config $HOME/.config/rofi/config
 set $mod Mod4
 set $alt Mod1
 set_from_resource $colorbg i3wm.background #000000
@@ -70,7 +70,7 @@ floating_modifier $mod
 # kill focused window
 bindsym $mod+Shift+c kill
 
-bindsym $mod+r          exec --no-startup-id rofi -show run
+bindsym $mod+r          exec --no-startup-id $rofi -show run
 bindsym $mod+Menu       exec --no-startup-id $dialog wm_menu
 bindsym $mod+space      exec $HOME/.bin/desktools --show
 bindSym $mod+Shift+Menu exec --no-startup-id $dialog theme
@@ -202,6 +202,7 @@ bindsym $mod+$alt+e exec i3-msg exit
 #### Tools keys {{{
 # start a terminal
 bindsym $mod+Return exec x-terminal-emulator
+bindsym $mod+Shift+Return exec xterm
 bindsym $mod+c exec --no-startup-id rofi -show calc -modi calc
 # A more modern dmenu replacement is rofi:
 
@@ -247,8 +248,8 @@ for_window [class="i3-dialog"] floating enable
 
 ######## THEME {{{
 # class                 border   bg       fg        indictr  child_border
-client.focused          $color2  $color2   $color0   $color0  $color2
-client.focused_inactive $color13 $color13   $color0  $color0  $color13
+client.focused          $color8   $color7   $color15  $color7  $color7
+client.focused_inactive $color0   $color8   $color0   $color8  $color8
 client.unfocused        $color0   $color0   $unfocus  $color0  $color0
 client.urgent           $alpha    $color0   $alpha    $alpha   $alpha
 client.placeholder      $alpha    $color0   $alpha    $alpha   $alpha

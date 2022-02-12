@@ -25,11 +25,11 @@ theme.notif_bg = "$color8"
 
 -- Menu colours
 theme.menu_fg                   = "$foreground"
-theme.menu_bg                   = "$color8"
-theme.menu_selected_fg          = "$color0"
+theme.menu_bg                   = "$background"
+theme.menu_selected_fg          = "$background"
 theme.menu_selected_bg          = "$color7"
-theme.menu_title_bg             = "$color0"
-theme.menu_primary_title_fg     = "$foreground"
+theme.menu_title_bg             = "$background"
+theme.menu_primary_title_fg     = "$color7"
 theme.menu_secondary_title_fg   = "$color7"
 
 theme.menu_disabled_fg = "$color8"
@@ -47,7 +47,7 @@ theme.proxy_inactive_menu_bg    = '#394d60'
 
 -- Statusbar specific
 theme.sbar_fg         = "$color7"
-theme.sbar_bg         = "$color0"
+theme.sbar_bg         = "$background"
 
 -- Downloadbar specific
 theme.dbar_fg         = "$color5"

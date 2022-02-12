@@ -1,9 +1,3 @@
-configuration {{
-	sidebar-mode: true;
-	font: "Terminus(TTF) 12";
-	hide-scrollbar: true;
-	window-format: "{{w:2}} {{c:10}} {{t}}";
-}}
 
 * {{
 	bg: {background};
@@ -61,7 +55,7 @@ mode-switcher {{
 	background-color: @color0;
 }}
 
-#button {{
+button {{
     text-color: @fg;
 	background-color: @color0;
 	expand: false;
@@ -69,13 +63,13 @@ mode-switcher {{
 	border-radius: 1ch 1ch 0 0;
 }}
 
-#button.selected {{
+button.selected {{
     /* background-color: @accent; */
 	background-color:@bg;
     text-color: @fg;
 }}
 
-#message {{
+message {{
     border: 2px 0px 0px;
     border-color: @alt;
     padding: 1px;
@@ -103,12 +97,19 @@ mode-switcher {{
 	background-color: transparent;
 }}
 
-#element {{
+element {{
     border: 0;
     padding: 0.5ch;
 	background-color:transparent;
 	text-color: @fg;
 	border-radius:1ch;
+}}
+element-text {{
+	text-color:@fg;
+	background-color:transparent;
+}}
+element.selected element-text {{
+	text-color:@bg;
 }}
 
 #element.urgent {{

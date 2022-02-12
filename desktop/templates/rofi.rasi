@@ -1,9 +1,3 @@
-configuration {
-	sidebar-mode: true;
-	font: "Victor Mono 14";
-	hide-scrollbar: true;
-	window-format: "{w:2} {c:10} {t}";
-}
 
 * {
 	bg: @color0;

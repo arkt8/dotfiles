@@ -8,6 +8,5 @@ urxvt*letterSpace: 0.5
 urxvt*transparent: true
 !urxvt*blurRadius: 20
 urxvt*tintColor: {background}
-urxvt*color17: #ff0000
 !urxvt*thickness: 10
 ! vim: ft=xdefaults
