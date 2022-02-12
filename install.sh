@@ -1,4 +1,4 @@
-	#!/bin/bash
+#!/bin/bash
 CWD=$(realpath $(dirname $0))
 export lnd='ln -nsfv'
 # Shell
@@ -18,7 +18,7 @@ $lnd $CWD/X/xsession     $HOME/.xsession
 $lnd $CWD/X/themes       $HOME/.themes
 
 $lnd $CWD/rofi           $HOME/.config/rofi
-$lnd $CWD/ranger         $HOME/.config/ranger
+$lnd $CWD/ranger         $HOME/.config/
 $lnd $CWD/desktop        $HOME/.config/desktop
 $lnd $CWD/wal            $HOME/.cache/wal
 $lnd $CWD/bat            $HOME/.config/bat
