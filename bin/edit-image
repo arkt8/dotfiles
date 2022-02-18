@@ -1,1 +1,5 @@
-rox /home/kaxamana/Fotos/Editadas /home/kaxamana/Fotos/Novas /home/kaxamana/Fotos/Refs /media
+i3-msg "workspace 8,output DP-1"
+i3-msg "exec xterm -e ranger /home/kaxamana/Fotos/Novas /home/kaxamana/Fotos/Editadas"
+i3-msg "splith,exec rox /home/kaxamana/Fotos/Refs"
+i3-msg "exec gimp"
+
