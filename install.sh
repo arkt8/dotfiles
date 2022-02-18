@@ -31,6 +31,7 @@ $lnd $CWD/bitmap-fonts   $HOME/.config/bitmap-fonts
 # Apps for web
 mkdir -p $HOME/.local/share/luakit
 $lnd $CWD/luakit         $HOME/.config/luakit
+$lnd $CWD/zathura        $HOME/.config
 $lnd $CWD/userstyles     $HOME/.local/share/luakit/styles
 $lnd $CWD/userscripts    $HOME/.local/share/luakit
 

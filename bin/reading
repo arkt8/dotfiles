@@ -14,13 +14,10 @@ else
 fi
 dirfiles=$(dirname "$listfile")
 
-tint=FFDDAA
-#tint=CCAABB
-tint=CCAA88
-#tint=CCAABB
 while IFS= read -r line; do
 	if [[ "${line:0:1}" != "#" ]] ; then
 		line="$(sed 's/^\s*//g' <<< $line)"
-		[[ "${line}" != "" ]] && mupdf -C "$tint" -I $line &
+		echo $line
+		[[ "${line}" != "" ]] && $(echo $line | awk '{print "zathura -P "$2 " " $1}')
 	fi
 done <<< $(cat $listfile| envsubst)
