@@ -1,8 +1,8 @@
-Xft.dpi: 96
-Xft.autohint: 1
+Xft.dpi: 144
+Xft.autohint: 0
 Xft.antialias: 1
-Xft.hinting: true
-Xft.hintstyle: hintfull
+Xft.hinting: 1
+Xft.hintstyle: hintslight
 Xft.lcdfilter:lcdlight
 Xft.rgba: rgb
 
@@ -15,8 +15,11 @@ rofi.font: Victor Mono 18
 *.letterSpace: 0
 
 XTerm*renderFont: true
+
 !XTerm*faceName: spleen32x64:pixelsize=18:antialias=false
 xterm*faceName: spleen:pixelsize=16:antialias=false
+xterm*metaSendsEscape: true
+xterm*termName: xterm-256color
 yeahconsole*term: xterm
 yeahconsole*toggleKey: Super_L+period
 yeahconsole*keyFull:   Super_L+comma

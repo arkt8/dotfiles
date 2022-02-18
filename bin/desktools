@@ -1,24 +1,3 @@
 #!/bin/bash
-if [[ "$1" == "--show" ]]; then
-	$0 "$($0 | rofi -dmenu -p "Conf")"
-	exit
-fi
-
-declare -A O
-
-O["Wacom Left"]="WACOMOUTPUT=eDP-1 wacomrotate l"
-O["Wacom Right"]="WACOMOUTPUT=DP-1 wacomrotate p"
-
-OPTION="$*"
-set +x
-if [[ -z $OPTION ]] ; then
-	for i in "${!O[@]}"; do
-		echo $i
-	done
-else
-	if [[ "${O["$OPTION"]}" != "" ]]; then
-		exec bash -c "${O["$OPTION"]}"
-	fi
-fi
 
 

@@ -46,7 +46,7 @@ color-inactive-fg = ${self.color7}
 color-alert = ${self:color1}
 color-alert-fg= ${self:color15}
 ;font = "Hack Nerd Font Mono:fontformat=truetype:pixelsize=12;antialias=true;3"
-font = "Terminus (TTF):fontformat=truetype:pixelsize=13;antialias=false;3"
+font = "Terminus (TTF):pixelsize=11:antialias=false;3"
 icon = "TerminessTTF Nerd Font:fontformat=truetype:pixelsize=10;antialias=false;3"
 alterfont = "Iosevka Nerd Font Complete Mono:fontformat=truetype:pixelsize=20;antialias=true;3"
 
@@ -66,7 +66,7 @@ modules-center = weather
 #modules-center = xwindow
 modules-right = date
 enable-ipc = true
-bottom = true
+bottom = false
 
 [bar/sec]
 monitor = ${env:SCREEN_PRIMARY:DP-1}

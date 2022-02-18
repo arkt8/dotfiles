@@ -37,6 +37,12 @@ xthemes() {
 	cat $DESK/templates/dark.css | envsubst > $HOME/.config/dotfiles/userstyles/dark.css
 	cat $DESK/templates/luakit-theme.lua |envsubst > $HOME/.config/luakit/theme.lua
 	cat $DESK/xresources/* > $HOME/.Xdefaults
+
+	mkdir -p $HOME/.config/zathura
+	cat $DESK/templates/zathura | envsubst > $HOME/.config/zathura/zathurarc
+
+	cat $HOME/.local/share/themes/Flatabulous-wal/gtk-2.0/tplrc \
+		| envsubst > $HOME/.local/share/themes/Flatabulous-wal/gtk-2.0/gtkrc
 }
 
 css_theme

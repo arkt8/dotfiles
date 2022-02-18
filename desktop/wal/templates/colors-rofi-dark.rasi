@@ -108,7 +108,7 @@ element-text {{
 	text-color:@fg;
 	background-color:transparent;
 }}
-element.selected element-text {{
+element-text.selected {{
 	text-color:@bg;
 }}
 
@@ -122,7 +122,7 @@ element.selected element-text {{
     text-color: @active;
 }}
 
-#element.selected {{
+element.selected {{
     background-color: @selected;
     text-color: @bg;
 	text-style: bold;

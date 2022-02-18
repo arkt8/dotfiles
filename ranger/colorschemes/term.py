@@ -3,71 +3,86 @@
 
 from __future__ import (absolute_import, division, print_function)
 
+import curses
+
 from ranger.gui.colorscheme import ColorScheme
 from ranger.gui.color import (
-    default, normal, red, green, bold, reverse, dim, BRIGHT, default_colors,
+    black, blue, cyan, green, magenta, red, white, yellow, default,
+    normal, bold, reverse, dim, BRIGHT,
+    default_colors,
 )
-
+background = curses.A_INVIS
 
 class Default(ColorScheme):
-    progress_bar_color = normal
+    progress_bar_color = blue
 
     def use(self, context):  # pylint: disable=too-many-branches,too-many-statements
         fg, bg, attr = default_colors
+        fg = 15
 
         if context.reset:
-            return default_colors
+            fg = 8
+            bg = normal
+            return fg, bg, attr
 
         elif context.in_browser:
             if context.selected:
+                # attr = reverse
                 attr = reverse
+                fg = 12
+                bg = normal
             else:
                 attr = normal
             if context.empty or context.error:
                 bg = red
             if context.border:
-                fg = default
+                fg = 7
             if context.media:
                 if context.image:
-                    fg = default
+                    fg = yellow
                 else:
-                    fg = default
+                    fg = magenta
             if context.container:
-                fg = default
+                fg = red
             if context.directory:
                 attr |= bold
-                fg = default
-                fg += BRIGHT
+                fg = blue
+                #fg += BRIGHT
             elif context.executable and not \
                     any((context.media, context.container,
                          context.fifo, context.socket)):
                 attr |= bold
-                fg = default
-                fg += BRIGHT
+                fg = green
+                # fg += BRIGHT
             if context.socket:
                 attr |= bold
-                fg = default
-                fg += BRIGHT
+                #fg = magenta
+                #fg += BRIGHT
             if context.fifo or context.device:
-                fg = default
-                if context.device:
-                    attr |= bold
-                    fg += BRIGHT
+                #fg = yellow
+                pass
+            if context.device:
+                pass
+                # attr |= bold
+                # fg += BRIGHT
             if context.link:
-                fg = default
+                fg = cyan if context.good else magenta
             if context.tag_marker and not context.selected:
                 attr |= bold
-                fg = default
-                fg += BRIGHT
+                if fg in (red, magenta):
+                    fg = 7
+                else:
+                    fg = red
+                #fg += BRIGHT
             if not context.selected and (context.cut or context.copied):
-                attr |= bold
-                fg = default
-                fg += BRIGHT
+                #attr |= bold
+                fg = 7
+                #fg += BRIGHT
                 # If the terminal doesn't support bright colors, use dim white
                 # instead of black.
-                if BRIGHT == 0:
-                    attr |= dim
-                    fg = default
+                #if BRIGHT == 0:
+                #    attr |= dim
+                #    fg = white
             if context.main_column:
                 # Doubling up with BRIGHT here causes issues because it's
                 # additive not idempotent.
@@ -75,57 +90,57 @@ class Default(ColorScheme):
                     attr |= bold
                 if context.marked:
                     attr |= bold
-                    fg = default
+                    fg = yellow
             if context.badinfo:
                 if attr & reverse:
-                    bg = red
+                    bg = magenta
                 else:
-                    fg = default
+                    fg = magenta
 
             if context.inactive_pane:
-                fg = default
+                fg = cyan
 
         elif context.in_titlebar:
             if context.hostname:
-                fg = default
+                fg = red if context.bad else green
             elif context.directory:
-                fg = default
+                fg = blue
             elif context.tab:
                 if context.good:
                     bg = green
             elif context.link:
-                fg = default
+                fg = cyan
             attr |= bold
 
         elif context.in_statusbar:
             if context.permissions:
                 if context.good:
-                    fg = default
+                    fg = cyan
                 elif context.bad:
-                    fg = default
+                    fg = magenta
             if context.marked:
                 attr |= bold | reverse
-                fg = default
-                fg += BRIGHT
+                fg = yellow
+                #fg += BRIGHT
             if context.frozen:
                 attr |= bold | reverse
-                fg = default
-                fg += BRIGHT
+                fg = cyan
+                #fg += BRIGHT
             if context.message:
                 if context.bad:
                     attr |= bold
-                    fg = default
-                    fg += BRIGHT
+                    fg = red
+                    #fg += BRIGHT
             if context.loaded:
                 bg = self.progress_bar_color
             if context.vcsinfo:
-                fg = default
+                fg = blue
                 attr &= ~bold
             if context.vcscommit:
-                fg = default
+                fg = yellow
                 attr &= ~bold
             if context.vcsdate:
-                fg = default
+                fg = cyan
                 attr &= ~bold
 
         if context.text:
@@ -134,45 +149,45 @@ class Default(ColorScheme):
 
         if context.in_taskview:
             if context.title:
-                fg = default
+                fg = blue
 
             if context.selected:
                 attr |= reverse
 
             if context.loaded:
                 if context.selected:
-                    fg = default
+                    fg = self.progress_bar_color
                 else:
                     bg = self.progress_bar_color
 
         if context.vcsfile and not context.selected:
             attr &= ~bold
             if context.vcsconflict:
-                fg = default
+                fg = magenta
             elif context.vcsuntracked:
-                fg = default
+                fg = cyan
             elif context.vcschanged:
-                fg = default
+                fg = red
             elif context.vcsunknown:
-                fg = default
+                fg = red
             elif context.vcsstaged:
-                fg = default
+                fg = green
             elif context.vcssync:
-                fg = default
+                fg = green
             elif context.vcsignored:
                 fg = default
 
         elif context.vcsremote and not context.selected:
             attr &= ~bold
             if context.vcssync or context.vcsnone:
-                fg = default
+                fg = green
             elif context.vcsbehind:
-                fg = default
+                fg = red
             elif context.vcsahead:
-                fg = default
+                fg = blue
             elif context.vcsdiverged:
-                fg = default
+                fg = magenta
             elif context.vcsunknown:
-                fg = default
+                fg = red
 
         return fg, bg, attr

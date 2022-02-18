@@ -1,0 +1,6 @@
+set recolor           true
+set statusbar         false
+set recolor-keephue   true
+set recolor-darkcolor "${color7}"
+set default-bg        "${background}"
+set default-fg        "${foreground}"
