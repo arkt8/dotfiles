@@ -37,6 +37,8 @@ return require("packer").startup(function(use)
       , as = "tool-telescope" }
   use { "nvim-lua/plenary.nvim"
       , as = "tool-plenary" }
+  use { "sbdchd/neoformat"
+      , as = "tool-formatter" }
   require('plugconf.telescope')
 
   --///////////////////////////////////////////////////////

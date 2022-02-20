@@ -132,7 +132,6 @@
   "languageserver": {
     "haskell": {
       "command" : "haskell-language-server-wrapper",
-      "//command" : "/home/thadeu/.ghcup/bin/haskell-language-server-9.0.1",
       "args": [ "--lsp" ],
       "rootPatterns": [
         "*.cabal",
@@ -141,6 +140,33 @@
         "package.yaml",
         "hie.yaml"
       ],
+      "settings": {
+      },
+      "initializationOptions": {
+        "languageServerHaskell": {
+          "ghcide-code-actions-imports-exports" : {"globalOn": true },
+          "diagnosticsOnChange": true,
+          "formattingProvider": "brittany",
+          "liquidOn" : true,
+          "plugin" : {
+            "haddocComments" : { "globalOn" : true },
+            "refineImports" :  { "codeActionsOn" : false, "codeLensOn" : false },
+            "importLens"    :  { "codeActionsOn": false, "codeLensOn": false },
+            "tactics": {
+              "hoverOn": true,
+              "config": {
+                "auto_gas": 4,
+                "max_use_ctor_actions": 5,
+                "proofstate_styling": true,
+                "hole_severity": null,
+                "timeout_duration": 2
+              },
+              "codeActionsOn": true,
+              "codeLensOn": true
+            }
+          }
+        }
+      },
       "filetypes":[
         "lhaskell",
         "haskell"

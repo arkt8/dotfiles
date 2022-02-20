@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/parser-treesitter",
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
+  ["tool-formatter"] = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/tool-formatter",
+    url = "https://github.com/sbdchd/neoformat"
+  },
   ["tool-plenary"] = {
     loaded = true,
     path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/tool-plenary",
@@ -150,17 +155,17 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType haskell ++once lua require("packer.load")({'lang-haskell'}, { ft = "haskell" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "sh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType nginx ++once lua require("packer.load")({'lang-nginx'}, { ft = "nginx" }, _G.packer_plugins)]]
-vim.cmd [[au FileType md ++once lua require("packer.load")({'vim-markdown', 'ux-markdown-limelight'}, { ft = "md" }, _G.packer_plugins)]]
 vim.cmd [[au FileType bash ++once lua require("packer.load")({'lang-shellscript'}, { ft = "bash" }, _G.packer_plugins)]]
-vim.cmd [[au FileType yaml ++once lua require("packer.load")({'lang-yaml'}, { ft = "yaml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType zsh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "zsh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType shell ++once lua require("packer.load")({'lang-shellscript'}, { ft = "shell" }, _G.packer_plugins)]]
-vim.cmd [[au FileType lang-markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "lang-markdown" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ux-markdown-limelight'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "sh" }, _G.packer_plugins)]]
 vim.cmd [[au FileType python ++once lua require("packer.load")({'lang-python'}, { ft = "python" }, _G.packer_plugins)]]
+vim.cmd [[au FileType yaml ++once lua require("packer.load")({'lang-yaml'}, { ft = "yaml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ux-markdown-limelight'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType zsh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "zsh" }, _G.packer_plugins)]]
+vim.cmd [[au FileType md ++once lua require("packer.load")({'ux-markdown-limelight', 'vim-markdown'}, { ft = "md" }, _G.packer_plugins)]]
+vim.cmd [[au FileType shell ++once lua require("packer.load")({'lang-shellscript'}, { ft = "shell" }, _G.packer_plugins)]]
+vim.cmd [[au FileType haskell ++once lua require("packer.load")({'lang-haskell'}, { ft = "haskell" }, _G.packer_plugins)]]
+vim.cmd [[au FileType lang-markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "lang-markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType nginx ++once lua require("packer.load")({'lang-nginx'}, { ft = "nginx" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]

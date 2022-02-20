@@ -226,7 +226,7 @@ bindsym $mod+apostrophe       exec --no-startup-id $dialog mark_focus
 #bindsym $mod+period           exec --no-startup-id yeahconsole ~/.bin/vim-notes
 #bindsym $mod+Shift+apostrophe exec i3-input -F 'mark %s' -l 10 -P 'Add mark: '
 #bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 10 -P 'Go to mark: '
-bindsym $mod+XF86AudioMute exec --no-startup-id xset dpms force off
+bindsym $mod+XF86AudioMute exec --no-startup-id screenoff
 
 #### Tools keys}}}
 

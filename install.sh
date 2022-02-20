@@ -58,3 +58,5 @@ $lnd $CWD/kitty  $HOME/.config/kitty
 
 # Editor 
 $lnd $CWD/nvim   $HOME/.config/nvim
+$lnd $CWD/nvim/ide/ftplugin/haskell/formatter-brittany.yaml $HOME/.config/brittany/config.yaml
+
