@@ -12,4 +12,6 @@
 , "NeoVim":
 	{ "COC Config Schema": "https://github.com/neoclide/coc.nvim/blob/master/data/schema.json"
 	}
+, "Desktop config":
+	{ "Tint2": "https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md" }
 }

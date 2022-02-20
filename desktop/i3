@@ -149,8 +149,6 @@ bindsym $mod+XF86AudioRaiseVolume exec --no-startup-id transset -a -m 0.5 --inc 
 
 # switch to workspace
 
-workspace "Gimp" output DP-1
-workspace "Ranger" output eDP-1
 #workspace $ws1 output eDP-1
 #workspace $ws1 gaps outer
 #workspace $ws2 gaps outer
@@ -228,8 +226,15 @@ bindsym $mod+apostrophe       exec --no-startup-id $dialog mark_focus
 #bindsym $mod+period           exec --no-startup-id yeahconsole ~/.bin/vim-notes
 #bindsym $mod+Shift+apostrophe exec i3-input -F 'mark %s' -l 10 -P 'Add mark: '
 #bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -l 10 -P 'Go to mark: '
+bindsym $mod+XF86AudioMute exec --no-startup-id xset dpms force off
 
 #### Tools keys}}}
+
+#### Layout {{{
+bindsym $mod+equal exec i3-msg 'gaps inner all plus 5'
+bindsym $mod+minus exec i3-msg 'gaps inner all minus 5'
+
+#### }}}
 
 ######## }}} KEYBINDINGS
 
@@ -238,13 +243,13 @@ bindsym $mod+apostrophe       exec --no-startup-id $dialog mark_focus
 workspace_auto_back_and_forth yes
 show_marks yes
 default_border pixel 1
-default_floating_border pixel 1
+default_floating_border pixel 0
 #smart_gaps inverse_outer
 gaps inner 0
 gaps outer 0
 
 for_window [class=".*"] title_format " %class "
-for_window [class=".*"] border pixel 1
+#for_window [class=".*"] border pixel 1
 for_window [class="i3-dialog"] floating enable
 
 ######## }}} BEHAVIOR

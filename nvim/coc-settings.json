@@ -1,151 +1,151 @@
 {
-    "codeLens.enable": true,
-	"codeLens.position":"eol",
-	"codeLens.subseparator":"·",
-	"codeLens.separator":"·>",
-	"hover.target":"preview",
-    "git.addedSign.text": "+",
-    "git.removedSign.text": "-",
-    "git.changedSign.text": "≠",
-    "git.changeRemovedSign.text": "≠",
-    "diagnostic.maxWindowHeight": 20,
-    "diagnostic.errorSign": "E",
-    "diagnostic.warningSign": "♦",
-    "diagnostic.infoSign": "○",
-    "diagnostic.hintSign": "·",
-    "diagnostic.virtualText":true,
-    "diagnostic.virtualTextCurrentLineOnly":true,
-    "diagnostic.virtualTextPrefix":"←",
-    "diagnostic.virtualTextLines": 3,
-    "diagnostic.virtualTextAlignRight":false,
-    "diagnostic.autoRefresh":true,
-    "// diagnostic.enableMessage": "always, jump, never",
-    "diagnostic.enableMessage": "always",
-    "git.addGBlameToBufferVar": true,
-    "javascript.suggest.names": false,
-    "javascript.suggestionActions.enabled" : false,
-    "javascript.format.enabled": false,
-    "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescript.tsx", "typescriptreact", "javascriptreact", "html"],
-    "explorer.width": 40,
-    "explorer.icon.enableNerdfont": true,
-    "explorer.sources": [
-        {"name": "buffer", "expand": true},
-        {"name": "file", "expand": true}
-    ],
-    "explorer.git.icon.status.added": "+",
-    "explorer.git.icon.status.deleted": "-",
-    "explorer.git.icon.status.renamed": "r",
-    "explorer.git.icon.status.unmerged": "%",
-    "explorer.git.icon.status.untracked": "?",
-    "explorer.git.icon.status.modified": "m",
-    "explorer.git.icon.status.ignored": "·",
-    "explorer.openAction.for.directory": "expandOrCollapse",
-    "explorer.previewAction.onHover": false,
-    "explorer.keyMappings.global": {
-      "<tab>": ["expandable?", "expand", "open"],
-      "v": "open:vsplit"
-    },
-    "suggest.enablePreselect": false,
-    "suggest.noselect": true,
-    "suggest.enablePreview": false,
-    "suggest.fixInsertedWord":true,
-    "suggest.floatEnable": true,
-    "suggest.labelMaxLength":100,
-    "suggest.numberSelect":false,
-    "suggest.maxPreviewWidth": 20,
-    "suggest.disableMenuShortcut":true,
-    "suggest.snippetIndicator":"",
-	"suggest.removeDuplicates":true,
-    "suggest.floatConfig":{
-        "border":false,
-        "winblend": false,
-        "focusable": true,
-        "shadow": true,
-        "close" : true,
-        "maxWidth":50
-    },
-    "suggest.completionItemKindLabels": {
-        "keyword":       "▏key",
-        "variable":      "▏var",
-        "value":         "▏val",
-        "operator":      "▏oper",
-        "constructor":   "▏cont",
-        "function":      "▏func",
-        "reference":     "▏refer",
-        "constant":      "▏cons",
-        "method":        "▏method",
-        "struct":        "▏struct",
-        "class":         "▏class",
-        "interface":     "▏intrf",
-        "text":          "▏text",
-        "enum":          "▏enum",
-        "enumMember":    "▏enumI",
-        "module":        "▏module",
-        "color":         "▏color",
-        "property":      "▏prop",
-        "field":         "▏field",
-        "unit":          "▏unit",
-        "event":         "▏evt",
-        "file":          "▏file",
-        "folder":        "▏folder",
-        "snippet":       "▏snip",
-        "typeParameter": "▏type",
-        "default":       "▏"
-    },
-    "eslint.autoFixOnSave": false,
-    "eslint.autoFix": false,
-    "diagnostic-languageserver.filetypes": {
-        "sh": "shellcheck"
-    },
-    "diagnostic-languageserver.linters": {
-        "shellcheck": {
-            "args": [
-                "--format=gcc",
-                "--external-sources",
-                "-"
-            ],
-            "command": "shellcheck",
-            "debounce": 100,
-            "formatLines": 1,
-            "formatPattern": [
-                "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
-                {
-                    "column": 2,
-                    "line": 1,
-                    "message": 4,
-                    "security": 3
-                }
-            ],
-            "offsetColumn": 0,
-            "offsetLine": 0,
-            "securities": {
-                "error": "error",
-                "note": "hint",
-                "warning": "warning"
-            },
-            "sourceName": "shellcheck"
-        }
-    },
-    "signature.target": "float",
-	"signature.enable": true,
-	"signature.hideOnTextChange":true,
-    "languageserver": {
-        "haskell": {
-            "command" : "haskell-language-server-wrapper",
-            "//command" : "/home/thadeu/.ghcup/bin/haskell-language-server-9.0.1",
-            "args": [ "--lsp" ],
-            "rootPatterns": [
-                "*.cabal",
-                "stack.yaml",
-                "cabal.project",
-                "package.yaml",
-                "hie.yaml"
-            ],
-            "filetypes":[
-                "lhaskell",
-                "haskell"
-            ]
-        }
+  "codeLens.enable": true,
+  "codeLens.position":"eol",
+  "codeLens.subseparator":"·",
+  "codeLens.separator":"·>",
+  "hover.target":"preview",
+  "git.addedSign.text": "+",
+  "git.removedSign.text": "-",
+  "git.changedSign.text": "≠",
+  "git.changeRemovedSign.text": "≠",
+  "diagnostic.maxWindowHeight": 20,
+  "diagnostic.errorSign": "E",
+  "diagnostic.warningSign": "♦",
+  "diagnostic.infoSign": "○",
+  "diagnostic.hintSign": "·",
+  "diagnostic.virtualText":true,
+  "diagnostic.virtualTextCurrentLineOnly":true,
+  "diagnostic.virtualTextPrefix":"←",
+  "diagnostic.virtualTextLines": 3,
+  "diagnostic.virtualTextAlignRight":false,
+  "diagnostic.autoRefresh":true,
+  "// diagnostic.enableMessage": "always, jump, never",
+  "diagnostic.enableMessage": "always",
+  "git.addGBlameToBufferVar": true,
+  "javascript.suggest.names": false,
+  "javascript.suggestionActions.enabled" : false,
+  "javascript.format.enabled": false,
+  "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescript.tsx", "typescriptreact", "javascriptreact", "html"],
+  "explorer.width": 40,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.sources": [
+    {"name": "buffer", "expand": true},
+    {"name": "file", "expand": true}
+  ],
+  "explorer.git.icon.status.added": "+",
+  "explorer.git.icon.status.deleted": "-",
+  "explorer.git.icon.status.renamed": "r",
+  "explorer.git.icon.status.unmerged": "%",
+  "explorer.git.icon.status.untracked": "?",
+  "explorer.git.icon.status.modified": "m",
+  "explorer.git.icon.status.ignored": "·",
+  "explorer.openAction.for.directory": "expandOrCollapse",
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<tab>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit"
+  },
+  "suggest.enablePreselect": false,
+  "suggest.noselect": true,
+  "suggest.enablePreview": false,
+  "suggest.fixInsertedWord":true,
+  "suggest.floatEnable": true,
+  "suggest.labelMaxLength":100,
+  "suggest.numberSelect":false,
+  "suggest.maxPreviewWidth": 20,
+  "suggest.disableMenuShortcut":true,
+  "suggest.snippetIndicator":"",
+  "suggest.removeDuplicates":true,
+  "suggest.floatConfig":{
+    "border":false,
+    "winblend": false,
+    "focusable": true,
+    "shadow": true,
+    "close" : true,
+    "maxWidth":50
+  },
+  "suggest.completionItemKindLabels": {
+    "keyword":       "▏key",
+    "variable":      "▏var",
+    "value":         "▏val",
+    "operator":      "▏oper",
+    "constructor":   "▏cont",
+    "function":      "▏func",
+    "reference":     "▏refer",
+    "constant":      "▏cons",
+    "method":        "▏method",
+    "struct":        "▏struct",
+    "class":         "▏class",
+    "interface":     "▏intrf",
+    "text":          "▏text",
+    "enum":          "▏enum",
+    "enumMember":    "▏enumI",
+    "module":        "▏module",
+    "color":         "▏color",
+    "property":      "▏prop",
+    "field":         "▏field",
+    "unit":          "▏unit",
+    "event":         "▏evt",
+    "file":          "▏file",
+    "folder":        "▏folder",
+    "snippet":       "▏snip",
+    "typeParameter": "▏type",
+    "default":       "▏"
+  },
+  "eslint.autoFixOnSave": false,
+  "eslint.autoFix": false,
+  "diagnostic-languageserver.filetypes": {
+    "sh": "shellcheck"
+  },
+  "diagnostic-languageserver.linters": {
+    "shellcheck": {
+      "args": [
+        "--format=gcc",
+        "--external-sources",
+        "-"
+      ],
+      "command": "shellcheck",
+      "debounce": 100,
+      "formatLines": 1,
+      "formatPattern": [
+          "^[^:]+:(\\d+):(\\d+):\\s+([^:]+):\\s+(.*)$",
+          {
+              "column": 2,
+              "line": 1,
+              "message": 4,
+              "security": 3
+          }
+      ],
+      "offsetColumn": 0,
+      "offsetLine": 0,
+      "securities": {
+        "error": "error",
+        "note": "hint",
+        "warning": "warning"
+      },
+      "sourceName": "shellcheck"
     }
+  },
+  "signature.target": "float",
+  "signature.enable": true,
+  "signature.hideOnTextChange":true,
+  "languageserver": {
+    "haskell": {
+      "command" : "haskell-language-server-wrapper",
+      "//command" : "/home/thadeu/.ghcup/bin/haskell-language-server-9.0.1",
+      "args": [ "--lsp" ],
+      "rootPatterns": [
+        "*.cabal",
+        "stack.yaml",
+        "cabal.project",
+        "package.yaml",
+        "hie.yaml"
+      ],
+      "filetypes":[
+        "lhaskell",
+        "haskell"
+      ]
+    }
+  }
 }
 

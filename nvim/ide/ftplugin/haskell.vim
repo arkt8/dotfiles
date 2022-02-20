@@ -11,6 +11,7 @@ inoremap <buffer> <M-.> <Esc>:call HaskellInlineCall()<Enter>
 nnoremap <buffer> <M-,> <Esc>:call HaskellCommentRemove()<Enter>
 nnoremap <buffer> <F12> <Esc>:silent exec(':5sp \| :terminal stack build')<Enter>
 inoremap <buffer> <F12> <Esc>:silent exec(':5sp \| :terminal stack build')<Enter>
+imap <buffer> ---- -- /==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==/==
 set indentexpr=
 
 " For plugin neovimhaskell/haskell-vim

@@ -112,17 +112,12 @@ fu! ResetKeymap()
   set colorcolumn=
 
 "  source $HOME/.config/nvim/macros.vim
-  nmap <silent> ;d :CocDisable <Enter>
-  nmap <silent> ;e :CocEnable <Enter>
-  nmap <silent> ;l :CocList <Enter>
-  nmap <silent> ;R :CocRestart <Enter>
-  nmap <silent> ;r :CocRebuild <Enter>
 
-  nmap <silent> ;; <Plug>(coc-codelens-action)
-  nmap <silent> ;. :CocDiagnostics <Enter>
-  nmap <silent> ;/ :CocOutline <Enter>
-
-
+  nmap <silent> \f :Telescope find_files<Enter>
+  nmap <silent> \g :Telescope live_grep<Enter>
+  nmap <silent> \c :Telescope grep_files<Enter>
+  nmap <silent> \m :Telescope marks<Enter>
+  nmap <silent> \b :Telescope buffers<Enter>
 endfunction
 
 fu ToggleShowLineNumber()
