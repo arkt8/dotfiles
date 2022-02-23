@@ -4,7 +4,7 @@ set updatetime=300
 set hidden
 set signcolumn=number
 
-if &diff == v:false && $SSH_CONNECTION == ""
+if &diff == v:false " && $SSH_CONNECTION == ""
   function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
       execute 'h '.expand('<cword>')

@@ -1,4 +1,6 @@
-package.path=package.path..';/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua'
+package.path= vim.env.HOME..'/.config/nvim/ide/lua/?.lua'
+     ..';/usr/share/lua/5.1/?.lua;/usr/share/lua/5.1/?/init.lua;'
+     ..package.path
 package.cpath=package.cpath..';/usr/lib/x86_64-linux-gnu/lua/5.1/?.so;/usr/lib/lua/5.1/?.so'
 
 vim.g.mapleader = "\\"

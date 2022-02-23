@@ -48,7 +48,7 @@ conf_layout:
   lconfig_hangingTypeSignature: false
   lconfig_importAsColumn: 0
   lconfig_importColumn: 0
-  lconfig_indentAmount: 2
+  lconfig_indentAmount: 1
   lconfig_indentListSpecial: true
   #lconfig_indentPolicy: IndentPolicyFree
   lconfig_indentPolicy: IndentPolicyLeft
