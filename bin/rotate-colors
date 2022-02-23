@@ -36,6 +36,7 @@ jq '
     "color13":  .colors.color'${c[12]}',
     "color14":  .colors.color'${c[13]}'
   }
-}' $file > /tmp/x
-wal --theme /tmp/x
+}' $file > /tmp/x.json
+wal --theme /tmp/x.json
+rm /tmp/x.json
 

@@ -44,7 +44,7 @@ rofi_desktop() {
 }
 
 rofi_run() {
-	$ROFI -show run -modi run,ssh
+	$ROFI -show run -modi run,ssh,window
 }
 
 rofi_todo() {

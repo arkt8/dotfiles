@@ -1,0 +1,20 @@
+. $HOME/.cache/wal/colors.sh
+export background=${background:-#000000}
+export foreground=${foreground:-#ffffff}
+export color0=${color0:-#333333}
+export color1=${color1:-#ff0000}
+export color2=${color2:-#00aa00}
+export color3=${color3:-#888800}
+export color4=${color4:-#3333ff}
+export color5=${color5:-#aa00aa}
+export color6=${color6:-#00aaaa}
+export color7=${color7:-#aaaaaa}
+export color8=${color8:-#888888}
+export color9=${color9:-#ff8888}
+export color10=${color10:-#33ff33}
+export color11=${color11:-#ffff33}
+export color12=${color12:-#8888ff}
+export color13=${color13:-#ff33ff}
+export color14=${color14:-#33ffff}
+export color15=${color15:-#ffffff}
+export COLORSUBST='$background $foreground $color0 $color1 $color2 $color3 $color4 $color5 $color6 $color7 $color8 $color9 $color10 $color11 $color12 $color13 $color14 $color15'

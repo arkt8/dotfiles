@@ -11,11 +11,13 @@ $lnd $CWD/tmux/tmux.conf       $HOME/.tmux.conf
 $lnd $CWD/tmux                 $HOME/.config/tmux
 
 # Desktop
-$lnd $CWD/X/screenlayout $HOME/.screenlayout
-$lnd $CWD/X/Xresources   $HOME/.Xresources
-$lnd $CWD/X/Xdefaults    $HOME/.Xdefaults
-$lnd $CWD/X/xsession     $HOME/.xsession
-$lnd $CWD/X/themes       $HOME/.themes
+$lnd $CWD/X/screenlayout           $HOME/.screenlayout
+$lnd $CWD/X/Xresources             $HOME/.Xresources
+$lnd $CWD/X/Xdefaults              $HOME/.Xdefaults
+
+$lnd $CWD/desktop/picom/picom.conf $HOME/.config/picom.conf
+$lnd $CWD/desktop/themes           $HOME/.themes
+$lnd $CWD/desktop/xsession         $HOME/.xsession
 
 $lnd $CWD/rofi           $HOME/.config/rofi
 $lnd $CWD/ranger         $HOME/.config/

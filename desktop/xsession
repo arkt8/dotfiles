@@ -1,0 +1,33 @@
+pkill -9 picom
+picom --experimental-backends -b
+
+
+#
+# ENVIRONMENT 
+#
+cd $HOME
+export QT_QPA_PLATFORMTHEME=qt5ct
+#export GTK_THEME=numix-gimp
+
+#. $HOME/.profile
+
+# X SERVER
+#. $HOME/.screenlayout/2up1bottom.sh
+#. $HOME/.screenlayout/landscale_portrait.sh
+. $HOME/.config/desktop/randr/lapleft_bigright.sh
+#xhost +
+#/usr/bin/pasystray &
+
+# Cloud Folders 
+# bash $HOME/Dropbox/Bin/Dropboxes &
+# bash $HOME/Dropbox/Bin/Dropboxes kxmn &
+# /usr/local/bin/pcloud&
+
+$HOME/.config/desktop/setup.sh
+#urxvtd -f -o -q
+#awesome -c ~/.config/awesome/rc.lua
+
+feh --bg-fill ~/.config/wallpaper.jpg
+i3 -c $HOME/.config/desktop/i3/i3.conf
+#spectrwm
+#xmonad-session
