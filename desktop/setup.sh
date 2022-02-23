@@ -44,7 +44,7 @@ setup_x() {
 }
 
 setup_xrdb(){
-    xrdir=$HOME/.config/desktop/xresources
+    xrdir=$DESKDIR/xresources
     xconffile=$HOME/.Xresources
 
     #xset +fp $HOME/.config/git/bitmap-fonts/terminus
@@ -77,13 +77,19 @@ setup_cssstyles() {
 	done
 }
 setup_i3theme() {
-    templateFile=$HOME/.config/desktop/i3/i3theme.conf
-    cacheFile=$HOME/.cache/desktop/i3theme.conf
+    templateFile=$DESKDIR/i3/i3theme.conf
+    cacheFile=$DESKDIR/i3theme.conf
     rm $cacheFile
 
     cat $templateFile | envsubst "$COLORSUBST" > $cacheFile
 }
 
+setup_rofi() {
+    templateFile=$DESKDIR/rofi/templates/default.rasi
+    cacheFile=$CACHEDIR/rofi-theme.rasi
+
+    cat $templateFile | envsubst "$COLORSUBST" > $cacheFile
+}
 
 
                 # Use wal + wpg + oomox
@@ -91,7 +97,6 @@ setup_i3theme() {
 # pip3 install wpgtk # to install wpg
 wal -R
 
-$DESKDIR/scripts/xrdb.sh
 rm -rf "${CACHEDIR}/*"
 mkdir -p "${CACHEDIR}"
 . $DESKDIR/inc/colors.sh
@@ -101,5 +106,6 @@ setup_x
 setup_xrdb
 setup_i3theme
 setup_i3bar
+setup_rofi
 setup_cssstyles
 
