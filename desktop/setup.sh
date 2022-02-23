@@ -1,11 +1,9 @@
 #!/bin/bash
 # Generate the includes for the `bar{ }` i3.conf include
 
-screens=( $(_screens) )
-export SCREEN_PRIMARY=${screens[1]}
-export SCREEN_SECONDARY=${screens[2]}
 export DESKDIR="$HOME/.config/desktop"
 export CACHEDIR="$HOME/.cache/desktop"
+
 _screens() {
 	local pri
 	local sec
@@ -20,6 +18,10 @@ _screens() {
 	fi
 	echo $pri $sec
 }
+screens=( $(_screens) )
+export SCREEN_PRIMARY=${screens[1]}
+export SCREEN_SECONDARY=${screens[2]}
+
 setup_others() {
 	cp $HOME/.cache/wal/colors-rofi-dark.rasi $DESKDIR/rofi.rasi
 	cp $HOME/.cache/wal/colors-kitty.conf $HOME/.config/kitty/kitty.conf
@@ -78,7 +80,7 @@ setup_cssstyles() {
 }
 setup_i3theme() {
     templateFile=$DESKDIR/i3/i3theme.conf
-    cacheFile=$DESKDIR/i3theme.conf
+    cacheFile=$CACHEDIR/i3theme.conf
     rm $cacheFile
 
     cat $templateFile | envsubst "$COLORSUBST" > $cacheFile
@@ -104,8 +106,8 @@ mkdir -p "${CACHEDIR}"
 setup_others
 setup_x
 setup_xrdb
-setup_i3theme
 setup_i3bar
+setup_i3theme
 setup_rofi
 setup_cssstyles
 
