@@ -1,0 +1,205 @@
+
+* {
+	bg:       ${background};
+	fg:       ${color15};
+	accent:   ${color5};
+	urgent:   #ff8800aa;
+	alt:      ${color1};
+	selected: ${color2};
+    selected1: ${color2}88;
+    selected2: ${color2}44;
+	active:   ${color5};
+	color0:   ${color0};
+	color1:   ${color1};
+	color2:   ${color2};
+	color3:   ${color3};
+	color4:   ${color4};
+	color5:   ${color5};
+	color6:   ${color6};
+	color7:   ${color7};
+	color8:   ${color8};
+	color9:   ${color9};
+	color10:  ${color10};
+	color11:  ${color11};
+	color12:  ${color12};
+	color13:  ${color13};
+	color14:  ${color14};
+	color15:  ${color15};
+    mainbg:   ${color0}88;
+    colorDetail: ${color15}11;
+    colorOuter: ${color0}00;
+    alpha: ${color0}22;
+    lines: 10;
+    font:"Iosevka Term Light 12";
+    /*height: 70%;*/
+}
+
+#window {
+    background-color: @mainbg;
+    border-radius:0;
+    children: [ mainbox, content ];
+}
+
+#mainbox {
+    border: 0;
+    padding: 0;
+	height: 1ch;
+    fixed-height:true;
+    lines:1;
+	children: [ mode-switcher, inputbar ];
+	orientation:horizontal;
+    spacing: false;
+	background-color: transparent;
+    spacing: 0;
+    expand: false;
+}
+content {
+/*	children: [ listview, inputbar] ;*/
+	children: [ message, listview];
+	padding:0;
+    border-radius:0;
+	background-color: transparent;
+}
+mode-switcher {
+    border: 0;
+	padding: 0;
+    spacing: 0;
+	anchor: east;
+	orientation: horizontal;
+	background-color: transparent;
+}
+
+button {
+    text-color: @fg;
+	background-color: @selected2;
+	expand: false;
+	padding:1ch;
+	border-radius:0;
+    border:0 0 1ch 0;
+    border-color:@selected1;
+}
+
+button.selected {
+    /* background-color: @accent; */
+	background-color:@selected1;
+    text-color: @fg;
+    border-color:@selected;
+}
+
+message {
+    border: 2px 0px 0px;
+    border-color: @alt;
+    padding: 1px;
+}
+
+#textbox {
+    text-color: @fg;
+}
+
+
+#textbox-prompt-colon {
+    expand: false;
+    str: ":";
+    margin: 0px 0.3em 0em 0em;
+    text-color: @fg;
+}
+
+#listview {
+    fixed-height: 0;
+    border: 0;
+    border-color: @alt;
+    spacing: 2px;
+    scrollbar: false;
+    padding: 1ch 0px 0px;
+	background-color: transparent;
+}
+
+element {
+    border: 0 0 1px 0;
+    border-color:@colorDetail;
+    padding: 2ch;
+	background-color:transparent;
+	text-color: @fg;
+	border-radius:0;
+
+}
+element-text {
+	text-color:@fg;
+	background-color:transparent;
+}
+element-text.selected {
+	text-color:@bg;
+}
+
+#element.urgent {
+    background-color: transparent;
+    text-color: @urgent;
+}
+
+#element.active {
+    background-color: transparent;
+    text-color: @active;
+}
+
+element.selected {
+    background-color: @selected;
+    text-color: @bg;
+    text-style: bold;
+}
+
+#element.selected.urgent {
+    background-color: @selected;
+    text-color: @urgent;
+	text-style: italic;
+}
+
+#element.selected.active {
+    background-color: @selected;
+    text-color: @active;
+}
+
+//#element.alternate.normal {
+//    background-color: @alternate-normal-background;
+//    text-color: @alternate-normal-foreground;
+//}
+//
+//#element.alternate.urgent {
+//    background-color: @alternate-urgent-background;
+//    text-color: @alternate-urgent-foreground;
+//}
+//
+//#element.alternate.active {
+//    background-color: @alternate-active-background;
+//    text-color: @alternate-active-foreground;
+//}
+
+#scrollbar {
+    width: 2px;
+    border: 0;
+    handle-width: 8px;
+    padding: 0;
+	border-radius:0;
+	background-color:transparent;
+}
+
+
+#inputbar {
+    text-color: @bg;
+    expand:true;
+	background-color:transparent;
+	border: 0 0 1ch 0;
+    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+}
+	message, textbox, textbox-prompt-colon, case-indicator, entry, prompt {
+		background-color:transparent;
+		border:0;
+		text-color: @fg;
+	}
+	inputbar {
+        padding: 2ch;
+        border-color: @selected2;
+/*	border: 0 dash 0 dash 1px 0 dash; */
+	}
+/*
+ * vim: ft=css :
+ */

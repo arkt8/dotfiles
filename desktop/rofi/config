@@ -2,10 +2,10 @@ configuration {
 	/*modi: "window,run,ssh"; */
 	/*width: 100; */
 	/*lines: 15; */
-	/*columns: 1; */
+	/*columns: 2;*/
 	/*font: "Vic 12"; */
-	/*bw: 1; */
-	/*location: 0;*/
+	/*bw: 1;*/
+	/*location: 4;*/
 	/*padding: 5;*/
 	/*yoffset: 0;*/
 	/*xoffset: 0;*/
@@ -26,7 +26,7 @@ configuration {
 	/*levenshtein-sort: false;*/
 	/*case-sensitive: false;*/
 	/*cycle: true;*/
-	/*sidebar-mode: false;*/
+	/*sidebar-mode: true;*/
 	/*eh: 1;*/
 	/*auto-select: false;*/
 	/*parse-hosts: false;*/
@@ -142,6 +142,6 @@ configuration {
 	drun-match-fields: "exec,name";
 	terminal: "urxvt";
 	ssh-command: "{terminal} -tint '#330000' -e {ssh-client} {host}";
-	window-format: "{w:2} {c:10} {t}";
+/*	window-format: "{w:2} {c:10} {t}";*/
 }
-@theme "/home/thadeu/.config/desktop/rofi.rasi"
+/*@theme "/home/thadeu/.config/desktop/rofi.rasi"*/
