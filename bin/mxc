@@ -1,0 +1,61 @@
+#!/bin/bash
+
+cache=$HOME/.cache/mixcloud
+if [[ "$1" == "--clear" ]]; then
+	rm -rf "$cache"
+	exit 0
+fi
+
+CREATED_AFTER=${CREATED_AFTER:='PAST_YEAR'}
+CREATED_AFTER=${CREATED_AFTER:='PAST_MONTH'}
+CREATED_AFTER=${CREATED_AFTER:='PAST_DAY'}
+
+
+query="$@"
+cliresp="$cache/$query"
+pager="$(whereis bat | cut -d' ' -f2) --wrap never -n --theme base16 - "
+
+if [[ "$query" == "" ]] ; then
+	echo 'USAGE: bash mxc --clear         # to clear cache'
+	echo '       bash mxc "name of set"   # to search for a set'
+	exit
+fi
+mkdir -p $cache
+
+
+if [[ ! -f "$cliresp" ]]; then
+curl 'https://www.mixcloud.com/graphql' \
+	-X POST \
+	-H 'Accept: application/json' \
+	-H 'Accept-Encoding: gzip' \
+	-H 'X-Requested-With: XMLHttpRequest' \
+	-H 'Content-Type: application/json' \
+	-H 'Origin: https://www.mixcloud.com' \
+	-H 'Referer: https://www.mixcloud.com/' \
+	-H 'Pragma: no-cache' \
+	-H 'Cache-Control: no-cache' \
+	-H 'TE: trailers' \
+	--data-raw '{"query":"query SearchCloudcastResultsQuery(\n  $term: String!\n  $cloudcastCount: Int\n  $createdAfter: CreatedAfterFilter\n  $isTimestamped: IsTimestampedFilter\n) {\n  viewer {\n    search {\n      searchQuery(term: $term) {\n        cloudcasts(first: $cloudcastCount, createdAfter: $createdAfter, isTimestamped: $isTimestamped) {\n          edges {\n            node {\n              slug\n              ...SearchAudioCard_cloudcast\n              id\n            }\n          }\n          pageInfo {\n            hasNextPage\n          }\n        }\n      }\n    }\n    id\n  }\n}\n\nfragment AudioCardDetails_cloudcast on Cloudcast {\n  audioLength\n  plays\n  publishDate\n  tags(country: \"GLOBAL\") {\n    tag {\n      name\n      slug\n      id\n    }\n  }\n  ...AudioCardTags_cloudcast\n}\n\nfragment AudioCardTags_cloudcast on Cloudcast {\n  tags(country: \"GLOBAL\") {\n    tag {\n      name\n      slug\n      id\n    }\n  }\n}\n\nfragment PlayButton_cloudcast on Cloudcast {\n  restrictedReason\n  owner {\n    displayName\n    country\n    username\n    isSubscribedTo\n    isViewer\n    id\n  }\n  slug\n  id\n  isAwaitingAudio\n  isDraft\n  isPlayable\n  streamInfo {\n    hlsUrl\n    dashUrl\n    url\n    uuid\n  }\n  audioLength\n  currentPosition\n  proportionListened\n  repeatPlayAmount\n  hasPlayCompleted\n  seekRestriction\n  previewUrl\n  isExclusivePreviewOnly\n  isExclusive\n  picture {\n    primaryColor\n    isLight\n    lightPrimaryColor: primaryColor(lighten: 15)\n    transparentPrimaryColor: primaryColor(alpha: 0.3)\n  }\n}\n\nfragment RebrandUserBadge_user on User {\n  hasProFeatures\n}\n\nfragment SearchAudioCard_cloudcast on Cloudcast {\n  name\n  slug\n  isExclusive\n  owner {\n    displayName\n    username\n    ...RebrandUserBadge_user\n    id\n  }\n  picture {\n    ...UGCImage_picture\n  }\n  ...AudioCardDetails_cloudcast\n  ...PlayButton_cloudcast\n}\n\nfragment UGCImage_picture on Picture {\n  urlRoot\n  primaryColor\n}\n","variables":{"term":"'"$query"'","cloudcastCount":50,"createdAfter":"'"$CREATED_AFTER"'","isTimestamped":null}}' \
+| gunzip \
+| jq '..|.edges?[]? | .node as {name: $name, slug: $slug, audioLength:$length, publishDate:$date, owner:{displayName:$author, username:$username}} | [{set: (($date|gsub("T.*$";""))+" "+$author + ": " + ($name|gsub($author;"")|gsub("^[ _;.,-]+";"")) + " (" + (($length / 60)|floor|tostring) + "m" +(($length % 60)|tostring) + "s)"), url: ("https://www.mixcloud.com/" + $username + "/" + $slug)}]' > "$cliresp";
+
+fi
+
+list() {
+	jq '.[].set' "$@" | cat --number | fzf
+}
+selectUrl() {
+	set +x
+	jq '.[].url' "$2" | sed -n "${1},1p;" | sed 's/"//g'
+}
+
+if [[ -f "$cliresp" ]]; then
+    resnumber=$(list "$cliresp" | cut -f1)
+	sel=$(selectUrl "$resnumber" "$cliresp")
+	echo -e "==========\nSelected: $sel"
+	mpv $sel
+else
+	echo "Error: cant retrieve data"
+fi
+
+
