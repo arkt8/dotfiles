@@ -1,0 +1,6 @@
+#!/bin/bash
+
+exec xterm -fa "" \
+    -font1 "-*-spleen-*-*-*-*-12-*-*" \
+    -font2 "-*-fixed-*-*-*-*-14-*-*-*-*-*-iso8859-*" \
+    -fn "-*-spleen-*-*-*-*-12-*-*"

@@ -1,0 +1,3 @@
+#!/bin/bash
+
+exec vim +'set norelativenumber|set nonumber|colorscheme term' "$@"

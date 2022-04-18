@@ -1,0 +1,4 @@
+#!/bin/bash
+export PATH=$HOME/.local/lib/sumneko_lua/bin:$PATH
+exec nvim "$@"
+

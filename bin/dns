@@ -1,0 +1,40 @@
+#!/bin/bash
+
+
+declare -A DNS;
+DNS["Google"]="8.8.8.8 8.8.4.4"
+DNS["Cloudflare"]="1.1.1.1 1.0.0.1"
+DNS["OpenDNS"]="208.67.222.222 208.67.220.220"
+DNS["Quad9"]="9.9.9.9 149.112.112.112"
+DNS["CleanBrowsing"]="185.228.168.9 185.228.169.9"
+DNS["Verisign"]="64.6.64.6 64.6.65.6"
+
+if [[ -n "$1" ]] && [[ -n "${DNS[$1]}" ]]; then
+    if [[ "$USER" != "root" ]]; then
+        echo administration privileges required
+        exit 1
+    fi
+    confdir=/etc/resolvconf/resolv.conf.d
+    for i in ${confdir}/*; do
+        if [[ -f "$i" ]]; then
+            echo cleaning $i
+            echo '' > "$i"
+        fi
+    done
+    for dns in ${DNS[$1]}; do
+        echo "nameserver ${dns}" >> ${confdir}/head
+        echo "nameserver ${dns}" >> ${confdir}/original
+        echo "nameserver ${dns}" >> /etc/resolv.conf
+    done
+
+    # Case use this @!#% thing
+    systemctl restart systemd-resolved.service 2> /dev/null
+    systemctl restart resolvconf.service 2> /dev/null
+else
+    echo -e "\n---------\nOptions:\n"
+    for dns in ${!DNS[@]} ;do echo " * $dns"; done
+    echo -e "\n---------\nCurrent:\n"
+    cat /etc/resolv.conf | grep nameserver
+    echo
+
+fi

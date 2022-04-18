@@ -1,11 +1,15 @@
 #!/bin/bash
-FILE=~/.todo.md
+TODOPATH=~/Notes/todo
+cd $TODOPATH
+ranger
 
-
-if [[ "$@" == "" ]] ; then
-	bat -f --paging always --theme ansi-dark -p $FILE
-elif [[ "$1" == "-e" ]]; then
-	vim $FILE
-else
-	echo '* ' "$@" >> $FILE
-fi
+#FILE=~/.todo.md
+#
+#
+#if [[ "$@" == "" ]] ; then
+#	bat -f --paging always --theme ansi-dark -p $FILE
+#elif [[ "$1" == "-e" ]]; then
+#	vim $FILE
+#else
+#	echo '* ' "$@" >> $FILE
+#fi

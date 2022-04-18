@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# To enable mountings, with user and pwd, check ~/.config/rclone/rclone.conf
+
+
+rmount() {
+    rclone  mount \
+            --daemon \
+            --volname "$1" \
+            --vfs-cache-mode full \
+            "$1":/ $2
+}
+
+rumount() {
+    fusermount -u "$2"
+}
+
+if [[ "$1" == "-u" ]] ; then
+    action="rumount";
+    shift;
+else
+    action="rmount";
+fi
+
+name="$1"
+mountpoint="/mnt/$1"
+
+[[ -z "$name" ]] \
+    && echo "Unspecified mount name" \
+    && exit 1
+
+[[ ! -d $mountpoint ]] \
+    && echo "Mountpoint dir \"$mountpoint\" doesn't exists" \
+    && exit 1
+
+$action $name $mountpoint
