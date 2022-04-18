@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Example
+Exec=xterm
+Comment=This is an .desktop example
+GenericName=An Example Program
+Terminal=true
+Icon=gnome-panel-launcher
+Type=Application

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=KXMN Obter Novas imagens
+Exec=kxmn-get-camera-images
+GenericName=Obter imagens da Câmera Fotográfica
+Terminal=true
+Icon=gnome-panel-launcher
+Type=Application

@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=KXMN Sincronizar imagens
+Exec=kxmn-image-sync
+GenericName=Sincronizar imagens editadas
+Terminal=true
+Icon=gnome-panel-launcher
+Type=Application

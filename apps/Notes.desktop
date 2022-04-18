@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Popup Notes
+Exec=bash -c '[[ -z "$(pgrep -x tilda)" ]] && tilda vim ~/Notes/'
+GenericName=Abrir anotações
+Terminal=false
+Icon=gnome-panel-launcher
+Type=Application

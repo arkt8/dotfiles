@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=KXMN Editar Imagens
+Exec=kxmn-image-editor
+GenericName=GIMP + Gerenciador de imagens
+Terminal=false
+Icon=gnome-panel-launcher
+Type=Application

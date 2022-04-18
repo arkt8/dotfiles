@@ -11,7 +11,7 @@ skey() {
 		return 0
 	fi
 	if [[ ! -d "/proc/$SSH_AGENT_PID" ]] ; then
-		ssh-agent -t 3600 > $SESS
+		ssh-agent -t 36000 > $SESS
 		. $SESS
 	fi
 	ssh-add "${KEYS}/$1"
