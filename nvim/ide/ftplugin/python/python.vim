@@ -6,7 +6,6 @@ endfu
 
 
 fu! Ide_Python()
-	setlocal sts=4 sw=4 ts=4 expandtab
 
 	" For plug vim-python/python-syntax
 	let g:python_version_3 = 1
@@ -21,3 +20,7 @@ endfu
 au BufWinEnter,BufEnter,BufRead *.py call Ide_Python()
 call Ide_Python()
 
+
+setlocal sts=4 sw=4 ts=4 expandtab
+inoremap <buffer><silent> ;R :CocCommand pyright.restartserver<Enter>
+nnoremap <buffer><silent> <C-x> <Esc>:w!<Enter>:!python %<Enter>

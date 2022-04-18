@@ -49,4 +49,3 @@ endfunction
 
 setlocal foldtext=Ide_FoldText()
 
-ALEDisableBuffer
