@@ -1,6 +1,20 @@
 #!/bin/bash
 CWD=$(realpath $(dirname $0))
-export lnd='ln -nsfv'
+
+if [[ -n "$DEBUG" ]] ; then
+    export lnd='ln -nsfv'
+else
+    export lnd='ln -nsf'
+fi
+
+update_menus() {
+    APPDIR=$HOME/.local/share/applications
+    PREFIX="dotfile-apps-"
+    rm -rf $APPDIR/${PREFIX}*.desktop;
+    for i in $CWD/apps/*.desktop ; do
+        $lnd $i $APPDIR/${PREFIX}-$(basename $i);
+    done
+}
 # Shell
 $lnd $CWD/shell/profile        $HOME/.profile
 $lnd $CWD/shell/bashrc         $HOME/.bashrc
@@ -54,7 +68,7 @@ for mozprofile in $HOME/.mozilla/firefox/*.default*; do
 done
 
 # Utilities
-$lnd $CWD/bin    $HOME/.bin
+$lnd $CWD/bin/*    $HOME/.local/bin/
 $lnd $CWD/mpv    $HOME/.config/mpv
 $lnd $CWD/kitty  $HOME/.config/kitty
 
@@ -62,3 +76,5 @@ $lnd $CWD/kitty  $HOME/.config/kitty
 $lnd $CWD/nvim   $HOME/.config/nvim
 $lnd $CWD/nvim/ide/ftplugin/haskell/formatter-brittany.yaml $HOME/.config/brittany/config.yaml
 
+
+update_menus

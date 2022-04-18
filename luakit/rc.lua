@@ -49,7 +49,7 @@ local lousy = require "lousy"
 -- Load users theme
 -- ("$XDG_CONFIG_homedir/luakit/theme.lua" or "/etc/xdg/luakit/theme.lua")
 -- lousy.theme.init(lousy.util.find_config("theme.lua"))
-lousy.theme.init(homedir.."/.config/dotfiles/luakit/theme.lua")
+lousy.theme.init(homedir.."/.config/luakit/theme.lua")
 assert(lousy.theme.get(), "failed to load theme")
 
 -- Load users window class
@@ -157,7 +157,7 @@ local cmdhist = require "cmdhist"
 -- Add search mode & binds
 local search = require "search"
 settings.window.default_search_engine = "duckduckgo"
-settings.window.search_engines.default = "https://m.duckduckgo.com/?q=%s"
+settings.window.search_engines.default = "https://lite.duckduckgo.com/lite?q=%s"
 
 -- Add ordering of new tabs
 local taborder = require "taborder"
@@ -226,8 +226,8 @@ require "adblock_chrome"
 
 -- Restore last saved session
 local w = (not luakit.nounique) and (session and session.restore())
-window.home_page = "file://"..homedir.."/.config/dotfiles/bookmarks.html"
-window.new_tab_page = "file://"..homedir.."/.config/dotfiles/bookmarks.html"
+window.home_page = "file://"..homedir.."/.dotfiles/bookmarks.html"
+window.new_tab_page = "file://"..homedir.."/.dotfiles/bookmarks.html"
 if w then
     for i, uri in ipairs(uris) do
         w:new_tab(uri, { switch = i == 1 })
