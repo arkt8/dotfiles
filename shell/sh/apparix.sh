@@ -289,24 +289,29 @@ find -L "$loc" -mindepth 1 -type d -a \( -name ".*" -prune -o -printf '%P\n' \)
     fi
 }
 
+
 # Huffman (remove this paragraph, or just alias "a" yourself)
 if ! apx_silent command -v a; then
     alias a='apparish'
+else
+    >&2 echo "Apparix: not aliasing a"
 fi
 
 if ! apx_silent command -v via; then
     alias via='"${EDITOR:-vim}" "$APPARIXRC"'
+else
+    >&2 echo "Apparix: not aliasing via"
 fi
 
-#if ! apx_silent bind -q menu-complete; then
-#    cat <<EOH
-#--> Consider adding the line
-#bind '"\t":menu-complete'
-#<-- to e.g. $HOME/.bashrc
-#This enables cyclic tab completion on directories and files below apparix marks.
-##We apologise profusely for this interruption.
-#EOH
-#fi
+# if ! apx_silent bind -q menu-complete; then
+#     cat <<EOH
+# --> Consider adding the line
+# bind '"\t":menu-complete'
+# <-- to e.g. $HOME/.bashrc
+# This enables cyclic tab completion on directories and files below apparix marks.
+# We apologise profusely for this interruption.
+# EOH
+# fi
 
 function apparish() {
     if [[ 0 == "$#" ]]; then

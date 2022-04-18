@@ -90,3 +90,4 @@ function _PROMPT_return() {
 	|| echo -en "${_pmpt_ok};1mOK${_pmpt_ok};1m ⤶ "
 }
 export PS1="\`_PROMPT_return \$?\`${_pmpt_};1m \u\e[0m${_pmpt_};2m @ \e[0m${_pmpt_};1m\h \e[0m${_pmpt_fg};2m \w\e[0m \n > "
+. "$HOME/.cargo/env"
