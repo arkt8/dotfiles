@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/Golden-AndreaDAgostino.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#01051A",
+        "foreground": "#d7cec7",
+        "cursor": "#d7cec7"
+    },
+    "colors": {
+        "color0": "#11152A",
+        "color1": "#836149",
+        "color2": "#9F7B57",
+        "color3": "#E2945A",
+        "color4": "#D5A75A",
+        "color5": "#776A74",
+        "color6": "#C5A47C",
+        "color7": "#d7cec7",
+        "color8": "#96908b",
+        "color9": "#A38169",
+        "color10": "#BF9B77",
+        "color11": "#FFB47A",
+        "color12": "#F5C77A",
+        "color13": "#978A94",
+        "color14": "#E5C49C",
+        "color15": "#E7DeD7"
+    }
+}

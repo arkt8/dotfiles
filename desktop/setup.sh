@@ -32,7 +32,7 @@ setup_x() {
 	tpl=$DESKDIR/templates/urxvt.xresources
 	$(cat ~/.cache/wal/colors.sh | grep = | grep 'fore\|back\|color' | sed "s/^/export /g;s/['\"]//g")
 	cat $WAL/colors.Xresources $tpl | envsubst >$file
-	cat $DESKDIR/templates/dark.css | envsubst > $HOME/.config/dotfiles/userstyles/dark.css
+	cat $DESKDIR/templates/dark.css | envsubst > $HOME/.dotfiles/userstyles/dark.css
 	cat $DESKDIR/templates/luakit-theme.lua |envsubst > $HOME/.config/luakit/theme.lua
 	cat $DESKDIR/xresources/* > $HOME/.Xdefaults
 
@@ -55,11 +55,9 @@ setup_xrdb(){
 
     xrdb -remove
     cat $HOME/.cache/wal/colors.Xresources > $xconffile
-    for conf in ${xrdir}/* ; do
-        cat $conf
-    done >> $HOME/.Xresources
+    cat ${xrdir}/* >> $xconffile
 
-    xrdb -load $HOME/.Xresources
+    xrdb -load $xconffile
 }
 
 setup_i3bar() {

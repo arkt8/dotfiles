@@ -1,0 +1,103 @@
+#!/usr/bin/lua
+
+-- ===================
+-- PyWal Color Wrapper
+-- ===================
+--
+-- Used to improve generated colors.
+-- Basically do thinks like differenciate background of color0
+-- and differenciate colors 0-7 from 8-15
+
+-- Color Functions
+-- ===============
+
+local function decompose(rgb)
+   local r,g,b = rgb:match('(..)(..)(..)$')
+   return tonumber(r,16),tonumber(g,16),tonumber(b,16)
+end
+
+local function compose(r,g,b)
+   return string.format('#%02x%02x%02x',r,g,b)
+end
+
+local function colorops(rgb1, rgb2, x, fn)
+   local r1,g1,b1 = decompose(rgb1)
+   local r2,g2,b2 = decompose(rgb2)
+   return compose( fn(r1,r2,x), fn(g1,g2,x), fn(b1,b2,x) )
+end
+
+local function chsum(c1,c2) return math.max(0,math.min(255,c1+c2)) end
+local function chsub(c1,c2) return math.max(0,math.min(255,c1-c2)) end
+local function chmix(c1,c2,ratio)
+   local min,max = math.min(c1,c2), math.max(c1,c2)
+   return math.floor( min + ((max-min) * ratio) )
+end
+
+local function darken(color,amount)
+   local r,g,b = decompose(color)
+   return compose(chsub(r,amount),chsub(g,amount),chsub(b,amount))
+end
+
+local function lighten(color,amount)
+   local r,g,b = decompose(color)
+   return compose(chsum(r,amount),chsum(g,amount),chsum(b,amount))
+end
+
+-- Helper Functions
+-- ================
+
+--       Main
+-- ================
+
+-- Using lua-json module
+local json = require "json"
+
+local function getdata(jsonfile)
+   local f = io.open(jsonfile,"r")
+   if f then
+      local data = f:read("a")
+      if data then return json.decode(data) end
+   end
+   f:close()
+end
+
+local function storedata(jsonfile, data)
+   local f = io.open(jsonfile, "w+")
+   if f then f:write(json.encode(data)) end
+   f:close()
+end
+
+local colorschemefile=arg[1]
+local jsondata = getdata(colorschemefile)
+local c,sp = {}, {}
+for i,v in pairs(jsondata.special) do sp[i]=v end
+for i,v in pairs(jsondata.colors)  do c[i]=v end
+
+if sp.background == c.color0  then sp.background = darken( sp.background,32) end
+if sp.foreground == c.color15 then c.color15    = lighten(c.color15,32)    end
+
+if c.color0 == c.color8  then c.color8 = lighten(c.color8,32)   end
+if c.color1 == c.color9  then c.color9 = lighten(c.color9,32)   end
+if c.color2 == c.color10 then c.color10 = lighten(c.color10,32) end
+if c.color3 == c.color11 then c.color11 = lighten(c.color11,32) end
+if c.color4 == c.color12 then c.color12 = lighten(c.color12,32) end
+if c.color5 == c.color13 then c.color13 = lighten(c.color13,32) end
+if c.color6 == c.color14 then c.color14 = lighten(c.color14,32) end
+if c.color7 == c.color15 then c.color15 = lighten(c.color15,32) end
+
+jsondata.colors = c
+jsondata.special = sp
+
+storedata(colorschemefile, jsondata)
+
+
+
+
+
+
+
+
+
+
+
+

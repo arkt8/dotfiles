@@ -10,6 +10,10 @@ input() {
 	$ROFI -dmenu -lines 0 -p "$@"
 }
 
+rofi_windows() {
+    $ROFI -show window -modi window,windowcd -window-match-fields title,name -window-format "{n:12} · {t}{w:2}"
+}
+
 rofi_settings() {
 	if [[ "$1" == "" ]]; then
 		$0 settings "$($0 settings --list | $ROFI -dmenu -p "Conf")"
@@ -35,7 +39,7 @@ rofi_settings() {
 	fi
 }
 
-rofi_desktop() {
+rofi_wm_menu() {
 	wallpaper=wallpaper:$APPS/wallpaper
 	theme=theme:$APPS/theme
 	$ROFI -sidebar-mode true \
@@ -45,7 +49,7 @@ rofi_desktop() {
 }
 
 rofi_run() {
-	$ROFI -show run -modi run,ssh,window
+	$ROFI -show drun -modi drun,ssh,window,run
 }
 
 rofi_todo() {
@@ -54,9 +58,35 @@ rofi_todo() {
 		-modi notes:$APPS/notes
 }
 
+rofi_calc() {
+    $ROFI -show calc -modi calc
+}
+
+rofi_cheatsheets() {
+    cd $HOME/git/cheatsheets/md
+    file="$(\
+        find . -name '*md'\
+        | sed 's/^\.\///g' \
+        | $ROFI -dmenu -l 10 \
+        )"
+
+    if [[ "$file" == "edit" ]]
+        then x-terminal-emulator -e editor ./ ; exit; fi
+
+    if [[ -z "$file" ]]
+        then exit; fi
+
+     [[ -n $TERM ]] \
+     && x-terminal-emulator -e bat --decorations never \
+        --theme ansi-dark \
+        --paging always \
+        "$file"
+}
+
 rename_current_window() {
 #	window=$(xwininfo | grep 'xwininfo: Window id' | awk '{print $4}')
 	window=$(xdotool getactivewindow)
+    echo $window >> /tmp/x
 	name=$(input 'Window title')
 	xdotool set_window --name "${name}" "${window}"
 }
@@ -65,12 +95,15 @@ case "$action" in
 
  "rename_workspace") i3-msg rename workspace to "$( input 'Workspace name')";;
  #"rename_window")    i3-msg title_format "$(input 'Window title')";;
- "rename_window")    rename_current_window ;;
+ "rename_window")    rename_current_window $@;;
  "mark_add")         i3-msg mark "$(input "Add mark")";;
  "mark_focus")       i3-msg "[con_mark=\"$(input "Go to mark")\"] focus";;
- "wm_menu")          rofi_desktop ;;
+ "wm_menu")          rofi_wm_menu ;;
  "todo")             rofi_todo ;;
  "theme")            wpg --noreload ;;
  "settings")         rofi_settings $@ ;;
+ "calc")             rofi_calc;;
+ "windows")          rofi_windows;;
  "run")              rofi_run $@;;
+ "cheatsheets")      rofi_cheatsheets $@;;
 esac

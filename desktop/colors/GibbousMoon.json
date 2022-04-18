@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/GibousMoonTree.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#000000",
+        "foreground": "#c5aebb",
+        "cursor": "#c2c3c7"
+    },
+    "colors": {
+        "color0": "#0d1221",
+        "color1": "#445ca9",
+        "color2": "#6c68aa",
+        "color3": "#9a77a8",
+        "color4": "#c58e9b",
+        "color5": "#aa6c84",
+        "color6": "#c7778f",
+        "color7": "#c5aebb",
+        "color8": "#494d58",
+        "color9": "#647cd9",
+        "color10": "#8c88ea",
+        "color11": "#ba97e8",
+        "color12": "#c5aebb",
+        "color13": "#ea8ca4",
+        "color14": "#f79fb7",
+        "color15": "#c2c3c7"
+    }
+}

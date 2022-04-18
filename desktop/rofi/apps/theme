@@ -1,21 +1,20 @@
 #!/bin/sh
 ### Created by ilsenatorov
-THEME_DIR=$HOME/.config/wal/themes
+THEME_DIR=$HOME/.config/desktop/colors
 cd $THEME_DIR
 
 list_themes() {
-	ls
-	echo current;
-	wal --theme | grep '^ - '| cut -d' ' -f3
+    find $THEME_DIR -name '*.json' \
+    |sed 's/^.*\///g;s/\.json$//g'
 }
 if [ -z "$@" ]; then
 	list_themes
 else
     THEME=$@
-    if [ x"current" = x"${THEME}" ]; then exit 0
-    elif [ -n "${THEME}" ]; then
-        wal --theme ${THEME} > /dev/null
-        $HOME/.config/desktop/scripts/theme.sh > /dev/null
+    if [ -n "${THEME}" ]; then
+        wal --theme ${THEME_DIR}/${THEME}.json > /dev/null
+        ~/.config/desktop/scripts/recolor ~/.cache/wal/colors.json
+        $HOME/.config/desktop/setup.sh > /dev/null
     fi
 	list_themes
 fi

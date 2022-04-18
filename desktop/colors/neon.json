@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/thadeu/Downloads/wp/minimalism-1638279135563-3794.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#000820",
+        "foreground": "#ffDED7",
+        "cursor": "#cc9e97"
+    },
+    "colors": {
+        "color0": "#001830",
+        "color1": "#EE0F79",
+        "color2": "#4A4BB5",
+        "color3": "#FD2C4E",
+        "color4": "#2A6B9B",
+        "color5": "#F94344",
+        "color6": "#6A6BA5",
+        "color7": "#bc8e87",
+        "color8": "#8e6e69",
+        "color9": "#FF4FB9",
+        "color10": "#7A7BF5",
+        "color11": "#FF5C7E",
+        "color12": "#2A9BCB",
+        "color13": "#FF6364",
+        "color14": "#9A9BD5",
+        "color15": "#dcaea7"
+    }
+}

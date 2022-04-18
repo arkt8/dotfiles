@@ -140,7 +140,7 @@ configuration {
 	modi: "run,drun";
 	combi-modi: "run";
 	drun-match-fields: "exec,name";
-	terminal: "urxvt";
+	terminal: "terminal";
 	ssh-command: "{terminal} -tint '#330000' -e {ssh-client} {host}";
 /*	window-format: "{w:2} {c:10} {t}";*/
 }

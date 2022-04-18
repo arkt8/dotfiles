@@ -17,7 +17,10 @@ else
         # wal -i `cat ~/.cache/wal/wal` > /dev/null #Allows you to just stay with current theme
     elif [ -n "${THEMES}" ]
     then
-        wal -st --backend schemer2 -i $WALLPAPERDIR/${THEMES} > /dev/null
-		~/.config/desktop/scripts/theme.sh > /dev/null
+        # colorz schemer2 wal haishoku colorthief
+        wal -t --backend schemer2 -i $WALLPAPERDIR/${THEMES} > /dev/null
+        ~/.config/desktop/scripts/theme.sh > /dev/null
+        ~/.config/desktop/scripts/recolor ~/.cache/wal/colors.json
+        $HOME/.config/desktop/setup.sh > /dev/null
     fi
 fi

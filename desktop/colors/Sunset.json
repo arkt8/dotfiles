@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/thadeu/Downloads/glen-ardi-yAjoo9cG_aU-unsplash.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#0a0c12",
+        "foreground": "#d3d7e7",
+        "cursor": "#b3b7c7"
+    },
+    "colors": {
+        "color0": "#15171d",
+        "color1": "#6C3C79",
+        "color2": "#C7545F",
+        "color3": "#E28150",
+        "color4": "#FF9F67",
+        "color5": "#6A6AAD",
+        "color6": "#B9649C",
+        "color7": "#b3b7d7",
+        "color8": "#3a3c42",
+        "color9": "#AC7CB9",
+        "color10": "#F7846F",
+        "color11": "#FFC1A0",
+        "color12": "#FFDFB7",
+        "color13": "#BABAED",
+        "color14": "#F984DC",
+        "color15": "#e3e7f7"
+    }
+}

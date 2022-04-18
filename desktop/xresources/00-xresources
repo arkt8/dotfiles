@@ -6,6 +6,7 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter:lcdlight
 Xft.rgba: rgb
 
+
 rofi.font: Victor Mono 18
 
 *renderFont: false
@@ -17,10 +18,21 @@ rofi.font: Victor Mono 18
 XTerm*renderFont: true
 
 !XTerm*faceName: spleen32x64:pixelsize=18:antialias=false
-xterm*faceName: spleen:pixelsize=16:antialias=false
+!xterm*faceName: spleen:pixelsize=16:antialias=false
+xterm*faceName: Victor Mono:pixelsize=16:antialias=false
 xterm*metaSendsEscape: true
 xterm*termName: xterm-256color
+XTerm*font: -*-terminus-*-*-*-*-12-*-*-*-*-*-*-*
+XTerm*font1: -*-clean-medium-*-*-*-10-*-*-*-*-*-*-*
+XTerm*font2: -*-spleen-*-*-*-*-12-*-*-*-*-*-*-*
+XTerm*font3: -*-clean-medium-*-*-*-13-*-*-*-*-*-*-*
+XTerm*font4: -*-fixed-*-*-*-*-14-*-*-*-*-*-iso8859-*
+XTerm*font5: -*-fixed-medium-*-*-*-15-*-*-*-*-*-iso8859-*
+XTerm*font6: -*-clean-medium-*-*-*-17-*-*-*-*-*-*-*
+XTerm*font7: -*-fixed-medium-*-*-*-18-*-*-*-*-*-iso8859-*
+XTerm*allowBoldFonts: false
 yeahconsole*term: xterm
+yeahconsole*faceName: Victor Mono:pixelsize=16:antialias=false
 yeahconsole*toggleKey: Super_L+period
 yeahconsole*keyFull:   Super_L+comma
 yeahconsole*restart: 1

@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/thadeu/Imagens/Wallpaper/YerevanArmenia-LevonVerdanyan.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#07101B",
+        "foreground": "#dbd3d3",
+        "cursor": "#dbd3d3"
+    },
+    "colors": {
+        "color0": "#061a2f",
+        "color1": "#a2046c",
+        "color2": "#067886",
+        "color3": "#D9608F",
+        "color4": "#656986",
+        "color5": "#6f418f",
+        "color6": "#3CB7B9",
+        "color7": "#90c3cd",
+        "color8": "#364a5f",
+        "color9": "#953f78",
+        "color10": "#10939d",
+        "color11": "#D9608F",
+        "color12": "#656986",
+        "color13": "#9d81af",
+        "color14": "#3CB7B9",
+        "color15": "#f9aab1"
+    }
+}
