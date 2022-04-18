@@ -25,5 +25,5 @@ modes.add_binds("normal", {
 	{",",           "hist back", function(w,m) w:back(m.count) end },
 	{".",           "hist next", function(w,m) w:forward(m.count) end },
 	{"<Control-d>", "dark colors", function(w,m) styles.toggle_sheet('dark.css') end },
-	{"<Control-i>", "invert colors", function(w,m) styles.toggle_sheet('invert.css') end }
+	{"<Control-c>", "invert colors", function(w,m) styles.toggle_sheet('clean.css') end }
 })
