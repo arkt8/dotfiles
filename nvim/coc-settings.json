@@ -27,7 +27,7 @@
   "javascript.format.enabled": false,
   "coc.preferences.formatOnSaveFiletypes": ["typescript", "typescript.tsx", "typescriptreact", "javascriptreact", "html"],
   "explorer.width": 40,
-  "explorer.icon.enableNerdfont": true,
+  "explorer.icon.enableNerdfont": false,
   "explorer.sources": [
     {"name": "buffer", "expand": true},
     {"name": "file", "expand": true}
@@ -130,6 +130,11 @@
   "signature.enable": true,
   "signature.hideOnTextChange":true,
   "languageserver": {
+    "nim": {
+      "command": "nimlsp",
+      "filetypes": ["nim"],
+      "trace.server":"verbose"
+    },
     "haskell": {
       "command" : "haskell-language-server-wrapper",
       "args": [ "--lsp" ],
@@ -172,6 +177,13 @@
         "haskell"
       ]
     }
-  }
+  },
+
+
+  "python.analysis.typeCheckingMode":"off",
+  "python.analysis.useLibraryCodeForTypes": false,
+  "python.analysis.extraPaths": [".venv/lib/python3.9/site-packages/"],
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.extensionUpdateCheck": "daily"
 }
 
