@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export CAMERA=/media/Camera
+export IMGTGT=/home/kaxamana/Fotos/Novas
+
+if [[ -d "$IMGTGT" ]] ; then
+    set -x
+    sudo umount -f $CAMERA > /dev/null 2>&1
+    mount $CAMERA && {
+        mv $CAMERA/DCIM/*/*JPG $IMGTGT
+        sync
+    }
+    umount -f $CAMERA > /dev/null 2>&1
+else
+    echo "Destino $IMGTGT encontrado"
+fi
+
+echo -e "\n\n"
+read -p "Pressione Enter para finalizar"

@@ -1,0 +1,46 @@
+#!/bin/bash
+export action="$1"
+shift
+
+declare -A A; #Actions
+A["get-img"]="Get images from camera"
+A["edit-img"]="Start image edition suite"
+A["help"]="List options"
+
+help() {
+	for i in $list; do
+		printf '%-15s%s\n' "$i" "${A[$i]}";
+	done
+}
+
+get-img(){
+	MOUNTPOINT=/media/Nikon
+	TARGET=/home/kaxamana/Fotos/Novas
+	sync
+	umount $MOUNTPOINT > /dev/null 2>&1
+	mount $MOUNTPOINT \
+		&& mv $MOUNTPOINT/* $TARGET
+	exit $?
+}
+
+edit-img() {
+	sleep 0.5
+	i3-msg workspace "Ranger",\
+		   splith,\
+		   exec "rox /home/kaxamana/Fotos/Novas /media",\
+		   exec "xterm -e ranger /home/kaxamana/Fotos/Novas"
+	sleep 2
+	echo "vai pra outra tela heiN!!!"
+	sleep 0.5
+	i3-msg \
+	       workspace "Gimp",\
+		   splitv,\
+		   exec "gimp & rox /home/kaxamana/Fotos/Refs"
+}
+
+list=$(echo ${!A[@]}| tr " " "\n" | sort)
+if [[ -z "$action" ]] || [[ "${A[$action]}" == "" ]]; then
+	help
+	exit 1;
+fi
+${action}
