@@ -16,6 +16,17 @@ return require("packer").startup(function(use)
   use { "neovimhaskell/haskell-vim"
       , as = "lang-haskell"
       , ft = {"haskell"} }
+--[[  use { "alaviss/nim.nvim"
+      , as = "lang-nim"
+      , ft = {"nim"} } ]]
+  use { "neovim/nvim-lspconfig" }
+  use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
+  use 'hrsh7th/cmp-nvim-lsp' -- LSP source for nvim-cmp
+  use 'saadparwaiz1/cmp_luasnip' -- Snippets source for nvim-cmp
+  use 'L3MON4D3/LuaSnip' -- Snippets plugin
+  use { "zah/nim.vim"
+      , as = "lang-nim"
+      , ft = {"nim"} }
   use { "vim-python/python-syntax"
       , as = "lang-python"
       , ft = {"python"} }
@@ -29,6 +40,8 @@ return require("packer").startup(function(use)
       , ft = {"zsh", "bash", "sh", "shell"} }
   use { "mrk21/yaml-vim"
       , as = "lang-yaml", ft = {"yaml"} }
+  use { "wsdjeg/vim-lua"
+      , as = "lang-lua",  ft = {"lua"} }
 
   --///////////////////////////////////////////////////////
   -- Tools
@@ -55,11 +68,29 @@ return require("packer").startup(function(use)
 
   use { "neoclide/coc.nvim"
       , as = "parser-lsp"
-      , branch = "release" }
+      , branch = "release"
+      , config = function()
+           --vim.fn['coc#config']('diagnostic',{autoRefresh = false})
+           --vim.cmd[[ CocCommand extensions.toggleAutoUpdate ]]
+        end
+      , ft = {"php","javascript","haskell"}
+      , run = function()
+         vim.cmd[[ :call Ide_CocConfig() ]]
+         vim.cmd[[ autocmd ModeChanged * :call CocActionAsync('diagnosticRefresh') ]]
+      end
+      }
   use { "nvim-treesitter/nvim-treesitter"
       , as = "parser-treesitter"
       , run = ":TSUpdate" }
 
+  use { "pierreglaser/folding-nvim"
+      , as = "parser-folding"
+      , run = "require('folding').on_attach()" }
+
+  use { "bluz71/vim-nightfly-guicolors"
+      , as = "cs-nighfly" }
+  use { "Shatur/neovim-ayu"
+      , as = "cs-ayu" }
 end)
 
 

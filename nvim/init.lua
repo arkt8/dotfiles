@@ -28,9 +28,9 @@ _.background     = dark
 _.colorcolumn    = "0"
 _.cursorline     = false
 _.foldenable     = false
-_.number         = true
+_.relativenumber = false
 _.numberwidth    = 2     -- use <,l> to toggle display line number
-_.relativenumber = true
+_.number         = true
 _.ruler          = true  -- Show line number and column number on status line
 _.hlsearch       = true  -- Hilight search matched
 _.list = true 
@@ -51,10 +51,20 @@ _.timeoutlen     = 3000
 _.wildmenu       = true
 _.wrap           = false
 _.clipboard      = "unnamedplus"
+_.termguicolors  = true
 end
 
 
-if vim.o.diff
-then require('diff')
-else require('plugins')
+if vim.o.diff then
+   require('diff')
+else
+   require('plugins')
+   vim.cmd[[colorscheme wal]]
 end
+
+
+
+
+
+
+

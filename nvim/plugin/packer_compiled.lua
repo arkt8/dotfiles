@@ -69,6 +69,31 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  LuaSnip = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/LuaSnip",
+    url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["cmp-nvim-lsp"] = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+    url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  cmp_luasnip = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+    url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["cs-ayu"] = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/cs-ayu",
+    url = "https://github.com/Shatur/neovim-ayu"
+  },
+  ["cs-nighfly"] = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/cs-nighfly",
+    url = "https://github.com/bluz71/vim-nightfly-guicolors"
+  },
   ["lang-haskell"] = {
     loaded = false,
     needs_bufread = true,
@@ -76,12 +101,26 @@ _G.packer_plugins = {
     path = "/home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell",
     url = "https://github.com/neovimhaskell/haskell-vim"
   },
+  ["lang-lua"] = {
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-lua",
+    url = "https://github.com/wsdjeg/vim-lua"
+  },
   ["lang-nginx"] = {
     loaded = false,
     needs_bufread = true,
     only_cond = false,
     path = "/home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-nginx",
     url = "https://github.com/chr4/nginx.vim"
+  },
+  ["lang-nim"] = {
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-nim",
+    url = "https://github.com/zah/nim.vim"
   },
   ["lang-python"] = {
     loaded = false,
@@ -104,14 +143,32 @@ _G.packer_plugins = {
     path = "/home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-yaml",
     url = "https://github.com/mrk21/yaml-vim"
   },
+  ["nvim-cmp"] = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+    url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-lspconfig"] = {
+    loaded = true,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+    url = "https://github.com/neovim/nvim-lspconfig"
+  },
   ["packer.nvim"] = {
     loaded = true,
     path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
-  ["parser-lsp"] = {
+  ["parser-folding"] = {
     loaded = true,
-    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/parser-lsp",
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/start/parser-folding",
+    url = "https://github.com/pierreglaser/folding-nvim"
+  },
+  ["parser-lsp"] = {
+    config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
+    loaded = false,
+    needs_bufread = false,
+    only_cond = false,
+    path = "/home/thadeu/.local/share/nvim/site/pack/packer/opt/parser-lsp",
     url = "https://github.com/neoclide/coc.nvim"
   },
   ["parser-treesitter"] = {
@@ -155,29 +212,33 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads
 time([[Defining lazy-load filetype autocommands]], true)
-vim.cmd [[au FileType bash ++once lua require("packer.load")({'lang-shellscript'}, { ft = "bash" }, _G.packer_plugins)]]
-vim.cmd [[au FileType sh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "sh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType python ++once lua require("packer.load")({'lang-python'}, { ft = "python" }, _G.packer_plugins)]]
-vim.cmd [[au FileType yaml ++once lua require("packer.load")({'lang-yaml'}, { ft = "yaml" }, _G.packer_plugins)]]
-vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ux-markdown-limelight'}, { ft = "markdown" }, _G.packer_plugins)]]
 vim.cmd [[au FileType zsh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "zsh" }, _G.packer_plugins)]]
-vim.cmd [[au FileType md ++once lua require("packer.load")({'ux-markdown-limelight', 'vim-markdown'}, { ft = "md" }, _G.packer_plugins)]]
-vim.cmd [[au FileType shell ++once lua require("packer.load")({'lang-shellscript'}, { ft = "shell" }, _G.packer_plugins)]]
-vim.cmd [[au FileType haskell ++once lua require("packer.load")({'lang-haskell'}, { ft = "haskell" }, _G.packer_plugins)]]
-vim.cmd [[au FileType lang-markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "lang-markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType bash ++once lua require("packer.load")({'lang-shellscript'}, { ft = "bash" }, _G.packer_plugins)]]
+vim.cmd [[au FileType lua ++once lua require("packer.load")({'lang-lua'}, { ft = "lua" }, _G.packer_plugins)]]
+vim.cmd [[au FileType markdown ++once lua require("packer.load")({'ux-markdown-limelight'}, { ft = "markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType yaml ++once lua require("packer.load")({'lang-yaml'}, { ft = "yaml" }, _G.packer_plugins)]]
+vim.cmd [[au FileType nim ++once lua require("packer.load")({'lang-nim'}, { ft = "nim" }, _G.packer_plugins)]]
+vim.cmd [[au FileType python ++once lua require("packer.load")({'lang-python'}, { ft = "python" }, _G.packer_plugins)]]
 vim.cmd [[au FileType nginx ++once lua require("packer.load")({'lang-nginx'}, { ft = "nginx" }, _G.packer_plugins)]]
+vim.cmd [[au FileType lang-markdown ++once lua require("packer.load")({'vim-markdown'}, { ft = "lang-markdown" }, _G.packer_plugins)]]
+vim.cmd [[au FileType md ++once lua require("packer.load")({'ux-markdown-limelight', 'vim-markdown'}, { ft = "md" }, _G.packer_plugins)]]
+vim.cmd [[au FileType php ++once lua require("packer.load")({'parser-lsp'}, { ft = "php" }, _G.packer_plugins)]]
+vim.cmd [[au FileType javascript ++once lua require("packer.load")({'parser-lsp'}, { ft = "javascript" }, _G.packer_plugins)]]
+vim.cmd [[au FileType sh ++once lua require("packer.load")({'lang-shellscript'}, { ft = "sh" }, _G.packer_plugins)]]
+vim.cmd [[au FileType shell ++once lua require("packer.load")({'lang-shellscript'}, { ft = "shell" }, _G.packer_plugins)]]
+vim.cmd [[au FileType haskell ++once lua require("packer.load")({'parser-lsp', 'lang-haskell'}, { ft = "haskell" }, _G.packer_plugins)]]
 time([[Defining lazy-load filetype autocommands]], false)
 vim.cmd("augroup END")
 vim.cmd [[augroup filetypedetect]]
 time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], true)
 vim.cmd [[source /home/thadeu/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]]
 time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/vim-markdown/ftdetect/markdown.vim]], false)
-time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell/ftdetect/haskell.vim]], true)
-vim.cmd [[source /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell/ftdetect/haskell.vim]]
-time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell/ftdetect/haskell.vim]], false)
 time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-nginx/ftdetect/nginx.vim]], true)
 vim.cmd [[source /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-nginx/ftdetect/nginx.vim]]
 time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-nginx/ftdetect/nginx.vim]], false)
+time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell/ftdetect/haskell.vim]], true)
+vim.cmd [[source /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell/ftdetect/haskell.vim]]
+time([[Sourcing ftdetect script at: /home/thadeu/.local/share/nvim/site/pack/packer/opt/lang-haskell/ftdetect/haskell.vim]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end
 
