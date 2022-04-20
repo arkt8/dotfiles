@@ -1,7 +1,9 @@
 skey() {
+
 	set +x
 	KEYS=$HOME/.ssh/keys
 	SESS=$HOME/.local/tmp/skey.info
+    LIFE=43200 #12 hours
 	mkdir -p $KEYS $(dirname ${SESS})
 	[[ -f "$SESS" ]] && . "$SESS" > /dev/null 2>&1
 	[[ "$1" == "--" ]] && return 0
@@ -11,10 +13,10 @@ skey() {
 		return 0
 	fi
 	if [[ ! -d "/proc/$SSH_AGENT_PID" ]] ; then
-		ssh-agent -t 36000 > $SESS
+		ssh-agent -t $LIFE > $SESS
 		. $SESS
 	fi
-	ssh-add "${KEYS}/$1"
+	ssh-add -t $LIFE "${KEYS}/$1"
 }
 
 skey --
