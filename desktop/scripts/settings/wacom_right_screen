@@ -1,0 +1,3 @@
+#!/bin/bash
+
+WACOMOUTPUT=DP-1 wacomrotate lf

@@ -100,7 +100,6 @@ wal -R
 rm -rf "${CACHEDIR}/*"
 mkdir -p "${CACHEDIR}"
 . $DESKDIR/inc/colors.sh
-
 setup_others
 setup_x
 setup_xrdb

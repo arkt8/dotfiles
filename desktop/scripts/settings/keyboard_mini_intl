@@ -1,0 +1,27 @@
+#!/bin/bash
+
+setup() {
+    xmodmap \
+        -e "keycode 180 = Escape" \
+        -e "keycode 134 = Menu"
+
+    # Get options from
+    # localectl list-x11-keybap-XXXX
+    # Where XXXX is model, option, variant etc.
+    setxkbmap \
+        -model pc105 \
+        -layout us \
+        -option compose:rwin \
+        -variant altgr-intl
+}
+
+event=$1 id=$2 evttype=$3 devname=$4
+
+echo "$event $devname" > /tmp/nada.log
+if [[ "$1" == "" ]] || [[ "$event $devname" == "XIDeviceEnabled Bluetooth 3.0 Keyboard" ]] ; then
+    setup
+elif [[ "$1" == "daemon" ]]; then
+    setup
+    # use -d and -v options for debug
+    inputplug -c "$(realpath "$0")"
+fi

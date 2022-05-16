@@ -1,4 +1,5 @@
 #!/bin/bash
+export SCRIPTS=$HOME/.config/desktop/scripts
 export ROFI="rofi -config $HOME/.config/desktop/rofi/config -theme $HOME/.cache/desktop/rofi-theme.rasi"
 export APPS="$HOME/.config/desktop/rofi/apps"
 action="$1"
@@ -21,10 +22,10 @@ rofi_settings() {
 	fi
 
 	declare -A O
-
-	O["Wacom Left"]="WACOMOUTPUT=eDP-1 wacomrotate lf"
-	#O["Wacom Right"]="WACOMOUTPUT=DP-1 wacomrotate p"
-	O["Wacom Right"]="WACOMOUTPUT=DP-1 wacomrotate lf"
+    export O
+    for i in ${SCRIPTS}/settings/* ; do
+        O["$(basename "$i" | sed -e 's/_/ /g; s/\b\w/\U&/g')"]="$i"
+    done
 
 	OPTION="$*"
 	set +x

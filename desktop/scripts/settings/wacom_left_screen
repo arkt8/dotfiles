@@ -1,0 +1,4 @@
+#!/bin/bash
+
+WACOMOUTPUT=eDP-1 wacomrotate lf
+

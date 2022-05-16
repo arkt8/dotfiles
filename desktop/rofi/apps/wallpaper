@@ -10,15 +10,16 @@ if [ -z "$@" ]; then
 	}
 	echo current; get_themes
 else
-    THEMES="$@"
-    if [ x"current" = x"${THEMES}" ]
+    IMAGE="$@"
+    if [ x"current" = x"${IMAGE}" ]
     then
 	exit 0
         # wal -i `cat ~/.cache/wal/wal` > /dev/null #Allows you to just stay with current theme
-    elif [ -n "${THEMES}" ]
+    elif [ -n "${IMAGE}" ]
     then
         # colorz schemer2 wal haishoku colorthief
-        wal -t --backend schemer2 -i $WALLPAPERDIR/${THEMES} > /dev/null
+        cp "${WALLPAPERDIR}/${IMAGE}" "${HOME}/.config/wallpaper.jpg"
+        wal -t --backend schemer2 -i "$WALLPAPERDIR/${IMAGE}" > /dev/null
         ~/.config/desktop/scripts/theme.sh > /dev/null
         ~/.config/desktop/scripts/recolor ~/.cache/wal/colors.json
         $HOME/.config/desktop/setup.sh > /dev/null
